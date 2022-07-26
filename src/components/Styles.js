@@ -1,10 +1,8 @@
 import styled from "styled-components";
-import background from './../assets/background.svg'
 import background1 from './../assets/background1.svg'
 import guru from '../assets/guru.svg';
 import murid from '../assets/murid.svg';
 import {Link} from 'react-router-dom';
-import grass from './../assets/grass.svg';
 export const colors = {
     white:"#F7F7F7",
     red:"#DC2626",
