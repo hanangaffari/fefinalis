@@ -25,6 +25,14 @@ export const colors = {
 
 //dashboard
 
+export const Postname = styled.h1`
+font-size: ${(props) => props.size}px;
+    
+    
+    color: ${(props) => props.color? props.color: colors.dark1};
+    padding : 5px;
+`;
+
 export const Dashboardtitle = styled.h1 `
 font-size: ${(props) => props.size}px;
     
