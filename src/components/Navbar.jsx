@@ -46,7 +46,7 @@ const Navbar = () => {
     else{
       setActiveMenu(true);
     }
-  },screenSize);
+  },[screenSize]);
 
 
   return (
