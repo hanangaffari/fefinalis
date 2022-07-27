@@ -36,7 +36,7 @@ const Navbar = () => {
     handleResize();
 
     return () => window.removeEventListener ('resize',handleResize)
-  },[]);
+  });
 
   useEffect(() => {
     if(screenSize <= 900)
@@ -46,7 +46,7 @@ const Navbar = () => {
     else{
       setActiveMenu(true);
     }
-  },[screenSize]);
+  },screenSize);
 
 
   return (
@@ -82,7 +82,7 @@ const Navbar = () => {
         cursor-pointer p-1 hover:bg-light-gray rounded-lg'
         onClick={() => { handleClick('userProfile')}}
         >
-          <img src={Avatar} className='rounded-full w-8 h-8'/>
+          <img alt='' src={Avatar} className='rounded-full w-8 h-8'/>
           <p>
             <span className='text-gray-400 text-14'>hi,</span>{''}
             <span className='text-gray-400 font-bold ml-1 text-14'>Michael</span>

@@ -91,7 +91,7 @@ const Dashboard =  () => {
                         
                         <div className="flex ">
                     {/* disini foto profile */}    
-                    <img src={Pro} className='w-10 h-10 rounded-full'/>
+                    <img src={Pro} alt='' className='w-10 h-10 rounded-full'/>
                     {/* disini title */}
                     <Postname size={25} style={{fontWeight:"bolder"}} className='dark:text-white'>agus antaro</Postname>
                     </div>
@@ -121,7 +121,7 @@ const Dashboard =  () => {
                         
                         <div className="flex ">
                     {/* disini foto profile */}    
-                    <img src={Pro} className='w-10 h-10 rounded-full'/>
+                    <img src={Pro} alt='' className='w-10 h-10 rounded-full'/>
                     {/* disini title */}
                     <Postname size={25} style={{fontWeight:"bolder"}} className='dark:text-white'>agus antaro</Postname>
                     </div>
