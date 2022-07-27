@@ -10,7 +10,7 @@ import { Header } from '../components';
 const Matakuliah = () => {
   return (
     <div className='m-2 md:m-10 p-2 md:p-10
-    bg-white rounded-3xl
+    bg-white rounded-3xl 
     '>
         <Header category='Page' title='matakuliah'/>
         
@@ -19,6 +19,7 @@ const Matakuliah = () => {
         dataSource={ordersData}
         allowPaging
         allowSorting
+        
         >
             <ColumnsDirective>
             {ordersGrid.map((item,index)=> (

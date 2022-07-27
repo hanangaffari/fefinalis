@@ -484,17 +484,10 @@ export const links = [
     title: 'Pages',
     links: [
       {
-        name: 'orders',
+        name: 'matakuliah',
         icon: <AiOutlineShoppingCart />,
       },
-      {
-        name: 'employees',
-        icon: <IoMdContacts />,
-      },
-      {
-        name: 'customers',
-        icon: <RiContactsLine />,
-      },
+      
     ],
   },
   {
@@ -814,6 +807,10 @@ export const themeColors = [
   {
     color: '#FB9678',
     name: 'orange-theme',
+  },
+  {
+    color: '#DC2626',
+    name: 'red',
   },
 ];
 

@@ -5,7 +5,7 @@ import {FiSettings} from 'react-icons/fi';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
 import {Navbar,Sidebar,ThemeSettings} from './components';
-import {Calendar,Kanban,ColorPicker,Editor,Home,Matakuliah,Line} from './pages';
+import {Calendar,Kanban,ColorPicker,Editor,Dashboard,Matakuliah,Line,Login} from './pages';
 
 import { useStateContext } from './contexts/ContextProvider';
 const App = () => {
@@ -13,8 +13,9 @@ const App = () => {
 
   
   return (
+    <BrowserRouter>
     <div className={currentMode === 'Dark' ? 'dark' : ''}>
-      <BrowserRouter>
+      
       <div className='flex relative dark:bg-main-dark-bg'>
         <div className='fixed right-4 bottom-4' style={{zIndex:'1000'}}>
           <TooltipComponent content='Settings' position='Top'>
@@ -50,12 +51,12 @@ const App = () => {
          {themeSettings && <ThemeSettings />}
         <Routes>
           {/* dahboard */}
-          <Route path='/' element={<Home />}/>
-          <Route path='/home' element={<Home />}/>
+          
+          <Route path='/home' element={<Dashboard />}/>
          
           {/* pages */}
           <Route path='/matakuliah' element={<Matakuliah />}/>
-          <Route path='/order' element="eorder"/>
+          
           <Route path='/order' element="eorder"/>
           {/* Apps */}
           <Route path='/kanban' element={<Kanban />}/>
@@ -69,10 +70,17 @@ const App = () => {
           
         </Routes>
       </div>
+      
       </div>
+      
       </div>
-      </BrowserRouter>
+      <Routes>
+      <Route path='/login' element={<Login />}/>
+      </Routes>
+      
+      
     </div>
+    </BrowserRouter>
   )
 }
 

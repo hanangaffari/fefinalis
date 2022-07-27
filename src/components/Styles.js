@@ -1,10 +1,10 @@
 import styled from "styled-components";
-//import background from './../assets/background.svg'
+import background from './../assets/background.svg'
 import background1 from './../assets/background1.svg'
 import guru from '../assets/guru.svg';
 import murid from '../assets/murid.svg';
 import {Link} from 'react-router-dom';
-//import grass from './../assets/grass.svg';
+import grass from './../assets/grass.svg';
 export const colors = {
     white:"#F7F7F7",
     red:"#DC2626",
@@ -18,7 +18,8 @@ export const colors = {
     dark5:"#1D2D3B",
     dark6:"#22303c",
     white2:"#E8E8E8",
-    white3:"#FCF7FF"
+    white3:"#FCF7FF",
+    superwhite:'FFFFFF'
 
 };
 
@@ -65,13 +66,14 @@ background-color: ${colors.red}
 
 export const StyledContainer = styled.div`
     margin:0;
-    min-height:100vh;
+    width:100vh;
+    height:100vh;
     display:flex;
-    justify-content:center;
-    align-items:center;
+    
     background: linear-gradient(0deg,rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(${background1});
     background-size:cover;
     background-attachment:fixed;
+    
 `;
 
 //home
@@ -136,7 +138,7 @@ export const StyledInput = styled.input `
     font-size: 17px
     letter-spacing: 1px;
     outline: none;
-    color: ${colors.grey};
+    color: ${colors.superwhite};
     background-color: ${colors.white2};
     border:0;
     outline:0;
@@ -144,7 +146,7 @@ export const StyledInput = styled.input `
     margin 2% auto 6% auto;
     transition: ease-in-out 0.3s;
 
-    ${(props) => props.invalid && `background-color: ${colors.red}; color:${colors.white};`}
+    ${(props) => props.invalid && `background-color: ${colors.red}; color:${colors.red};`}
     
     &:focus {
         background-color: ${colors.grey};

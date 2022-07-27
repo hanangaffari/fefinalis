@@ -1,5 +1,6 @@
 import React,{useEffect} from 'react';
 import {AiOutlineMenu} from 'react-icons/ai';
+import {FiShoppingCart} from 'react-icons/fi';
 import { BsChatLeft} from 'react-icons/bs';
 import {RiNotification3Line} from 'react-icons/ri'
 import {MdKeyboardArrowDown} from 'react-icons/md';
@@ -7,14 +8,14 @@ import {MdKeyboardArrowDown} from 'react-icons/md';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 import Avatar from './../data/avatar.jpg';
 
-import {Chat,Notification,UserProfile} from '.';
+import {Cart,Chat,Notification,UserProfile} from '.';
 import { useStateContext } from '../contexts/ContextProvider';
 
 const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
   <TooltipComponent content={title} position='BottomCenter'>
     <button type='button' onClick={customFunc}
     style={{color }} 
-    className='relative text-xl rounded-full p-3 hover:bg-light-gray'
+    className='relative text-xl rounded-full p-3 '
     >
     <span style={{background:dotColor}} 
     className='absolute inline-flex rounded-full h-2 w-2 right-2 top-2' />
@@ -25,7 +26,7 @@ const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
 )
 
 const Navbar = () => {
-  const {setActiveMenu,isClicked,handleClick,
+  const {activeMenu,setActiveMenu,isClicked,setIsClicked,handleClick,
   screenSize,setscreenSize,currentColor
   } = useStateContext();
 
@@ -36,7 +37,7 @@ const Navbar = () => {
     handleResize();
 
     return () => window.removeEventListener ('resize',handleResize)
-  });
+  },[]);
 
   useEffect(() => {
     if(screenSize <= 900)
@@ -82,10 +83,10 @@ const Navbar = () => {
         cursor-pointer p-1 hover:bg-light-gray rounded-lg'
         onClick={() => { handleClick('userProfile')}}
         >
-          <img alt='' src={Avatar} className='rounded-full w-8 h-8'/>
+          <img src={Avatar} className='rounded-full w-8 h-8'/>
           <p>
-            <span className='text-gray-400 text-14'>hi,</span>{''}
-            <span className='text-gray-400 font-bold ml-1 text-14'>Michael</span>
+            <span className='text-14' style={{color:currentColor}}>hi,</span>{''}
+            <span className='font-bold ml-1 text-14' style={{color:currentColor}}>Michael</span>
             </p>
             <MdKeyboardArrowDown className='text-gray-400 text-14'/>
         </div>
