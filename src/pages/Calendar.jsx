@@ -1,5 +1,5 @@
 import React from 'react'
-import { ScheduleComponent,ViewsDirectivem,ViewDirective,Day,Week,WorkWeek,Month,
+import { ScheduleComponent,Day,Week,WorkWeek,Month,
 Agenda,Inject,Resize,DragAndDrop
 } from '@syncfusion/ej2-react-schedule';
 

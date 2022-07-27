@@ -1,10 +1,8 @@
 import { useState } from "react";
-import Slider from "react-slick";
 import Pro from './../data/avatar.jpg'
 import {FaArrowRight,FaArrowLeft} from 'react-icons/fa'
 import { motion } from "framer-motion";
 import { Postname } from "../components/Styles";
-import { Button } from "../components";
 import { useStateContext } from "../contexts/ContextProvider";
 
 const Dashboard =  () => {
@@ -40,7 +38,7 @@ const Dashboard =  () => {
                  style={{width:"50vh",height:"30vh"}}
                  >
                     <div className="flex">
-                    <img src={Pro} className='rounded-full w-20 h-20 '/>                                        
+                    <img src={Pro} alt='' className='rounded-full w-20 h-20 '/>                                        
                     <div className="w-13 h-14 inline-block pl-2">
                     <div>
                     <h1 className="text-black-450 text-40 font-extrabold float-left" style={{
