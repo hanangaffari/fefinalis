@@ -346,6 +346,7 @@ const Dashboard =  () => {
         <div className="bg-white dark:text-black dark:bg-secondary-dark-bg 
          rounded-xl w-full lg:w-90  p-9 pt-0 m-3 bg-no-repeat bg-cover bg-center "        
         >
+
                 <div style={{paddingLeft:"8vh",paddingRight:"8vh",minHeight:"35vh"}} 
                 className=''>
                     {/* di sini post an */}
@@ -374,28 +375,137 @@ const Dashboard =  () => {
                        diperluas dengan sumber-sumber pengetahuan lainnya: pengaruh-pengaruh positif 
                        dari pendidikan sekolah, masyarakat, dan orang tua. Kesemuanya itu diproses guna 
                        melatih para siswa untuk berpikir kritis, analitis, bersikap dan bertindak demokratis 
-                       dalam mempersiapkan hidup demokratis berdasarkan Pancasila dan UUD 1945.                     
+                       dalam mempersiapkan hidup demokratis berdasarkan Pancasila dan UUD 1945. 
+                                           
                     </p>
                     </div>
                     {/* di sini akhir post an */}
+              
+                </div>    
+
+                <div style={{paddingLeft:"8vh",paddingRight:"8vh",minHeight:"35vh"}} 
+                className=''>
                     {/* di sini post an */}
-                    <div className="bg-slate-50 rounded-2xl dark:bg-black" style={{minHeight:"40vh",marginTop:"5%",
+                    <div className="bg-slate-50 rounded-2xl dark:bg-black" 
+                    style={{minHeight:"40vh",marginTop:"5%",
                     padding:"3vh"
                 }}>
                         
                         <div className="flex ">
                     {/* disini foto profile */}    
-                    <img src={Pro} alt='' className='w-10 h-10 rounded-full'/>
+                    <img src={Pro3} alt='' className='w-10 h-10 rounded-full'/>
                     {/* disini title */}
-                    <Postname size={25} style={{fontWeight:"bolder"}} className='dark:text-white'>agus antaro</Postname>
+                    <Postname size={25} style={{fontWeight:"bolder"}} 
+                    className='dark:text-white'>john cok</Postname>
                     </div>
                     {/* disini text dari guru */}                
                     <p className="font-semibold dark:text-white" style={{marginTop:"2vh"}}>
-                        nak materi untuk ujian udah saya upload ya,jangan lupa belajar                   
+                    untuk minggu depan materinya javascript dan next.js,dan jng lupa sama tugas bapak                     
                     </p>
                     </div>
                     {/* di sini akhir post an */}
-                </div>        
+                   
+                </div>
+
+                <div style={{paddingLeft:"8vh",paddingRight:"8vh",minHeight:"35vh"}} 
+                className=''>
+                    {/* di sini post an */}
+                    <div className="bg-slate-50 rounded-2xl dark:bg-black" 
+                    style={{minHeight:"40vh",marginTop:"5%",
+                    padding:"3vh"
+                }}>
+                        
+                        <div className="flex ">
+                    {/* disini foto profile */}    
+                    <img src={Pro2} alt='' className='w-10 h-10 rounded-full'/>
+                    {/* disini title */}
+                    <Postname size={25} style={{fontWeight:"bolder"}} 
+                    className='dark:text-white'>hunnigan</Postname>
+                    </div>
+                    {/* disini text dari guru */}                
+                    <p className="font-semibold dark:text-white" style={{marginTop:"2vh"}}>
+                    kisi kisi dah ibu kasih ya,jangan lupa belajar biar nilainya bagus ,
+                    dan ujiannya juga jangan nyontek ya 
+                    </p>
+                    </div>
+                    {/* di sini akhir post an */}
+                   
+                </div>
+
+                <div style={{paddingLeft:"8vh",paddingRight:"8vh",minHeight:"35vh"}} 
+                className=''>
+                    {/* di sini post an */}
+                    <div className="bg-slate-50 rounded-2xl dark:bg-black" 
+                    style={{minHeight:"40vh",marginTop:"5%",
+                    padding:"3vh"
+                }}>
+                        
+                        <div className="flex ">
+                    {/* disini foto profile */}    
+                    <img src={Pro6} alt='' className='w-10 h-10 rounded-full'/>
+                    {/* disini title */}
+                    <Postname size={25} style={{fontWeight:"bolder"}} 
+                    className='dark:text-white'>mang oleng</Postname>
+                    </div>
+                    {/* disini text dari guru */}                
+                    <p className="font-semibold dark:text-white" style={{marginTop:"2vh"}}>
+                    goblok
+                    </p>
+                    </div>
+                    {/* di sini akhir post an */}
+                   
+                </div> 
+
+                <div style={{paddingLeft:"8vh",paddingRight:"8vh",minHeight:"35vh"}} 
+                className=''>
+                    {/* di sini post an */}
+                    <div className="bg-slate-50 rounded-2xl dark:bg-black" 
+                    style={{minHeight:"40vh",marginTop:"5%",
+                    padding:"3vh"
+                }}>
+                        
+                        <div className="flex ">
+                    {/* disini foto profile */}    
+                    <img src={Pro4} alt='' className='w-10 h-10 rounded-full'/>
+                    {/* disini title */}
+                    <Postname size={25} style={{fontWeight:"bolder"}} 
+                    className='dark:text-white'>sebastian</Postname>
+                    </div>
+                    {/* disini text dari guru */}                
+                    <p className="font-semibold dark:text-white" style={{marginTop:"2vh"}}>
+                    okay next time ,kita bakal belajar adjective.
+                    bukunya di buka ya,jangan maen game terus
+                    </p>
+                    </div>
+                    {/* di sini akhir post an */}
+                   
+                </div> 
+
+                <div style={{paddingLeft:"8vh",paddingRight:"8vh",minHeight:"35vh"}} 
+                className=''>
+                    {/* di sini post an */}
+                    <div className="bg-slate-50 rounded-2xl dark:bg-black" 
+                    style={{minHeight:"40vh",marginTop:"5%",
+                    padding:"3vh"
+                }}>
+                        
+                        <div className="flex ">
+                    {/* disini foto profile */}    
+                    <img src={Pro5} alt='' className='w-10 h-10 rounded-full'/>
+                    {/* disini title */}
+                    <Postname size={25} style={{fontWeight:"bolder"}} 
+                    className='dark:text-white'>mia khalifah</Postname>
+                    </div>
+                    {/* disini text dari guru */}                
+                    <p className="font-semibold dark:text-white" style={{marginTop:"2vh"}}>
+                    nak nanti malem jangan lupa sama ujiannya ya,ntar juga saya kasih link zoom biar bisa 
+                    saya jelaskan dengan enak,dan jangan lupa bawa alat alat ya nak😘
+                    </p>
+                    </div>
+                    {/* di sini akhir post an */}
+                   
+                </div> 
+
                 </div>
                 
         </div>

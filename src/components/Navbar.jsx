@@ -62,14 +62,14 @@ const Navbar = () => {
       <div className='flex'>
 
       <NavButton title='Chat' 
-      dotColor='#03C9D7'
+      dotColor={currentColor}
       customFunc={() => handleClick('chat')}
       color={currentColor} 
       icon={<BsChatLeft/>}
       />
 
       <NavButton title='Notifications' 
-      dotColor='#03C9D7'
+      dotColor={currentColor}
       customFunc={() => handleClick('notification')}
       color={currentColor}
       icon={<RiNotification3Line/>}

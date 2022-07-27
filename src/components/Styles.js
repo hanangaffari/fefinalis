@@ -68,7 +68,7 @@ export const StyledContainer = styled.div`
     margin:0;
     width:100vh;
     height:100vh;
-    display:flex;
+    
     
     background: linear-gradient(0deg,rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(${background1});
     background-size:cover;

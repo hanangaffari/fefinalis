@@ -31,8 +31,9 @@ function Appril() {
       
       
       {/* dahboard */}
-      <Route path='/Home' element={<App />}/>  
+      <Route path='/home' element={<App />}/>  
         <Route path='/dashboard' element={<Dashboard />}/>
+        
          
          {/* pages */}
          <Route path='/matakuliah' element={<Matakuliah />}/>

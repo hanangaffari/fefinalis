@@ -5,7 +5,7 @@ import {FiSettings} from 'react-icons/fi';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
 import {Navbar,Sidebar,ThemeSettings} from './components';
-import {Calendar,Kanban,ColorPicker,Editor,Dashboard,Matakuliah,Line,Login} from './pages';
+import {Calendar,Kanban,ColorPicker,Editor,Dashboard,Matakuliah,Line,Login,Home} from './pages';
 
 import { useStateContext } from './contexts/ContextProvider';
 const App = () => {
@@ -52,7 +52,8 @@ const App = () => {
         <Routes>
           {/* dahboard */}
           
-          <Route path='/home' element={<Dashboard />}/>
+          <Route path='/dashboard' element={<Dashboard />}/>
+          
          
           {/* pages */}
           <Route path='/matakuliah' element={<Matakuliah />}/>
@@ -76,6 +77,7 @@ const App = () => {
       </div>
       <Routes>
       <Route path='/login' element={<Login />}/>
+      <Route path='/' element={<Home />}/>
       </Routes>
       
       

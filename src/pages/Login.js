@@ -85,8 +85,8 @@ const Login = () => {
 
     
     return( 
-        <div style={{width:"100%",height:"100%",position:"absolute",top:"0%",zIndex:"1001"}}
-        className='bg-slate-200'
+        <StyledContainer style={{width:"100%",height:"100%",position:"absolute",top:"0%",zIndex:"1001"}}
+        
         >
         
         <motion.div animate={{ y:30 }} initial={{y:-100}} 
@@ -188,7 +188,7 @@ const Login = () => {
             }
             onSubmit={() => {
                 
-                navigate('/home');
+                navigate('/dashboard');
             }}
             >
                 {({isSubmitting}) => (
@@ -445,7 +445,7 @@ const Login = () => {
    
         </motion.div>    
        
-        </div>
+        </StyledContainer>
           
     )
 }
