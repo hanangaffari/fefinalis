@@ -14,13 +14,23 @@ import avatar from './avatar.jpg';
 import avatar2 from './avatar2.jpg';
 import avatar3 from './avatar3.png';
 import avatar4 from './avatar4.jpg';
-import product1 from './product1.jpg';
-import product2 from './product2.jpg';
-import product3 from './product3.jpg';
-import product4 from './product4.jpg';
-import product5 from './product5.jpg';
-import product6 from './product6.jpg';
-import product7 from './product7.jpg';
+
+
+
+import biologypic from './biologylogo.jfif';
+import codingpic from './codinglogo.jpg';
+import cookingpic from './cookinglogo.jpg';
+import designpic from './designlogo.jpg';
+import englishpic from './englishlogo.png';
+import fisikapic from './fisikalogo.jpg';
+import Gympic from './Gymlogo.jpg';
+import hardwarepic from './hardwarelogo.jpg';
+import historypic from './historylogo.jpg';
+import jaringanpic from './jaringanlogo.jpg';
+import kewarganegaraanpic from './kewarganegaraanlogo.jpg';
+import mathpic from './mathlogo.jpg';
+
+
 //import product8 from './product8.jpg';
 
 export const gridOrderImage = (props) => (
@@ -391,47 +401,7 @@ export const LinePrimaryYAxis = {
   minorTickLines: { width: 0 },
 };
 
-export const customersGrid = [
-  { type: 'checkbox', width: '50' },
-  { headerText: 'Name',
-    width: '150',
-    template: customerGridImage,
-    textAlign: 'Center' },
-  { field: 'ProjectName',
-    headerText: 'Project Name',
-    width: '150',
-    textAlign: 'Center' },
-  { field: 'Status',
-    headerText: 'Status',
-    width: '130',
-    format: 'yMd',
-    textAlign: 'Center',
-    template: customerGridStatus },
-  {
-    field: 'Weeks',
-    headerText: 'Weeks',
-    width: '100',
-    format: 'C2',
-    textAlign: 'Center' },
-  { field: 'Budget',
-    headerText: 'Budget',
-    width: '100',
-    format: 'yMd',
-    textAlign: 'Center' },
 
-  { field: 'Location',
-    headerText: 'Location',
-    width: '150',
-    textAlign: 'Center' },
-
-  { field: 'CustomerID',
-    headerText: 'Customer ID',
-    width: '120',
-    textAlign: 'Center',
-    isPrimaryKey: true,
-  },
-
-];
 
 export const employeesGrid = [
   { headerText: 'Employee',
@@ -474,7 +444,7 @@ export const links = [
     title: 'Dashboard',
     links: [
       {
-        name: 'Home',
+        name: 'home',
         icon: <FiShoppingBag />,
       },
     ],
@@ -522,29 +492,6 @@ export const links = [
   },
 ];
 
-export const cartData = [
-  {
-    image:
-      product5,
-    name: 'butterscotch ice-cream',
-    category: 'Milk product',
-    price: '$250',
-  },
-  {
-    image:
-      product6,
-    name: 'Supreme fresh tomato',
-    category: 'Vegetable Item',
-    price: '$450',
-  },
-  {
-    image:
-      product7,
-    name: 'Red color candy',
-    category: 'Food Item',
-    price: '$190',
-  },
-];
 
 export const chatData = [
   {
@@ -695,45 +642,6 @@ export const weeklyStats = [
   },
 ];
 
-export const productsPerformance = [
-  {
-    image:
-      product5,
-    title: 'Is it good butterscotch ice-cream?',
-    desc: 'Ice-Cream, Milk, Powder',
-    rating: 'Good',
-    itemSold: '65%',
-    earningAmount: '$546,000',
-  },
-  {
-    image:
-      product6,
-    title: 'Supreme fresh tomato available',
-    desc: 'Market, Mall',
-    rating: 'Excellent',
-    itemSold: '98%',
-    earningAmount: '$780,000',
-  },
-  {
-    image:
-      product7,
-    title: 'Red color candy from Gucci',
-    desc: 'Chocolate, Yummy',
-    rating: 'Average',
-    itemSold: '46%',
-    earningAmount: '$457,000',
-  },
-  {
-    image:
-      product4,
-    title: 'Stylish night lamp for night',
-    desc: 'Electric, Wire, Current',
-    rating: 'Poor',
-    itemSold: '23%',
-    earningAmount: '$123,000',
-  },
-];
-
 export const medicalproBranding = {
   data: [
     {
@@ -846,44 +754,634 @@ export const ordersGrid = [
     width: '120',
   },
   {
-    field: 'OrderItems',
-    headerText: 'Item',
+    field: 'NamaUjian',
+    headerText: 'nama ujian',
     width: '150',
     editType: 'dropdownedit',
     textAlign: 'Center',
   },
-  { field: 'CustomerName',
-    headerText: 'Customer Name',
+  { field: 'NamaDosen',
+    headerText: 'Dosen',
     width: '150',
     textAlign: 'Center',
   },
   {
-    field: 'TotalAmount',
-    headerText: 'Total Amount',
-    format: 'C2',
+    field: 'Nilai',
+    headerText: 'Skor',
+    type:'number',
     textAlign: 'Center',
     editType: 'numericedit',
     width: '150',
   },
   {
-    headerText: 'Status',
-    template: gridOrderStatus,
-    field: 'OrderItems',
-    textAlign: 'Center',
-    width: '120',
-  },
-  {
-    field: 'OrderID',
-    headerText: 'Order ID',
+    field: 'IdJurusan',
+    headerText: 'Id jurusan',
     width: '120',
     textAlign: 'Center',
   },
 
   {
-    field: 'Location',
-    headerText: 'Location',
-    width: '150',
+    field: 'Durasi',
+    headerText: 'Durasi',
+    format: 'N2',
     textAlign: 'Center',
+    editType: 'numericedit',
+    width: '150',
+  },
+];
+
+export const ordersData = [
+  {
+    IdJurusan: 10248,
+    //nama dosen :
+    NamaDosen: 'Mia Khalifah',
+    //
+
+    Nilai: 80,
+    NamaUjian: 'Biology',
+    Durasi: 10,
+    ProductImage:
+      biologypic,
+  },
+  {
+    IdJurusan: 345653,
+    NamaDosen: 'Sebastian',
+    Nilai: 60,
+    NamaUjian: 'English',
+    Durasi: 9,     
+    ProductImage:
+      englishpic,
+  },
+  {
+    IdJurusan: 390457,
+    NamaDosen: 'Deddy Corbuzer',
+    Nilai: 90,
+    NamaUjian: 'Gym',
+    Durasi: 7,
+    ProductImage:
+      Gympic,
+  },
+  {
+    IdJurusan: 893486,
+    NamaDosen: 'Agus antaro',
+    Nilai: 95,
+    NamaUjian: 'Matematika',
+    Durasi: 20,
+    ProductImage:
+      mathpic
+  },
+  {
+    IdJurusan: 748975,
+    NamaDosen: 'hunnigan',
+    Nilai: 40,
+    NamaUjian: 'Sejarah',
+    Durasi: 15,
+    ProductImage:
+    historypic,
+  },
+  {
+    IdJurusan: 94757,
+    NamaDosen: 'Mang Oleng',
+    Nilai: 60,
+    NamaUjian: 'Cooking',
+    Durasi: 15,
+    ProductImage:
+      cookingpic,
+  },
+  {
+    IdJurusan: 944895,
+    NamaDosen: 'Coding',
+    Nilai: 80,
+    NamaUjian: 'Coding',
+    Durasi: 11,
+    ProductImage:
+      codingpic,
+  },
+  {
+    IdJurusan: 845954,
+    NamaDosen: 'Bu ilmah',
+    Nilai: 80,
+    NamaUjian: 'fiska',
+    Durasi: 10,     
+    ProductImage:
+    fisikapic  
+  },
+  {
+    IdJurusan: 845954,
+    NamaDosen: 'Barnaba',
+    Nilai: 85,
+    NamaUjian: 'hardware learning',
+    Durasi: 20,
+    ProductImage:
+      hardwarepic,
+  },
+  {
+    IdJurusan: 874534,
+    NamaDosen: 'sri mulyani',
+    Nilai: 70,
+    NamaUjian: 'Kewarganegaraan',
+    Durasi: 20,
+    ProductImage:
+      kewarganegaraanpic,
+  },
+  {
+    IdJurusan: 38489,
+    NamaDosen: 'miranda',
+    Nilai: 85,
+    NamaUjian: 'Design',
+    Durasi: 15,
+    ProductImage:
+      designpic,
+  },
+  {
+    IdJurusan: 24546,
+    NamaDosen: 'eko santuy',
+    Nilai: 85,
+    NamaUjian: 'Jaringan',
+    Durasi: 9,     
+    ProductImage:
+      jaringanpic,
+  },
+  {
+    IdJurusan: 874534,
+    NamaDosen: 'sri mulyani',
+    Nilai: 70,
+    NamaUjian: 'Kewarganegaraan',
+    Durasi: 12,
+    ProductImage:
+      kewarganegaraanpic,
+  },
+  {
+    IdJurusan: 10248,
+    NamaDosen: 'Mia Khalifah',
+
+    Nilai: 85,
+    NamaUjian: 'Biology',
+    Durasi: 8,
+    ProductImage:
+      biologypic,
+  },
+  {
+    IdJurusan: 345653,
+    NamaDosen: 'Sebastian',
+    Nilai: 90,
+    NamaUjian: 'English',
+    Durasi: 9,     
+    ProductImage:
+      englishpic,
+  },
+  {
+    IdJurusan: 390457,
+    NamaDosen: 'Deddy Corbuzer',
+    Nilai: 90,
+    NamaUjian: 'Gym',
+    Durasi: 4.3,
+    ProductImage:
+      Gympic,
+  },
+  {
+    IdJurusan: 893486,
+    NamaDosen: 'Agus antaro',
+    Nilai: 95,
+    NamaUjian: 'Matematika',
+    Durasi: 9,
+    ProductImage:
+      mathpic
+  },
+  {
+    IdJurusan: 748975,
+    NamaDosen: 'hunnigan',
+    Nilai: 70,
+    NamaUjian: 'Sejarah',
+    Durasi: 15,
+    ProductImage:
+      historypic,
+  },
+  {
+    IdJurusan: 94757,
+    NamaDosen: 'Mang Oleng',
+    Nilai: 80,
+    NamaUjian: 'Cooking',
+    Durasi: 30,
+    ProductImage:
+      cookingpic,
+  },
+  {
+    IdJurusan: 944895,
+    NamaDosen: 'Coding',
+    Nilai: 80,
+    NamaUjian: 'Coding',
+    Durasi: 15,
+    ProductImage:
+      codingpic,
+  },
+  {
+    IdJurusan: 845954,
+    NamaDosen: 'Bu ilmah',
+    Nilai: 80,
+    NamaUjian: 'fiska',
+    Durasi: 10,     
+    ProductImage:
+      fisikapic
+  },
+  {
+    IdJurusan: 845954,
+    NamaDosen: 'Barnaba',
+    Nilai: 75,
+    NamaUjian: 'hardware learning',
+    Durasi: 17,
+    ProductImage:
+      hardwarepic,
+  },
+  {
+    IdJurusan: 874534,
+    NamaDosen: 'sri mulyani',
+    Nilai: 75,
+    NamaUjian: 'Kewarganegaraan',
+    Durasi: 14,
+    ProductImage:
+      kewarganegaraanpic,
+  },
+  {
+    IdJurusan: 38489,
+    NamaDosen: 'miranda',
+    Nilai: 75,
+    NamaUjian: 'Design',
+    Durasi: 11,
+    ProductImage:
+      designpic,
+  },
+  {
+    IdJurusan: 24546,
+    NamaDosen: 'eko santuy',
+    Nilai: 75,
+    NamaUjian: 'Jaringan',
+    Durasi: 9,     
+    ProductImage:
+      jaringanpic,
+  },
+  {
+    IdJurusan: 874534,
+    NamaDosen: 'sri mulyani',
+    Nilai: 80,
+    NamaUjian: 'Kewarganegaraan',
+    Durasi: 19,
+    ProductImage:
+      kewarganegaraanpic,
+  },
+  {
+    IdJurusan: 10248,
+    NamaDosen: 'Mia Khalifah',
+
+    Nilai: 85,
+    NamaUjian: 'Biology',
+    Durasi: 22,
+    ProductImage:
+      biologypic,
+  },
+  {
+    IdJurusan: 345653,
+    NamaDosen: 'Sebastian',
+    Nilai: 80,
+    NamaUjian: 'English',
+    Durasi: 9,     
+    ProductImage:
+      englishpic,
+  },
+  {
+    IdJurusan: 390457,
+    NamaDosen: 'Deddy Corbuzer',
+    Nilai: 80,
+    NamaUjian: 'Gym',
+    Durasi: 7,
+    ProductImage:
+      Gympic,
+  },
+  {
+    IdJurusan: 893486,
+    NamaDosen: 'Agus antaro',
+    Nilai: 80,
+    NamaUjian: 'Matematika',
+    Durasi: 25,
+    ProductImage:
+    mathpic  
+  },
+  {
+    IdJurusan: 748975,
+    NamaDosen: 'hunnigan',
+    Nilai: 80,
+    NamaUjian: 'Sejarah',
+    Durasi: 15,
+    ProductImage:
+      historypic,
+  },
+  {
+    IdJurusan: 94757,
+    NamaDosen: 'Mang Oleng',
+    Nilai: 80,
+    NamaUjian: 'Cooking',
+    Durasi: 14,
+    ProductImage:
+      cookingpic,
+  },
+  {
+    IdJurusan: 944895,
+    NamaDosen: 'Coding',
+    Nilai: 85,
+    NamaUjian: 'Coding',
+    Durasi: 20,
+    ProductImage:
+      codingpic,
+  },
+  {
+    IdJurusan: 845954,
+    NamaDosen: 'Bu ilmah',
+    Nilai: 80,
+    NamaUjian: 'fiska',
+    Durasi: 10,     
+    ProductImage:
+    fisikapic  
+  },
+  {
+    IdJurusan: 845954,
+    NamaDosen: 'Barnaba',
+    Nilai: 80,
+    NamaUjian: 'hardware learning',
+    Durasi: 15,
+    ProductImage:
+      hardwarepic,
+  },
+  {
+    IdJurusan: 874534,
+    NamaDosen: 'sri mulyani',
+    Nilai: 50,
+    NamaUjian: 'Kewarganegaraan',
+    Durasi: 13,
+    ProductImage:
+      kewarganegaraanpic,
+  },
+  {
+    IdJurusan: 38489,
+    NamaDosen: 'miranda',
+    Nilai: 75,
+    NamaUjian: 'Design',
+    Durasi: 12,
+    ProductImage:
+      designpic,
+  },
+  {
+    IdJurusan: 24546,
+    NamaDosen: 'eko santuy',
+    Nilai: 90,
+    NamaUjian: 'Jaringan',
+    Durasi: 9,     
+    ProductImage:
+      jaringanpic,
+  },
+  {
+    IdJurusan: 874534,
+    NamaDosen: 'sri mulyani',
+    Nilai: 85,
+    NamaUjian: 'Kewarganegaraan',
+    Durasi: 18,
+    ProductImage:
+      kewarganegaraanpic,
+  },
+  {
+    IdJurusan: 10248,
+    NamaDosen: 'Mia Khalifah',
+
+    Nilai: 100,
+    NamaUjian: 'Biology',
+    Durasi: 19,
+    ProductImage:
+      biologypic,
+  },
+  {
+    IdJurusan: 345653,
+    NamaDosen: 'Sebastian',
+    Nilai: 85,
+    NamaUjian: 'English',
+    Durasi: 9,     
+    ProductImage:
+      englishpic,
+  },
+  {
+    IdJurusan: 390457,
+    NamaDosen: 'Deddy Corbuzer',
+    Nilai: 95,
+    NamaUjian: 'Gym',
+    Durasi: 7,
+    ProductImage:
+      Gympic,
+  },
+  {
+    IdJurusan: 893486,
+    NamaDosen: 'Agus antaro',
+    Nilai: 80,
+    NamaUjian: 'Matematika',
+    Durasi:22,
+    ProductImage:
+      mathpic
+  },
+  {
+    IdJurusan: 748975,
+    NamaDosen: 'hunnigan',
+    Nilai: 85,
+    NamaUjian: 'Sejarah',
+    Durasi: 15,
+    ProductImage:
+      historypic,
+  },
+  {
+    IdJurusan: 94757,
+    NamaDosen: 'Mang Oleng',
+    Nilai: 95,
+    NamaUjian: 'Cooking',
+    Durasi: 26,
+    ProductImage:
+      cookingpic,
+  },
+  {
+    IdJurusan: 944895,
+    NamaDosen: 'Coding',
+    Nilai: 85,
+    NamaUjian: 'Coding',
+    Durasi: 26,
+    ProductImage:
+      codingpic,
+  },
+  {
+    IdJurusan: 845954,
+    NamaDosen: 'Bu ilmah',
+    Nilai: 85,
+    NamaUjian: 'fiska',
+    Durasi: 25,     
+    ProductImage:
+    fisikapic  
+  },
+  {
+    IdJurusan: 845954,
+    NamaDosen: 'Barnaba',
+    Nilai: 80,
+    NamaUjian: 'hardware learning',
+    Durasi: 12,
+    ProductImage:
+      hardwarepic,
+  },
+  {
+    IdJurusan: 874534,
+    NamaDosen: 'sri mulyani',
+    Nilai: 75,
+    NamaUjian: 'Kewarganegaraan',
+    Durasi: 14,
+    ProductImage:
+      kewarganegaraanpic,
+  },
+  {
+    IdJurusan: 38489,
+    NamaDosen: 'miranda',
+    Nilai: 70,
+    NamaUjian: 'Design',
+    Durasi: 13,
+    ProductImage:
+      designpic,
+  },
+  {
+    IdJurusan: 24546,
+    NamaDosen: 'eko santuy',
+    Nilai: 70,
+    NamaUjian: 'Jaringan',
+    Durasi: 9,     
+    ProductImage:
+      jaringanpic,
+  },
+  {
+    IdJurusan: 874534,
+    NamaDosen: 'sri mulyani',
+    Nilai: 70,
+    NamaUjian: 'Kewarganegaraan',
+    Durasi: 9.5,
+    ProductImage:
+      kewarganegaraanpic,
+  },
+  {
+    IdJurusan: 10248,
+    NamaDosen: 'Mia Khalifah',
+
+    Nilai: 70,
+    NamaUjian: 'Biology',
+    Durasi: 13,
+    ProductImage:
+      biologypic,
+  },
+  {
+    IdJurusan: 345653,
+    NamaDosen: 'Sebastian',
+    Nilai: 70,
+    NamaUjian: 'English',
+    Durasi: 9,     
+    ProductImage:
+      englishpic,
+  },
+  {
+    IdJurusan: 390457,
+    NamaDosen: 'Deddy Corbuzer',
+    Nilai: 95,
+    NamaUjian: 'Gym',
+    Durasi: 7,
+    ProductImage:
+      Gympic,
+  },
+  {
+    IdJurusan: 893486,
+    NamaDosen: 'Agus antaro',
+    Nilai: 93.31,
+    NamaUjian: 'Matematika',
+    Durasi: 21,
+    ProductImage:
+     mathpic 
+  },
+  {
+    IdJurusan: 748975,
+    NamaDosen: 'hunnigan',
+    Nilai: 80,
+    NamaUjian: 'Sejarah',
+    Durasi: 15,
+    ProductImage:
+      historypic,
+  },
+  {
+    IdJurusan: 94757,
+    NamaDosen: 'Mang Oleng',
+    Nilai: 95,
+    NamaUjian: 'Cooking',
+    Durasi: 11,
+    ProductImage:
+      cookingpic,
+  },
+  {
+    IdJurusan: 944895,
+    NamaDosen: 'Coding',
+    Nilai: 85,
+    NamaUjian: 'Coding',
+    Durasi: 12,
+    ProductImage:
+      codingpic,
+  },
+  {
+    IdJurusan: 845954,
+    NamaDosen: 'Bu ilmah',
+    Nilai: 80,
+    NamaUjian: 'fiska',
+    Durasi: 12,     
+    ProductImage:
+      fisikapic
+  },
+  {
+    IdJurusan: 845954,
+    NamaDosen: 'Barnaba',
+    Nilai: 85,
+    NamaUjian: 'hardware learning',
+    Durasi: 14,
+    ProductImage:
+      hardwarepic,
+  },
+  {
+    IdJurusan: 874534,
+    NamaDosen: 'sri mulyani',
+    Nilai: 80,
+    NamaUjian: 'Kewarganegaraan',
+    Durasi: 15,
+    ProductImage:
+      kewarganegaraanpic,
+  },
+  {
+    IdJurusan: 38489,
+    NamaDosen: 'miranda',
+    Nilai: 85,
+    NamaUjian: 'Design',
+    Durasi: 19,
+    ProductImage:
+      designpic,
+  },
+  {
+    IdJurusan: 24546,
+    NamaDosen: 'eko santuy',
+    Nilai: 85,
+    NamaUjian: 'Jaringan',
+    Durasi: 9,     
+    ProductImage:
+      jaringanpic,
+  },
+  {
+    IdJurusan: 874534,
+    NamaDosen: 'sri mulyani',
+    Nilai: 95,
+    NamaUjian: 'Kewarganegaraan',
+    Durasi: 23,
+    ProductImage:
+      kewarganegaraanpic,
   },
 ];
 
@@ -899,7 +1397,7 @@ export const customersData = [
     StatusBg: '#8BE78B',
     Weeks: '40',
     Budget: '$2.4k',
-    Location: 'India',
+    Durasi: 'India',
   },
   {
     CustomerID: 1002,
@@ -914,7 +1412,7 @@ export const customersData = [
     StatusBg: '#8BE78B',
     Weeks: '11',
     Budget: '$3.9k',
-    Location: 'India',
+    Durasi: 'India',
   },
   {
     CustomerID: 1003,
@@ -928,7 +1426,7 @@ export const customersData = [
     StatusBg: '#FEC90F',
     Weeks: '19',
     Budget: '$24.5k',
-    Location: 'USA',
+    Durasi: 'USA',
   },
   {
     CustomerID: 1004,
@@ -942,7 +1440,7 @@ export const customersData = [
     StatusBg: '#8BE78B',
     Weeks: '34',
     Budget: '$16.5k',
-    Location: 'USA',
+    Durasi: 'USA',
   },
   {
     CustomerID: 1005,
@@ -956,7 +1454,7 @@ export const customersData = [
     StatusBg: 'red',
     Weeks: '34',
     Budget: '$16.5k',
-    Location: 'USA',
+    Durasi: 'USA',
   },
   {
     CustomerID: 1006,
@@ -969,7 +1467,7 @@ export const customersData = [
     StatusBg: '#8BE78B',
     Weeks: '40',
     Budget: '$2.4k',
-    Location: 'India',
+    Durasi: 'India',
   },
   {
     CustomerID: 1007,
@@ -984,7 +1482,7 @@ export const customersData = [
     StatusBg: '#8BE78B',
     Weeks: '11',
     Budget: '$3.9k',
-    Location: 'India',
+    Durasi: 'India',
   },
   {
     CustomerID: 1008,
@@ -998,7 +1496,7 @@ export const customersData = [
     StatusBg: '#FEC90F',
     Weeks: '19',
     Budget: '$24.5k',
-    Location: 'USA',
+    Durasi: 'USA',
   },
   {
     CustomerID: 1009,
@@ -1012,7 +1510,7 @@ export const customersData = [
     StatusBg: '#8BE78B',
     Weeks: '34',
     Budget: '$16.5k',
-    Location: 'USA',
+    Durasi: 'USA',
   },
   {
     CustomerID: 1010,
@@ -1026,7 +1524,7 @@ export const customersData = [
     StatusBg: 'red',
     Weeks: '34',
     Budget: '$16.5k',
-    Location: 'USA',
+    Durasi: 'USA',
   },
   {
     CustomerID: 1011,
@@ -1039,7 +1537,7 @@ export const customersData = [
     StatusBg: '#8BE78B',
     Weeks: '40',
     Budget: '$2.4k',
-    Location: 'India',
+    Durasi: 'India',
   },
   {
     CustomerID: 1012,
@@ -1054,7 +1552,7 @@ export const customersData = [
     StatusBg: '#8BE78B',
     Weeks: '11',
     Budget: '$3.9k',
-    Location: 'India',
+    Durasi: 'India',
   },
   {
     CustomerID: 1013,
@@ -1068,7 +1566,7 @@ export const customersData = [
     StatusBg: '#FEC90F',
     Weeks: '19',
     Budget: '$24.5k',
-    Location: 'USA',
+    Durasi: 'USA',
   },
   {
     CustomerID: 1014,
@@ -1082,7 +1580,7 @@ export const customersData = [
     StatusBg: '#8BE78B',
     Weeks: '34',
     Budget: '$16.5k',
-    Location: 'USA',
+    Durasi: 'USA',
   },
   {
     CustomerID: 1015,
@@ -1096,7 +1594,7 @@ export const customersData = [
     StatusBg: 'red',
     Weeks: '34',
     Budget: '$16.5k',
-    Location: 'USA',
+    Durasi: 'USA',
   },
   {
     CustomerID: 1016,
@@ -1109,7 +1607,7 @@ export const customersData = [
     StatusBg: '#8BE78B',
     Weeks: '40',
     Budget: '$2.4k',
-    Location: 'India',
+    Durasi: 'India',
   },
   {
     CustomerID: 1017,
@@ -1124,7 +1622,7 @@ export const customersData = [
     StatusBg: '#8BE78B',
     Weeks: '11',
     Budget: '$3.9k',
-    Location: 'India',
+    Durasi: 'India',
   },
   {
     CustomerID: 1018,
@@ -1138,7 +1636,7 @@ export const customersData = [
     StatusBg: '#FEC90F',
     Weeks: '19',
     Budget: '$24.5k',
-    Location: 'USA',
+    Durasi: 'USA',
   },
   {
     CustomerID: 1019,
@@ -1152,7 +1650,7 @@ export const customersData = [
     StatusBg: '#8BE78B',
     Weeks: '34',
     Budget: '$16.5k',
-    Location: 'USA',
+    Durasi: 'USA',
   },
   {
     CustomerID: 1020,
@@ -1166,7 +1664,7 @@ export const customersData = [
     StatusBg: 'red',
     Weeks: '34',
     Budget: '$16.5k',
-    Location: 'USA',
+    Durasi: 'USA',
   },
   {
     CustomerID: 1021,
@@ -1179,7 +1677,7 @@ export const customersData = [
     StatusBg: '#8BE78B',
     Weeks: '40',
     Budget: '$2.4k',
-    Location: 'India',
+    Durasi: 'India',
   },
   {
     CustomerID: 1022,
@@ -1194,7 +1692,7 @@ export const customersData = [
     StatusBg: '#8BE78B',
     Weeks: '11',
     Budget: '$3.9k',
-    Location: 'India',
+    Durasi: 'India',
   },
   {
     CustomerID: 1023,
@@ -1208,7 +1706,7 @@ export const customersData = [
     StatusBg: '#FEC90F',
     Weeks: '19',
     Budget: '$24.5k',
-    Location: 'USA',
+    Durasi: 'USA',
   },
   {
     CustomerID: 1024,
@@ -1222,7 +1720,7 @@ export const customersData = [
     StatusBg: '#8BE78B',
     Weeks: '34',
     Budget: '$16.5k',
-    Location: 'USA',
+    Durasi: 'USA',
   },
   {
     CustomerID: 1025,
@@ -1236,7 +1734,7 @@ export const customersData = [
     StatusBg: 'red',
     Weeks: '34',
     Budget: '$16.5k',
-    Location: 'USA',
+    Durasi: 'USA',
   },
   {
     CustomerID: 1026,
@@ -1249,7 +1747,7 @@ export const customersData = [
     StatusBg: '#8BE78B',
     Weeks: '40',
     Budget: '$2.4k',
-    Location: 'India',
+    Durasi: 'India',
   },
   {
     CustomerID: 1027,
@@ -1264,7 +1762,7 @@ export const customersData = [
     StatusBg: '#8BE78B',
     Weeks: '11',
     Budget: '$3.9k',
-    Location: 'India',
+    Durasi: 'India',
   },
   {
     CustomerID: 1028,
@@ -1278,7 +1776,7 @@ export const customersData = [
     StatusBg: '#FEC90F',
     Weeks: '19',
     Budget: '$24.5k',
-    Location: 'USA',
+    Durasi: 'USA',
   },
   {
     CustomerID: 1029,
@@ -1292,7 +1790,7 @@ export const customersData = [
     StatusBg: '#8BE78B',
     Weeks: '34',
     Budget: '$16.5k',
-    Location: 'USA',
+    Durasi: 'USA',
   },
   {
     CustomerID: 1030,
@@ -1306,7 +1804,7 @@ export const customersData = [
     StatusBg: 'red',
     Weeks: '34',
     Budget: '$16.5k',
-    Location: 'USA',
+    Durasi: 'USA',
   },
   {
     CustomerID: 1031,
@@ -1319,7 +1817,7 @@ export const customersData = [
     StatusBg: '#8BE78B',
     Weeks: '40',
     Budget: '$2.4k',
-    Location: 'India',
+    Durasi: 'India',
   },
   {
     CustomerID: 1032,
@@ -1334,7 +1832,7 @@ export const customersData = [
     StatusBg: '#8BE78B',
     Weeks: '11',
     Budget: '$3.9k',
-    Location: 'India',
+    Durasi: 'India',
   },
   {
     CustomerID: 1033,
@@ -1348,7 +1846,7 @@ export const customersData = [
     StatusBg: '#FEC90F',
     Weeks: '19',
     Budget: '$24.5k',
-    Location: 'USA',
+    Durasi: 'USA',
   },
   {
     CustomerID: 1034,
@@ -1362,7 +1860,7 @@ export const customersData = [
     StatusBg: '#8BE78B',
     Weeks: '34',
     Budget: '$16.5k',
-    Location: 'USA',
+    Durasi: 'USA',
   },
   {
     CustomerID: 1035,
@@ -1376,7 +1874,7 @@ export const customersData = [
     StatusBg: 'red',
     Weeks: '34',
     Budget: '$16.5k',
-    Location: 'USA',
+    Durasi: 'USA',
   },
   {
     CustomerID: 1036,
@@ -1389,7 +1887,7 @@ export const customersData = [
     StatusBg: '#8BE78B',
     Weeks: '40',
     Budget: '$2.4k',
-    Location: 'India',
+    Durasi: 'India',
   },
   {
     CustomerID: 1037,
@@ -1404,7 +1902,7 @@ export const customersData = [
     StatusBg: '#8BE78B',
     Weeks: '11',
     Budget: '$3.9k',
-    Location: 'India',
+    Durasi: 'India',
   },
   {
     CustomerID: 1038,
@@ -1418,7 +1916,7 @@ export const customersData = [
     StatusBg: '#FEC90F',
     Weeks: '19',
     Budget: '$24.5k',
-    Location: 'USA',
+    Durasi: 'USA',
   },
   {
     CustomerID: 1039,
@@ -1431,7 +1929,7 @@ export const customersData = [
     StatusBg: '#8BE78B',
     Weeks: '34',
     Budget: '$16.5k',
-    Location: 'USA',
+    Durasi: 'USA',
   },
   {
     CustomerID: 1040,
@@ -1444,7 +1942,7 @@ export const customersData = [
     StatusBg: 'red',
     Weeks: '34',
     Budget: '$16.5k',
-    Location: 'USA',
+    Durasi: 'USA',
   },
 
 ];
@@ -1462,7 +1960,7 @@ export const employeesData = [
   },
   {
     EmployeeID: 2,
-    Name: 'Nasimiyu Danai',
+    Name: 'Nasimiyu sri mulyani',
     Title: 'Marketing Head',
     HireDate: '01/02/2021',
     Country: 'USA',
@@ -1492,7 +1990,7 @@ export const employeesData = [
   },
   {
     EmployeeID: 5,
-    Name: 'Omar Darobe',
+    Name: 'Mang Oleng',
     Title: 'HR',
     HireDate: '01/02/2021',
     Country: 'USA',
@@ -1502,7 +2000,7 @@ export const employeesData = [
   },
   {
     EmployeeID: 4,
-    Name: 'Penjani Inyene',
+    Name: 'Bu ilmah Inyene',
     Title: 'Marketing Head',
     HireDate: '01/02/2021',
     Country: 'USA',
@@ -1512,7 +2010,7 @@ export const employeesData = [
   },
   {
     EmployeeID: 5,
-    Name: 'Miron Vitold',
+    Name: 'hunnigan',
     Title: 'HR',
     HireDate: '01/02/2021',
     Country: 'USA',
@@ -1533,7 +2031,7 @@ export const employeesData = [
   },
   {
     EmployeeID: 2,
-    Name: 'Nasimiyu Danai',
+    Name: 'Nasimiyu sri mulyani',
     Title: 'Marketing Head',
     HireDate: '01/02/2021',
     Country: 'USA',
@@ -1563,7 +2061,7 @@ export const employeesData = [
   },
   {
     EmployeeID: 5,
-    Name: 'Omar Darobe',
+    Name: 'Mang Oleng',
     Title: 'HR',
     HireDate: '01/02/2021',
     Country: 'USA',
@@ -1573,7 +2071,7 @@ export const employeesData = [
   },
   {
     EmployeeID: 4,
-    Name: 'Penjani Inyene',
+    Name: 'Bu ilmah Inyene',
     Title: 'Marketing Head',
     HireDate: '01/02/2021',
     Country: 'USA',
@@ -1583,7 +2081,7 @@ export const employeesData = [
   },
   {
     EmployeeID: 5,
-    Name: 'Miron Vitold',
+    Name: 'hunnigan',
     Title: 'HR',
     HireDate: '01/02/2021',
     Country: 'USA',
@@ -1603,7 +2101,7 @@ export const employeesData = [
   },
   {
     EmployeeID: 2,
-    Name: 'Nasimiyu Danai',
+    Name: 'Nasimiyu sri mulyani',
     Title: 'Marketing Head',
     HireDate: '01/02/2021',
     Country: 'USA',
@@ -1633,7 +2131,7 @@ export const employeesData = [
   },
   {
     EmployeeID: 5,
-    Name: 'Omar Darobe',
+    Name: 'Mang Oleng',
     Title: 'HR',
     HireDate: '01/02/2021',
     Country: 'USA',
@@ -1643,7 +2141,7 @@ export const employeesData = [
   },
   {
     EmployeeID: 4,
-    Name: 'Penjani Inyene',
+    Name: 'Bu ilmah Inyene',
     Title: 'Marketing Head',
     HireDate: '01/02/2021',
     Country: 'USA',
@@ -1653,7 +2151,7 @@ export const employeesData = [
   },
   {
     EmployeeID: 5,
-    Name: 'Miron Vitold',
+    Name: 'hunnigan',
     Title: 'HR',
     HireDate: '01/02/2021',
     Country: 'USA',
@@ -1674,7 +2172,7 @@ export const employeesData = [
   },
   {
     EmployeeID: 2,
-    Name: 'Nasimiyu Danai',
+    Name: 'Nasimiyu sri mulyani',
     Title: 'Marketing Head',
     HireDate: '01/02/2021',
     Country: 'USA',
@@ -1704,7 +2202,7 @@ export const employeesData = [
   },
   {
     EmployeeID: 5,
-    Name: 'Omar Darobe',
+    Name: 'Mang Oleng',
     Title: 'HR',
     HireDate: '01/02/2021',
     Country: 'USA',
@@ -1714,7 +2212,7 @@ export const employeesData = [
   },
   {
     EmployeeID: 4,
-    Name: 'Penjani Inyene',
+    Name: 'Bu ilmah Inyene',
     Title: 'Marketing Head',
     HireDate: '01/02/2021',
     Country: 'USA',
@@ -1724,7 +2222,7 @@ export const employeesData = [
   },
   {
     EmployeeID: 5,
-    Name: 'Miron Vitold',
+    Name: 'hunnigan',
     Title: 'HR',
     HireDate: '01/02/2021',
     Country: 'USA',
@@ -1745,7 +2243,7 @@ export const employeesData = [
   },
   {
     EmployeeID: 2,
-    Name: 'Nasimiyu Danai',
+    Name: 'Nasimiyu sri mulyani',
     Title: 'Marketing Head',
     HireDate: '01/02/2021',
     Country: 'USA',
@@ -1775,7 +2273,7 @@ export const employeesData = [
   },
   {
     EmployeeID: 5,
-    Name: 'Omar Darobe',
+    Name: 'Mang Oleng',
     Title: 'HR',
     HireDate: '01/02/2021',
     Country: 'USA',
@@ -1785,7 +2283,7 @@ export const employeesData = [
   },
   {
     EmployeeID: 4,
-    Name: 'Penjani Inyene',
+    Name: 'Bu ilmah Inyene',
     Title: 'Marketing Head',
     HireDate: '01/02/2021',
     Country: 'USA',
@@ -1795,7 +2293,7 @@ export const employeesData = [
   },
   {
     EmployeeID: 5,
-    Name: 'Miron Vitold',
+    Name: 'hunnigan',
     Title: 'HR',
     HireDate: '01/02/2021',
     Country: 'USA',
@@ -1816,7 +2314,7 @@ export const employeesData = [
   },
   {
     EmployeeID: 2,
-    Name: 'Nasimiyu Danai',
+    Name: 'Nasimiyu sri mulyani',
     Title: 'Marketing Head',
     HireDate: '01/02/2021',
     Country: 'USA',
@@ -1846,7 +2344,7 @@ export const employeesData = [
   },
   {
     EmployeeID: 5,
-    Name: 'Omar Darobe',
+    Name: 'Mang Oleng',
     Title: 'HR',
     HireDate: '01/02/2021',
     Country: 'USA',
@@ -1856,7 +2354,7 @@ export const employeesData = [
   },
   {
     EmployeeID: 4,
-    Name: 'Penjani Inyene',
+    Name: 'Bu ilmah Inyene',
     Title: 'Marketing Head',
     HireDate: '01/02/2021',
     Country: 'USA',
@@ -1866,7 +2364,7 @@ export const employeesData = [
   },
   {
     EmployeeID: 5,
-    Name: 'Miron Vitold',
+    Name: 'hunnigan',
     Title: 'HR',
     HireDate: '01/02/2021',
     Country: 'USA',
@@ -1887,7 +2385,7 @@ export const employeesData = [
   },
   {
     EmployeeID: 2,
-    Name: 'Nasimiyu Danai',
+    Name: 'Nasimiyu sri mulyani',
     Title: 'Marketing Head',
     HireDate: '01/02/2021',
     Country: 'USA',
@@ -1917,7 +2415,7 @@ export const employeesData = [
   },
   {
     EmployeeID: 5,
-    Name: 'Omar Darobe',
+    Name: 'Mang Oleng',
     Title: 'HR',
     HireDate: '01/02/2021',
     Country: 'USA',
@@ -1927,7 +2425,7 @@ export const employeesData = [
   },
   {
     EmployeeID: 4,
-    Name: 'Penjani Inyene',
+    Name: 'Bu ilmah Inyene',
     Title: 'Marketing Head',
     HireDate: '01/02/2021',
     Country: 'USA',
@@ -1937,7 +2435,7 @@ export const employeesData = [
   },
   {
     EmployeeID: 5,
-    Name: 'Miron Vitold',
+    Name: 'hunnigan',
     Title: 'HR',
     HireDate: '01/02/2021',
     Country: 'USA',
@@ -1958,7 +2456,7 @@ export const employeesData = [
   },
   {
     EmployeeID: 2,
-    Name: 'Nasimiyu Danai',
+    Name: 'Nasimiyu sri mulyani',
     Title: 'Marketing Head',
     HireDate: '01/02/2021',
     Country: 'USA',
@@ -1988,7 +2486,7 @@ export const employeesData = [
   },
   {
     EmployeeID: 5,
-    Name: 'Omar Darobe',
+    Name: 'Mang Oleng',
     Title: 'HR',
     HireDate: '01/02/2021',
     Country: 'USA',
@@ -1998,7 +2496,7 @@ export const employeesData = [
   },
   {
     EmployeeID: 4,
-    Name: 'Penjani Inyene',
+    Name: 'Bu ilmah Inyene',
     Title: 'Marketing Head',
     HireDate: '01/02/2021',
     Country: 'USA',
@@ -2008,7 +2506,7 @@ export const employeesData = [
   },
   {
     EmployeeID: 5,
-    Name: 'Miron Vitold',
+    Name: 'hunnigan',
     Title: 'HR',
     HireDate: '01/02/2021',
     Country: 'USA',
@@ -2029,7 +2527,7 @@ export const employeesData = [
   },
   {
     EmployeeID: 2,
-    Name: 'Nasimiyu Danai',
+    Name: 'Nasimiyu sri mulyani',
     Title: 'Marketing Head',
     HireDate: '01/02/2021',
     Country: 'USA',
@@ -2059,7 +2557,7 @@ export const employeesData = [
   },
   {
     EmployeeID: 5,
-    Name: 'Omar Darobe',
+    Name: 'Mang Oleng',
     Title: 'HR',
     HireDate: '01/02/2021',
     Country: 'USA',
@@ -2069,7 +2567,7 @@ export const employeesData = [
   },
   {
     EmployeeID: 4,
-    Name: 'Penjani Inyene',
+    Name: 'Bu ilmah Inyene',
     Title: 'Marketing Head',
     HireDate: '01/02/2021',
     Country: 'USA',
@@ -2079,7 +2577,7 @@ export const employeesData = [
   },
   {
     EmployeeID: 5,
-    Name: 'Miron Vitold',
+    Name: 'hunnigan',
     Title: 'HR',
     HireDate: '01/02/2021',
     Country: 'USA',
@@ -2089,734 +2587,13 @@ export const employeesData = [
   },
 ];
 
-export const ordersData = [
-  {
-    OrderID: 10248,
-    CustomerName: 'Vinet',
 
-    TotalAmount: 32.38,
-    OrderItems: 'Fresh Tomato',
-    Location: 'USA',
-    Status: 'pending',
-    StatusBg: '#FB9678',
-    ProductImage:
-      product6,
-  },
-  {
-    OrderID: 345653,
-    CustomerName: 'Carson Darrin',
-    TotalAmount: 56.34,
-    OrderItems: 'Butter Scotch',
-    Location: 'Delhi',
-    Status: 'complete',
-    StatusBg: '#8BE78B',
-    ProductImage:
-      product5,
-  },
-  {
-    OrderID: 390457,
-    CustomerName: 'Fran Perez',
-    TotalAmount: 93.31,
-    OrderItems: 'Candy Gucci',
-    Location: 'New York',
-    Status: 'active',
-    StatusBg: '#03C9D7',
-    ProductImage:
-      product7,
-  },
-  {
-    OrderID: 893486,
-    CustomerName: 'Anika Viseer',
-    TotalAmount: 93.31,
-    OrderItems: 'Night Lamp',
-    Location: 'Germany',
-    Status: 'canceled',
-    StatusBg: '#FF5C8E',
-    ProductImage:
-      product4,
-  },
-  {
-    OrderID: 748975,
-    CustomerName: 'Miron Vitold',
-    TotalAmount: 23.99,
-    OrderItems: 'Healthcare Erbology',
-    Location: 'Spain',
-    Status: 'rejected',
-    StatusBg: 'red',
-    ProductImage:
-    product1,
-  },
-  {
-    OrderID: 94757,
-    CustomerName: 'Omar Darobe',
-    TotalAmount: 95.99,
-    OrderItems: 'Makeup Lancome Rouge',
-    Location: 'USA',
-    Status: 'canceled',
-    StatusBg: '#FF5C8E',
-    ProductImage:
-      product2,
-  },
-  {
-    OrderID: 944895,
-    CustomerName: 'Lulia albu',
-    TotalAmount: 17.99,
-    OrderItems: 'Skincare',
-    Location: 'USA',
-    Status: 'active',
-    StatusBg: '#03C9D7',
-    ProductImage:
-      product3,
-  },
-  {
-    OrderID: 845954,
-    CustomerName: 'Penjani',
-    TotalAmount: 59.99,
-    OrderItems: 'Headphone',
-    Location: 'USA',
-    Status: 'complete',
-    StatusBg: '#8BE78B',
-    ProductImage:
-      product4,
-  },
-  {
-    OrderID: 845954,
-    CustomerName: 'Jie Yan',
-    TotalAmount: 87.99,
-    OrderItems: 'Shoes',
-    Location: 'USA',
-    Status: 'pending',
-    StatusBg: '#FB9678',
-    ProductImage:
-      'https://cdn.shopclues.com/images1/thumbnails/104158/320/320/148648730-104158193-1592481791.jpg',
-  },
-  {
-    OrderID: 874534,
-    CustomerName: 'Danai',
-    TotalAmount: 122.99,
-    OrderItems: 'Watch',
-    Location: 'USA',
-    Status: 'canceled',
-    StatusBg: '#FF5C8E',
-    ProductImage:
-      'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/pop-womens-garmin-watches-1641919013.jpg?crop=0.502xw:1.00xh;0.250xw,0&resize=640:*',
-  },
-  {
-    OrderID: 38489,
-    CustomerName: 'Miron',
-    TotalAmount: 87.99,
-    OrderItems: 'Ice Cream',
-    Location: 'USA',
-    Status: 'active',
-    StatusBg: '#03C9D7',
-    ProductImage:
-      'https://images.immediate.co.uk/production/volatile/sites/30/2020/08/dairy-free-ice-cream-eae372d.jpg',
-  },
-  {
-    OrderID: 24546,
-    CustomerName: 'Frank',
-    TotalAmount: 84.99,
-    OrderItems: 'Pan Cake',
-    Location: 'Delhi',
-    Status: 'complete',
-    StatusBg: '#8BE78B',
-    ProductImage:
-      'https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80',
-  },
-  {
-    OrderID: 874534,
-    CustomerName: 'Danai',
-    TotalAmount: 122.99,
-    OrderItems: 'Watch',
-    Location: 'USA',
-    Status: 'canceled',
-    StatusBg: '#FF5C8E',
-    ProductImage:
-      'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/pop-womens-garmin-watches-1641919013.jpg?crop=0.502xw:1.00xh;0.250xw,0&resize=640:*',
-  },
-  {
-    OrderID: 10248,
-    CustomerName: 'Vinet',
-
-    TotalAmount: 32.38,
-    OrderItems: 'Fresh Tomato',
-    Location: 'USA',
-    Status: 'pending',
-    StatusBg: '#FB9678',
-    ProductImage:
-      product6,
-  },
-  {
-    OrderID: 345653,
-    CustomerName: 'Carson Darrin',
-    TotalAmount: 56.34,
-    OrderItems: 'Butter Scotch',
-    Location: 'Delhi',
-    Status: 'complete',
-    StatusBg: '#8BE78B',
-    ProductImage:
-      product5,
-  },
-  {
-    OrderID: 390457,
-    CustomerName: 'Fran Perez',
-    TotalAmount: 93.31,
-    OrderItems: 'Candy Gucci',
-    Location: 'New York',
-    Status: 'active',
-    StatusBg: '#03C9D7',
-    ProductImage:
-      product7,
-  },
-  {
-    OrderID: 893486,
-    CustomerName: 'Anika Viseer',
-    TotalAmount: 93.31,
-    OrderItems: 'Night Lamp',
-    Location: 'Germany',
-    Status: 'canceled',
-    StatusBg: '#FF5C8E',
-    ProductImage:
-      product4,
-  },
-  {
-    OrderID: 748975,
-    CustomerName: 'Miron Vitold',
-    TotalAmount: 23.99,
-    OrderItems: 'Healthcare Erbology',
-    Location: 'Spain',
-    Status: 'rejected',
-    StatusBg: 'red',
-    ProductImage:
-      product1,
-  },
-  {
-    OrderID: 94757,
-    CustomerName: 'Omar Darobe',
-    TotalAmount: 95.99,
-    OrderItems: 'Makeup Lancome Rouge',
-    Location: 'USA',
-    Status: 'canceled',
-    StatusBg: '#FF5C8E',
-    ProductImage:
-      product2,
-  },
-  {
-    OrderID: 944895,
-    CustomerName: 'Lulia albu',
-    TotalAmount: 17.99,
-    OrderItems: 'Skincare',
-    Location: 'USA',
-    Status: 'active',
-    StatusBg: '#03C9D7',
-    ProductImage:
-      product3,
-  },
-  {
-    OrderID: 845954,
-    CustomerName: 'Penjani',
-    TotalAmount: 59.99,
-    OrderItems: 'Headphone',
-    Location: 'USA',
-    Status: 'complete',
-    StatusBg: '#8BE78B',
-    ProductImage:
-      product4,
-  },
-  {
-    OrderID: 845954,
-    CustomerName: 'Jie Yan',
-    TotalAmount: 87.99,
-    OrderItems: 'Shoes',
-    Location: 'USA',
-    Status: 'pending',
-    StatusBg: '#FB9678',
-    ProductImage:
-      'https://cdn.shopclues.com/images1/thumbnails/104158/320/320/148648730-104158193-1592481791.jpg',
-  },
-  {
-    OrderID: 874534,
-    CustomerName: 'Danai',
-    TotalAmount: 122.99,
-    OrderItems: 'Watch',
-    Location: 'USA',
-    Status: 'canceled',
-    StatusBg: '#FF5C8E',
-    ProductImage:
-      'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/pop-womens-garmin-watches-1641919013.jpg?crop=0.502xw:1.00xh;0.250xw,0&resize=640:*',
-  },
-  {
-    OrderID: 38489,
-    CustomerName: 'Miron',
-    TotalAmount: 87.99,
-    OrderItems: 'Ice Cream',
-    Location: 'USA',
-    Status: 'active',
-    StatusBg: '#03C9D7',
-    ProductImage:
-      'https://images.immediate.co.uk/production/volatile/sites/30/2020/08/dairy-free-ice-cream-eae372d.jpg',
-  },
-  {
-    OrderID: 24546,
-    CustomerName: 'Frank',
-    TotalAmount: 84.99,
-    OrderItems: 'Pan Cake',
-    Location: 'Delhi',
-    Status: 'complete',
-    StatusBg: '#8BE78B',
-    ProductImage:
-      'https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80',
-  },
-  {
-    OrderID: 874534,
-    CustomerName: 'Danai',
-    TotalAmount: 122.99,
-    OrderItems: 'Watch',
-    Location: 'USA',
-    Status: 'canceled',
-    StatusBg: '#FF5C8E',
-    ProductImage:
-      'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/pop-womens-garmin-watches-1641919013.jpg?crop=0.502xw:1.00xh;0.250xw,0&resize=640:*',
-  },
-  {
-    OrderID: 10248,
-    CustomerName: 'Vinet',
-
-    TotalAmount: 32.38,
-    OrderItems: 'Fresh Tomato',
-    Location: 'USA',
-    Status: 'pending',
-    StatusBg: '#FB9678',
-    ProductImage:
-      product6,
-  },
-  {
-    OrderID: 345653,
-    CustomerName: 'Carson Darrin',
-    TotalAmount: 56.34,
-    OrderItems: 'Butter Scotch',
-    Location: 'Delhi',
-    Status: 'complete',
-    StatusBg: '#8BE78B',
-    ProductImage:
-      product5,
-  },
-  {
-    OrderID: 390457,
-    CustomerName: 'Fran Perez',
-    TotalAmount: 93.31,
-    OrderItems: 'Candy Gucci',
-    Location: 'New York',
-    Status: 'active',
-    StatusBg: '#03C9D7',
-    ProductImage:
-      product7,
-  },
-  {
-    OrderID: 893486,
-    CustomerName: 'Anika Viseer',
-    TotalAmount: 93.31,
-    OrderItems: 'Night Lamp',
-    Location: 'Germany',
-    Status: 'canceled',
-    StatusBg: '#FF5C8E',
-    ProductImage:
-      product4,
-  },
-  {
-    OrderID: 748975,
-    CustomerName: 'Miron Vitold',
-    TotalAmount: 23.99,
-    OrderItems: 'Healthcare Erbology',
-    Location: 'Spain',
-    Status: 'rejected',
-    StatusBg: 'red',
-    ProductImage:
-      product1,
-  },
-  {
-    OrderID: 94757,
-    CustomerName: 'Omar Darobe',
-    TotalAmount: 95.99,
-    OrderItems: 'Makeup Lancome Rouge',
-    Location: 'USA',
-    Status: 'canceled',
-    StatusBg: '#FF5C8E',
-    ProductImage:
-      product2,
-  },
-  {
-    OrderID: 944895,
-    CustomerName: 'Lulia albu',
-    TotalAmount: 17.99,
-    OrderItems: 'Skincare',
-    Location: 'USA',
-    Status: 'active',
-    StatusBg: '#03C9D7',
-    ProductImage:
-      product3,
-  },
-  {
-    OrderID: 845954,
-    CustomerName: 'Penjani',
-    TotalAmount: 59.99,
-    OrderItems: 'Headphone',
-    Location: 'USA',
-    Status: 'complete',
-    StatusBg: '#8BE78B',
-    ProductImage:
-      product4,
-  },
-  {
-    OrderID: 845954,
-    CustomerName: 'Jie Yan',
-    TotalAmount: 87.99,
-    OrderItems: 'Shoes',
-    Location: 'USA',
-    Status: 'pending',
-    StatusBg: '#FB9678',
-    ProductImage:
-      'https://cdn.shopclues.com/images1/thumbnails/104158/320/320/148648730-104158193-1592481791.jpg',
-  },
-  {
-    OrderID: 874534,
-    CustomerName: 'Danai',
-    TotalAmount: 122.99,
-    OrderItems: 'Watch',
-    Location: 'USA',
-    Status: 'canceled',
-    StatusBg: '#FF5C8E',
-    ProductImage:
-      'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/pop-womens-garmin-watches-1641919013.jpg?crop=0.502xw:1.00xh;0.250xw,0&resize=640:*',
-  },
-  {
-    OrderID: 38489,
-    CustomerName: 'Miron',
-    TotalAmount: 87.99,
-    OrderItems: 'Ice Cream',
-    Location: 'USA',
-    Status: 'active',
-    StatusBg: '#03C9D7',
-    ProductImage:
-      'https://images.immediate.co.uk/production/volatile/sites/30/2020/08/dairy-free-ice-cream-eae372d.jpg',
-  },
-  {
-    OrderID: 24546,
-    CustomerName: 'Frank',
-    TotalAmount: 84.99,
-    OrderItems: 'Pan Cake',
-    Location: 'Delhi',
-    Status: 'complete',
-    StatusBg: '#8BE78B',
-    ProductImage:
-      'https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80',
-  },
-  {
-    OrderID: 874534,
-    CustomerName: 'Danai',
-    TotalAmount: 122.99,
-    OrderItems: 'Watch',
-    Location: 'USA',
-    Status: 'canceled',
-    StatusBg: '#FF5C8E',
-    ProductImage:
-      'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/pop-womens-garmin-watches-1641919013.jpg?crop=0.502xw:1.00xh;0.250xw,0&resize=640:*',
-  },
-  {
-    OrderID: 10248,
-    CustomerName: 'Vinet',
-
-    TotalAmount: 32.38,
-    OrderItems: 'Fresh Tomato',
-    Location: 'USA',
-    Status: 'pending',
-    StatusBg: '#FB9678',
-    ProductImage:
-      product6,
-  },
-  {
-    OrderID: 345653,
-    CustomerName: 'Carson Darrin',
-    TotalAmount: 56.34,
-    OrderItems: 'Butter Scotch',
-    Location: 'Delhi',
-    Status: 'complete',
-    StatusBg: '#8BE78B',
-    ProductImage:
-      product5,
-  },
-  {
-    OrderID: 390457,
-    CustomerName: 'Fran Perez',
-    TotalAmount: 93.31,
-    OrderItems: 'Candy Gucci',
-    Location: 'New York',
-    Status: 'active',
-    StatusBg: '#03C9D7',
-    ProductImage:
-      product7,
-  },
-  {
-    OrderID: 893486,
-    CustomerName: 'Anika Viseer',
-    TotalAmount: 93.31,
-    OrderItems: 'Night Lamp',
-    Location: 'Germany',
-    Status: 'canceled',
-    StatusBg: '#FF5C8E',
-    ProductImage:
-      product4,
-  },
-  {
-    OrderID: 748975,
-    CustomerName: 'Miron Vitold',
-    TotalAmount: 23.99,
-    OrderItems: 'Healthcare Erbology',
-    Location: 'Spain',
-    Status: 'rejected',
-    StatusBg: 'red',
-    ProductImage:
-      product1,
-  },
-  {
-    OrderID: 94757,
-    CustomerName: 'Omar Darobe',
-    TotalAmount: 95.99,
-    OrderItems: 'Makeup Lancome Rouge',
-    Location: 'USA',
-    Status: 'canceled',
-    StatusBg: '#FF5C8E',
-    ProductImage:
-      product2,
-  },
-  {
-    OrderID: 944895,
-    CustomerName: 'Lulia albu',
-    TotalAmount: 17.99,
-    OrderItems: 'Skincare',
-    Location: 'USA',
-    Status: 'active',
-    StatusBg: '#03C9D7',
-    ProductImage:
-      product3,
-  },
-  {
-    OrderID: 845954,
-    CustomerName: 'Penjani',
-    TotalAmount: 59.99,
-    OrderItems: 'Headphone',
-    Location: 'USA',
-    Status: 'complete',
-    StatusBg: '#8BE78B',
-    ProductImage:
-      product4,
-  },
-  {
-    OrderID: 845954,
-    CustomerName: 'Jie Yan',
-    TotalAmount: 87.99,
-    OrderItems: 'Shoes',
-    Location: 'USA',
-    Status: 'pending',
-    StatusBg: '#FB9678',
-    ProductImage:
-      'https://cdn.shopclues.com/images1/thumbnails/104158/320/320/148648730-104158193-1592481791.jpg',
-  },
-  {
-    OrderID: 874534,
-    CustomerName: 'Danai',
-    TotalAmount: 122.99,
-    OrderItems: 'Watch',
-    Location: 'USA',
-    Status: 'canceled',
-    StatusBg: '#FF5C8E',
-    ProductImage:
-      'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/pop-womens-garmin-watches-1641919013.jpg?crop=0.502xw:1.00xh;0.250xw,0&resize=640:*',
-  },
-  {
-    OrderID: 38489,
-    CustomerName: 'Miron',
-    TotalAmount: 87.99,
-    OrderItems: 'Ice Cream',
-    Location: 'USA',
-    Status: 'active',
-    StatusBg: '#03C9D7',
-    ProductImage:
-      'https://images.immediate.co.uk/production/volatile/sites/30/2020/08/dairy-free-ice-cream-eae372d.jpg',
-  },
-  {
-    OrderID: 24546,
-    CustomerName: 'Frank',
-    TotalAmount: 84.99,
-    OrderItems: 'Pan Cake',
-    Location: 'Delhi',
-    Status: 'complete',
-    StatusBg: '#8BE78B',
-    ProductImage:
-      'https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80',
-  },
-  {
-    OrderID: 874534,
-    CustomerName: 'Danai',
-    TotalAmount: 122.99,
-    OrderItems: 'Watch',
-    Location: 'USA',
-    Status: 'canceled',
-    StatusBg: '#FF5C8E',
-    ProductImage:
-      'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/pop-womens-garmin-watches-1641919013.jpg?crop=0.502xw:1.00xh;0.250xw,0&resize=640:*',
-  },
-  {
-    OrderID: 10248,
-    CustomerName: 'Vinet',
-
-    TotalAmount: 32.38,
-    OrderItems: 'Fresh Tomato',
-    Location: 'USA',
-    Status: 'pending',
-    StatusBg: '#FB9678',
-    ProductImage:
-      product6,
-  },
-  {
-    OrderID: 345653,
-    CustomerName: 'Carson Darrin',
-    TotalAmount: 56.34,
-    OrderItems: 'Butter Scotch',
-    Location: 'Delhi',
-    Status: 'complete',
-    StatusBg: '#8BE78B',
-    ProductImage:
-      product5,
-  },
-  {
-    OrderID: 390457,
-    CustomerName: 'Fran Perez',
-    TotalAmount: 93.31,
-    OrderItems: 'Candy Gucci',
-    Location: 'New York',
-    Status: 'active',
-    StatusBg: '#03C9D7',
-    ProductImage:
-      product7,
-  },
-  {
-    OrderID: 893486,
-    CustomerName: 'Anika Viseer',
-    TotalAmount: 93.31,
-    OrderItems: 'Night Lamp',
-    Location: 'Germany',
-    Status: 'canceled',
-    StatusBg: '#FF5C8E',
-    ProductImage:
-      product4,
-  },
-  {
-    OrderID: 748975,
-    CustomerName: 'Miron Vitold',
-    TotalAmount: 23.99,
-    OrderItems: 'Healthcare Erbology',
-    Location: 'Spain',
-    Status: 'rejected',
-    StatusBg: 'red',
-    ProductImage:
-      product1,
-  },
-  {
-    OrderID: 94757,
-    CustomerName: 'Omar Darobe',
-    TotalAmount: 95.99,
-    OrderItems: 'Makeup Lancome Rouge',
-    Location: 'USA',
-    Status: 'canceled',
-    StatusBg: '#FF5C8E',
-    ProductImage:
-      product2,
-  },
-  {
-    OrderID: 944895,
-    CustomerName: 'Lulia albu',
-    TotalAmount: 17.99,
-    OrderItems: 'Skincare',
-    Location: 'USA',
-    Status: 'active',
-    StatusBg: '#03C9D7',
-    ProductImage:
-      product3,
-  },
-  {
-    OrderID: 845954,
-    CustomerName: 'Penjani',
-    TotalAmount: 59.99,
-    OrderItems: 'Headphone',
-    Location: 'USA',
-    Status: 'complete',
-    StatusBg: '#8BE78B',
-    ProductImage:
-      product4,
-  },
-  {
-    OrderID: 845954,
-    CustomerName: 'Jie Yan',
-    TotalAmount: 87.99,
-    OrderItems: 'Shoes',
-    Location: 'USA',
-    Status: 'pending',
-    StatusBg: '#FB9678',
-    ProductImage:
-      'https://cdn.shopclues.com/images1/thumbnails/104158/320/320/148648730-104158193-1592481791.jpg',
-  },
-  {
-    OrderID: 874534,
-    CustomerName: 'Danai',
-    TotalAmount: 122.99,
-    OrderItems: 'Watch',
-    Location: 'USA',
-    Status: 'canceled',
-    StatusBg: '#FF5C8E',
-    ProductImage:
-      'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/pop-womens-garmin-watches-1641919013.jpg?crop=0.502xw:1.00xh;0.250xw,0&resize=640:*',
-  },
-  {
-    OrderID: 38489,
-    CustomerName: 'Miron',
-    TotalAmount: 87.99,
-    OrderItems: 'Ice Cream',
-    Location: 'USA',
-    Status: 'active',
-    StatusBg: '#03C9D7',
-    ProductImage:
-      'https://images.immediate.co.uk/production/volatile/sites/30/2020/08/dairy-free-ice-cream-eae372d.jpg',
-  },
-  {
-    OrderID: 24546,
-    CustomerName: 'Frank',
-    TotalAmount: 84.99,
-    OrderItems: 'Pan Cake',
-    Location: 'Delhi',
-    Status: 'complete',
-    StatusBg: '#8BE78B',
-    ProductImage:
-      'https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80',
-  },
-  {
-    OrderID: 874534,
-    CustomerName: 'Danai',
-    TotalAmount: 122.99,
-    OrderItems: 'Watch',
-    Location: 'USA',
-    Status: 'canceled',
-    StatusBg: '#FF5C8E',
-    ProductImage:
-      'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/pop-womens-garmin-watches-1641919013.jpg?crop=0.502xw:1.00xh;0.250xw,0&resize=640:*',
-  },
-];
 
 export const scheduleData = [
   {
     Id: 1,
     Subject: 'Explosion of Betelgeuse Star',
-    Location: 'Space Center USA',
+    Durasi: 'Space Center USA',
     StartTime: '2021-01-10T04:00:00.000Z',
     EndTime: '2021-01-10T05:30:00.000Z',
     CategoryColor: '#1aaa55',
@@ -2824,7 +2601,7 @@ export const scheduleData = [
   {
     Id: 2,
     Subject: 'Thule Air Crash Report',
-    Location: 'Newyork City',
+    Durasi: 'Newyork City',
     StartTime: '2021-01-11T06:30:00.000Z',
     EndTime: '2021-01-11T08:30:00.000Z',
     CategoryColor: '#357cd2',
@@ -2832,7 +2609,7 @@ export const scheduleData = [
   {
     Id: 3,
     Subject: 'Blue Moon Eclipse',
-    Location: 'Space Center USA',
+    Durasi: 'Space Center USA',
     StartTime: '2021-01-12T04:00:00.000Z',
     EndTime: '2021-01-12T05:30:00.000Z',
     CategoryColor: '#7fa900',
@@ -2840,7 +2617,7 @@ export const scheduleData = [
   {
     Id: 4,
     Subject: 'Meteor Showers in 2021',
-    Location: 'Space Center USA',
+    Durasi: 'Space Center USA',
     StartTime: '2021-01-13T07:30:00.000Z',
     EndTime: '2021-01-13T09:00:00.000Z',
     CategoryColor: '#ea7a57',
@@ -2848,7 +2625,7 @@ export const scheduleData = [
   {
     Id: 5,
     Subject: 'Milky Way as Melting pot',
-    Location: 'Space Center USA',
+    Durasi: 'Space Center USA',
     StartTime: '2021-01-14T06:30:00.000Z',
     EndTime: '2021-01-14T08:30:00.000Z',
     CategoryColor: '#00bdae',
@@ -2856,7 +2633,7 @@ export const scheduleData = [
   {
     Id: 6,
     Subject: 'Mysteries of Bermuda Triangle',
-    Location: 'Bermuda',
+    Durasi: 'Bermuda',
     StartTime: '2021-01-14T04:00:00.000Z',
     EndTime: '2021-01-14T05:30:00.000Z',
     CategoryColor: '#f57f17',
@@ -2864,7 +2641,7 @@ export const scheduleData = [
   {
     Id: 7,
     Subject: 'Glaciers and Snowflakes',
-    Location: 'Himalayas',
+    Durasi: 'Himalayas',
     StartTime: '2021-01-15T05:30:00.000Z',
     EndTime: '2021-01-15T07:00:00.000Z',
     CategoryColor: '#1aaa55',
@@ -2872,7 +2649,7 @@ export const scheduleData = [
   {
     Id: 8,
     Subject: 'Life on Mars',
-    Location: 'Space Center USA',
+    Durasi: 'Space Center USA',
     StartTime: '2021-01-16T03:30:00.000Z',
     EndTime: '2021-01-16T04:30:00.000Z',
     CategoryColor: '#357cd2',
@@ -2880,7 +2657,7 @@ export const scheduleData = [
   {
     Id: 9,
     Subject: 'Alien Civilization',
-    Location: 'Space Center USA',
+    Durasi: 'Space Center USA',
     StartTime: '2021-01-18T05:30:00.000Z',
     EndTime: '2021-01-18T07:30:00.000Z',
     CategoryColor: '#7fa900',
@@ -2888,7 +2665,7 @@ export const scheduleData = [
   {
     Id: 10,
     Subject: 'Wildlife Galleries',
-    Location: 'Africa',
+    Durasi: 'Africa',
     StartTime: '2021-01-20T05:30:00.000Z',
     EndTime: '2021-01-20T07:30:00.000Z',
     CategoryColor: '#ea7a57',
@@ -2896,7 +2673,7 @@ export const scheduleData = [
   {
     Id: 11,
     Subject: 'Best Photography 2021',
-    Location: 'London',
+    Durasi: 'London',
     StartTime: '2021-01-21T04:00:00.000Z',
     EndTime: '2021-01-21T05:30:00.000Z',
     CategoryColor: '#00bdae',
@@ -2904,7 +2681,7 @@ export const scheduleData = [
   {
     Id: 12,
     Subject: 'Smarter Puppies',
-    Location: 'Sweden',
+    Durasi: 'Sweden',
     StartTime: '2021-01-08T04:30:00.000Z',
     EndTime: '2021-01-08T06:00:00.000Z',
     CategoryColor: '#f57f17',
@@ -2912,7 +2689,7 @@ export const scheduleData = [
   {
     Id: 13,
     Subject: 'Myths of Andromeda Galaxy',
-    Location: 'Space Center USA',
+    Durasi: 'Space Center USA',
     StartTime: '2021-01-06T05:00:00.000Z',
     EndTime: '2021-01-06T07:00:00.000Z',
     CategoryColor: '#1aaa55',
@@ -2920,7 +2697,7 @@ export const scheduleData = [
   {
     Id: 14,
     Subject: 'Aliens vs Humans',
-    Location: 'Research Center of USA',
+    Durasi: 'Research Center of USA',
     StartTime: '2021-01-05T04:30:00.000Z',
     EndTime: '2021-01-05T06:00:00.000Z',
     CategoryColor: '#357cd2',
@@ -2928,7 +2705,7 @@ export const scheduleData = [
   {
     Id: 15,
     Subject: 'Facts of Humming Birds',
-    Location: 'California',
+    Durasi: 'California',
     StartTime: '2021-01-19T04:00:00.000Z',
     EndTime: '2021-01-19T05:30:00.000Z',
     CategoryColor: '#7fa900',
@@ -2936,7 +2713,7 @@ export const scheduleData = [
   {
     Id: 16,
     Subject: 'Sky Gazers',
-    Location: 'Alaska',
+    Durasi: 'Alaska',
     StartTime: '2021-01-22T05:30:00.000Z',
     EndTime: '2021-01-22T07:30:00.000Z',
     CategoryColor: '#ea7a57',
@@ -2944,7 +2721,7 @@ export const scheduleData = [
   {
     Id: 17,
     Subject: 'The Cycle of Seasons',
-    Location: 'Research Center of USA',
+    Durasi: 'Research Center of USA',
     StartTime: '2021-01-11T00:00:00.000Z',
     EndTime: '2021-01-11T02:00:00.000Z',
     CategoryColor: '#00bdae',
@@ -2952,7 +2729,7 @@ export const scheduleData = [
   {
     Id: 18,
     Subject: 'Space Galaxies and Planets',
-    Location: 'Space Center USA',
+    Durasi: 'Space Center USA',
     StartTime: '2021-01-11T11:30:00.000Z',
     EndTime: '2021-01-11T13:00:00.000Z',
     CategoryColor: '#f57f17',
@@ -2960,7 +2737,7 @@ export const scheduleData = [
   {
     Id: 19,
     Subject: 'Lifecycle of Bumblebee',
-    Location: 'San Fransisco',
+    Durasi: 'San Fransisco',
     StartTime: '2021-01-14T00:30:00.000Z',
     EndTime: '2021-01-14T02:00:00.000Z',
     CategoryColor: '#7fa900',
@@ -2968,7 +2745,7 @@ export const scheduleData = [
   {
     Id: 20,
     Subject: 'Alien Civilization',
-    Location: 'Space Center USA',
+    Durasi: 'Space Center USA',
     StartTime: '2021-01-14T10:30:00.000Z',
     EndTime: '2021-01-14T12:30:00.000Z',
     CategoryColor: '#ea7a57',
@@ -2976,7 +2753,7 @@ export const scheduleData = [
   {
     Id: 21,
     Subject: 'Alien Civilization',
-    Location: 'Space Center USA',
+    Durasi: 'Space Center USA',
     StartTime: '2021-01-10T08:30:00.000Z',
     EndTime: '2021-01-10T10:30:00.000Z',
     CategoryColor: '#ea7a57',
@@ -2984,7 +2761,7 @@ export const scheduleData = [
   {
     Id: 22,
     Subject: 'The Cycle of Seasons',
-    Location: 'Research Center of USA',
+    Durasi: 'Research Center of USA',
     StartTime: '2021-01-12T09:00:00.000Z',
     EndTime: '2021-01-12T10:30:00.000Z',
     CategoryColor: '#00bdae',
@@ -2992,7 +2769,7 @@ export const scheduleData = [
   {
     Id: 23,
     Subject: 'Sky Gazers',
-    Location: 'Greenland',
+    Durasi: 'Greenland',
     StartTime: '2021-01-15T09:00:00.000Z',
     EndTime: '2021-01-15T10:30:00.000Z',
     CategoryColor: '#ea7a57',
@@ -3000,7 +2777,7 @@ export const scheduleData = [
   {
     Id: 24,
     Subject: 'Facts of Humming Birds',
-    Location: 'California',
+    Durasi: 'California',
     StartTime: '2021-01-16T07:00:00.000Z',
     EndTime: '2021-01-16T09:00:00.000Z',
     CategoryColor: '#7fa900',

@@ -25,14 +25,15 @@ function Appril() {
     <Router>
     <StyledContainer>
     <Routes>       
-      <Route path="/dashboard" element={<Dashboard/>} />
-      <Route path="/" element={<Home/>} />
+      
+      
       
       
       
       {/* dahboard */}
-      <Route path='/home' element={<App />}/>  
-        <Route path='/dashboard' element={<Dashboard />}/>
+        
+
+        <Route path='/home' element={<Dashboard />}/>
         
          
          {/* pages */}
@@ -49,7 +50,8 @@ function Appril() {
 
          {/* charts */}
          <Route path='/Line' element={<Line />}/>
-         
+
+       <Route path="/" element={<Home/>} />  
       <Route path="/login" element={<Login/>} /> 
       <Route path="/Appril" element={<Appril/>} /> 
       

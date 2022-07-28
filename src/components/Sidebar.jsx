@@ -27,7 +27,7 @@ const Sidebar = () => {
     md:hover:overflow-auto pb-10'>
       {activeMenu && (<>
       <div className='flex justify-between items-center'>
-        <Link to='/' onClick={handleCloseSideBar} 
+        <Link to='/home' onClick={handleCloseSideBar} 
         className='items-center gap-3 ml-3 mt-4 flex container text-xl 
         font-extrabold -tracking-tight dark:text-white text-slate-900'>
           <img src={Logo} style={{width:"5vh"}}/>

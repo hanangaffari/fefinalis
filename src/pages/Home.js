@@ -7,10 +7,9 @@ import background1 from './../assets/background1.svg'
 const Home =  () => {
     return (
         <StyledContainer style={{width:"100%",height:"100%",
-        position:"absolute",top:"0%",zIndex:"1001"}}
+        position:"fixed",top:"0%",zIndex:"1001"}}
         >
-            <div style={{
-                
+            <div style={{                
                 top:0,
                 left:0,
                 backgroundColor:"transparent",

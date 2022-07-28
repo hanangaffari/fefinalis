@@ -85,7 +85,8 @@ const Login = () => {
 
     
     return( 
-        <StyledContainer style={{width:"100%",height:"100%",position:"absolute",top:"0%",zIndex:"1001"}}
+        <StyledContainer 
+        style={{width:"100%",height:"100%",position:"absolute",top:"0%",zIndex:"1001"}}
         
         >
         
@@ -188,7 +189,7 @@ const Login = () => {
             }
             onSubmit={() => {
                 
-                navigate('/dashboard');
+                navigate('/home');
             }}
             >
                 {({isSubmitting}) => (
