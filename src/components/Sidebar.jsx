@@ -29,9 +29,9 @@ const Sidebar = () => {
       <div className='flex justify-between items-center'>
         <Link to='/home' onClick={handleCloseSideBar} 
         className='items-center gap-3 ml-3 mt-4 flex container text-xl 
-        font-extrabold -tracking-tight dark:text-white text-slate-900'>
+        font-extrabold -tracking-tight dark:text-white text-slate-900 '>
           <img src={Logo} style={{width:"5vh"}}/>
-          <span>Telkom-U</span>
+          <span className='pt-2'>Telkom-U</span>
         </Link>
         <TooltipComponent content='Menu' position='BottomCenter'>
           <button type='button' onClick={() => 
