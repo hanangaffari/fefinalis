@@ -4,18 +4,19 @@ import { BrowserRouter,Routes,Route } from 'react-router-dom';
 import {FiSettings} from 'react-icons/fi';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
-import {Navbar,Sidebar,ThemeSettings} from './components';
+import {Navbar,Sidebar,ThemeSettings,Soalujian} from './components';
 import {Calendar,Kanban,ColorPicker,Editor,Dashboard,Matakuliah,Line,Login,Home} from './pages';
 
 import { useStateContext } from './contexts/ContextProvider';
 const App = () => {
-  const {activeMenu,themeSettings, setThemeSettings,currentColor,currentMode} = useStateContext();
+  const {activeMenu,themeSettings,
+     setThemeSettings,currentColor,currentMode,ujianSoal} = useStateContext();
 
   
   return (
     <BrowserRouter>
     <div className={currentMode === 'Dark' ? 'dark' : ''}>
-      
+    
       <div className='flex relative dark:bg-main-dark-bg'>
         <div className='fixed right-4 bottom-4' style={{zIndex:'1000'}}>
           <TooltipComponent content='Settings' position='Top'>
@@ -48,6 +49,7 @@ const App = () => {
         </div>
       
       <div>
+      {ujianSoal && <Soalujian />}
          {themeSettings && <ThemeSettings />}
         <Routes>
           {/* dahboard */}
@@ -55,7 +57,7 @@ const App = () => {
           <Route path='/home' element={<Dashboard />}/>                    
          
           {/* pages */}
-          <Route path='/matakuliah' element={<Matakuliah />}/>
+          <Route path='/history' element={<Matakuliah />}/>
           
           <Route path='/order' element="eorder"/>
           {/* Apps */}

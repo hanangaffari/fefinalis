@@ -1,11 +1,22 @@
 import {useState} from 'react';
 import { useField } from "formik";
 import{
-    StyledInput,
-    StyledLabel,
+        StyledInput,
+        StyledForm,
+        StyledFormda,
+        StyledFormBtn,
+        StyledRegBtn,
+        Wave,
+        StyledLabel,StyledTitle,colors,Avatar,Bgr,
+        TextLink,
+    ButtonGroup,
+    ExtraText,
+    ErrorMsg,   
     StyledIcon,
     StyledImg,
-    ErrorMsg
+    StyledRadio
+    
+    
 }from "./../components/Styles";
 
 //eye for password
@@ -67,3 +78,6 @@ export const TextInput = ({onChange, icon, ...props}) => {
     
     
 };
+
+
+

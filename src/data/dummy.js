@@ -454,7 +454,7 @@ export const links = [
     title: 'Pages',
     links: [
       {
-        name: 'matakuliah',
+        name: 'history',
         icon: <AiOutlineShoppingCart />,
       },
       

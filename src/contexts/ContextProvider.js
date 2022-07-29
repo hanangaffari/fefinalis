@@ -14,6 +14,12 @@ export const ContextProvider = ({children}) => {
     const [currentColor, setcurrentColor] = useState('#03c9d7');
     const [currentMode, setcurrentMode] = useState('Light');
     const [themeSettings, setThemeSettings] = useState(false);
+
+    const [ujianDurasi, setujianDurasi] = useState();
+    const [ujianNama, setujianNama] = useState();
+    const [ujianSoal, setujianSoal] = useState();
+
+    
     
     const setMode = (e) => {
         setcurrentMode(e.target.value);
@@ -27,6 +33,15 @@ export const ContextProvider = ({children}) => {
 
         localStorage.setItem('ColorMode',e)
          setThemeSettings(false)   
+    }
+
+    const setUjian= (a,b,c) => {
+        setujianDurasi(a);
+        setujianNama(b);
+        setujianSoal(c);
+
+        //localStorage.setItem('ColorMode',e)
+  
     }
 
     const handleClick =(clicked) => {
@@ -44,7 +59,10 @@ export const ContextProvider = ({children}) => {
         currentColor,currentMode,
         setcurrentColor,setcurrentMode,
         themeSettings,setThemeSettings,
-        setColor,setMode
+        setColor,setMode,
+        ujianSoal,setujianSoal,setUjian,
+        ujianDurasi,setujianDurasi,
+        ujianNama,setujianNama
         }}>
         {children}
     </StateContext.Provider>

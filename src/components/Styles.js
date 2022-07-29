@@ -139,19 +139,35 @@ export const StyledInput = styled.input `
     letter-spacing: 1px;
     outline: none;
     color: ${colors.superwhite};
-    background-color: ${colors.white2};
+    
     border:0;
     outline:0;
     display: block;
     margin 2% auto 6% auto;
     transition: ease-in-out 0.3s;
 
-    ${(props) => props.invalid && `background-color: ${colors.red}; color:${colors.red};`}
     
-    &:focus {
-        background-color: ${colors.grey};
-        color: ${colors.white};
-    }    
+    
+`;
+
+export const StyledRadio = styled.input `
+    width: 100%;
+    padding:5% ;
+    padding-left: 15%;
+    font-size: 17px
+    letter-spacing: 1px;
+    outline: none;
+    color: ${colors.superwhite};
+    
+    type:radio;
+
+    border:0;
+    outline:0;
+    display: block;
+    margin 2% auto 6% auto;
+    transition: ease-in-out 0.3s;
+
+    
     
 `;
 

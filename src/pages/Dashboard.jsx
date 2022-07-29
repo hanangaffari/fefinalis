@@ -15,9 +15,24 @@ import { useStateContext } from "../contexts/ContextProvider";
 const Dashboard =  () => {
     const [posisi, setposisi] = useState(0)
     const [klikp, setklikp] = useState(0)
-    const{currentColor} = useStateContext();
+    const{currentColor ,setujianSoal,setUjian} = useStateContext();
     return (
-        <div className="mt-10">
+        <div>
+            {/* <motion.div className='
+            w-screen fixed nav-item top-5 right-0'
+            style={{height:"95vh",paddingLeft:"5vh",
+            paddingRight:"5vh",zIndex:"1000"}}
+            >
+                <motion.div  className="bg-black rounded-xl absolute"/>
+                <motion.div className="w-full h-full bg-black rounded-xl"
+                
+                >
+
+                </motion.div>
+            </motion.div> */}
+        <div className="mt-10" >
+
+            
       <div className="flex lg:flex-nowrap justify-center p-5 w-full">
         <button onClick={() => {
             setposisi(posisi - 455);
@@ -36,9 +51,7 @@ const Dashboard =  () => {
                 whileHover={{y:-6}}
                 whileInView={{y:0,opacity:1}}
                 animate={{x:posisi,opacity:0}}
-                whileTap={{
-                    scale:0.9
-                }}
+                
                 
                 className="bg-slate-50 h-44 rounded-xl
                  w-30 lg:w-60 p-6 m-3 ml-12 dark:bg-black"
@@ -65,17 +78,18 @@ const Dashboard =  () => {
                     <h1 className="font-bold" style={{fontSize:"4vh",color:currentColor}}>duration :</h1>
                     <h1 className="" style={{fontSize:"5vh",marginLeft:"1vh",color:currentColor}}>10:00</h1>
                     </div>
-                    <div className="h-20 pt-5">
-                    <button className="w-full h-10 rounded-xl" style={{backgroundColor:currentColor}}>Start</button>
-                    </div>
+                    <motion.div className="h-20 pt-5" whileTap={{scale:0.9}}>                    
+                    <button className="w-full h-10 rounded-xl" 
+                    style={{backgroundColor:currentColor}}
+                     onClick={() => setUjian("10:00",'Matematika','15')}>Start</button>
+                    </motion.div>
+                    
                 </motion.div>   
                 <motion.div  
                 whileHover={{y:-6}}
                 whileInView={{y:0,opacity:1}}
                 animate={{x:posisi,opacity:0}}
-                whileTap={{
-                    scale:0.9
-                }}
+               
                 
                 className="bg-slate-50 h-44 rounded-xl
                  w-30 lg:w-60 p-6 m-3 ml-12 dark:bg-black"
@@ -102,17 +116,15 @@ const Dashboard =  () => {
                     <h1 className="font-bold" style={{fontSize:"4vh",color:currentColor}}>duration :</h1>
                     <h1 className="" style={{fontSize:"5vh",marginLeft:"1vh",color:currentColor}}>5:00</h1>
                     </div>
-                    <div className="h-20 pt-5">
-                    <button className="w-full h-10 rounded-xl" style={{backgroundColor:currentColor}}>Start</button>
-                    </div>
+                    <motion.div className="h-20 pt-5"  whileTap={{ scale:0.9 }}>
+                    <button className="w-full h-10 rounded-xl" style={{backgroundColor:currentColor}}
+                    onClick={() => setUjian("5:00",'Sejarah','10')}>Start</button>
+                    </motion.div>
                 </motion.div>
                 <motion.div  
                 whileHover={{y:-6}}
                 whileInView={{y:0,opacity:1}}
                 animate={{x:posisi,opacity:0}}
-                whileTap={{
-                    scale:0.9
-                }}
                 
                 className="bg-slate-50 h-44 rounded-xl
                  w-30 lg:w-60 p-6 m-3 ml-12 dark:bg-black"
@@ -139,17 +151,15 @@ const Dashboard =  () => {
                     <h1 className="font-bold" style={{fontSize:"4vh",color:currentColor}}>duration :</h1>
                     <h1 className="" style={{fontSize:"5vh",marginLeft:"1vh",color:currentColor}}>15:00</h1>
                     </div>
-                    <div className="h-20 pt-5">
-                    <button className="w-full h-10 rounded-xl" style={{backgroundColor:currentColor}}>Start</button>
-                    </div>
+                    <motion.div className="h-20 pt-5"  whileTap={{ scale:0.9 }}>
+                    <button className="w-full h-10 rounded-xl" style={{backgroundColor:currentColor}}
+                    onClick={() => setUjian("15:00",'Cooking','8')}>Start</button>
+                    </motion.div>
                 </motion.div>
                 <motion.div  
                 whileHover={{y:-6}}
                 whileInView={{y:0,opacity:1}}
                 animate={{x:posisi,opacity:0}}
-                whileTap={{
-                    scale:0.9
-                }}
                 
                 className="bg-slate-50 h-44 rounded-xl
                  w-30 lg:w-60 p-6 m-3 ml-12 dark:bg-black"
@@ -176,17 +186,15 @@ const Dashboard =  () => {
                     <h1 className="font-bold" style={{fontSize:"4vh",color:currentColor}}>duration :</h1>
                     <h1 className="" style={{fontSize:"5vh",marginLeft:"1vh",color:currentColor}}>10:00</h1>
                     </div>
-                    <div className="h-20 pt-5">
-                    <button className="w-full h-10 rounded-xl" style={{backgroundColor:currentColor}}>Start</button>
-                    </div>
+                    <motion.div className="h-20 pt-5"  whileTap={{ scale:0.9 }}>
+                    <button className="w-full h-10 rounded-xl" style={{backgroundColor:currentColor}}
+                    onClick={() => setUjian("10:00",'English','4')}>Start</button>
+                    </motion.div>
                 </motion.div>
                 <motion.div  
                 whileHover={{y:-6}}
                 whileInView={{y:0,opacity:1}}
                 animate={{x:posisi,opacity:0}}
-                whileTap={{
-                    scale:0.9
-                }}
                 
                 className="bg-slate-50 h-44 rounded-xl
                  w-30 lg:w-60 p-6 m-3 ml-12 dark:bg-black"
@@ -213,17 +221,15 @@ const Dashboard =  () => {
                     <h1 className="font-bold" style={{fontSize:"4vh",color:currentColor}}>duration :</h1>
                     <h1 className="" style={{fontSize:"5vh",marginLeft:"1vh",color:currentColor}}>15:00</h1>
                     </div>
-                    <div className="h-20 pt-5">
-                    <button className="w-full h-10 rounded-xl" style={{backgroundColor:currentColor}}>Start</button>
-                    </div>
+                    <motion.div className="h-20 pt-5"  whileTap={{ scale:0.9 }}>
+                    <button className="w-full h-10 rounded-xl" style={{backgroundColor:currentColor}}
+                    onClick={() => setUjian("15:00",'Gym','2')}>Start</button>
+                    </motion.div>
                 </motion.div>
                 <motion.div  
                 whileHover={{y:-6}}
                 whileInView={{y:0,opacity:1}}
                 animate={{x:posisi,opacity:0}}
-                whileTap={{
-                    scale:0.9
-                }}
                 
                 className="bg-slate-50 h-44 rounded-xl
                  w-30 lg:w-60 p-6 m-3 ml-12 dark:bg-black"
@@ -250,17 +256,15 @@ const Dashboard =  () => {
                     <h1 className="font-bold" style={{fontSize:"4vh",color:currentColor}}>duration :</h1>
                     <h1 className="" style={{fontSize:"5vh",marginLeft:"1vh",color:currentColor}}>15:00</h1>
                     </div>
-                    <div className="h-20 pt-5">
-                    <button className="w-full h-10 rounded-xl" style={{backgroundColor:currentColor}}>Start</button>
-                    </div>
+                    <motion.div className="h-20 pt-5"  whileTap={{ scale:0.9 }}>
+                    <button className="w-full h-10 rounded-xl" style={{backgroundColor:currentColor}}
+                    onClick={() => setUjian("15:00",'Gym','2')}>Start</button>
+                    </motion.div>
                 </motion.div>
                 <motion.div  
                 whileHover={{y:-6}}
                 whileInView={{y:0,opacity:1}}
                 animate={{x:posisi,opacity:0}}
-                whileTap={{
-                    scale:0.9
-                }}
                 
                 className="bg-slate-50 h-44 rounded-xl
                  w-30 lg:w-60 p-6 m-3 ml-12 dark:bg-black"
@@ -287,17 +291,15 @@ const Dashboard =  () => {
                     <h1 className="font-bold" style={{fontSize:"4vh",color:currentColor}}>duration :</h1>
                     <h1 className="" style={{fontSize:"5vh",marginLeft:"1vh",color:currentColor}}>10:00</h1>
                     </div>
-                    <div className="h-20 pt-5">
-                    <button className="w-full h-10 rounded-xl" style={{backgroundColor:currentColor}}>Start</button>
-                    </div>
+                    <motion.div className="h-20 pt-5"  whileTap={{ scale:0.9 }}>
+                    <button className="w-full h-10 rounded-xl" style={{backgroundColor:currentColor}}
+                    onClick={() => setUjian("10:00",'Coding','5')}>Start</button>
+                    </motion.div>
                 </motion.div>
                 <motion.div  
                 whileHover={{y:-6}}
                 whileInView={{y:0,opacity:1}}
                 animate={{x:posisi,opacity:0}}
-                whileTap={{
-                    scale:0.9
-                }}
                 
                 className="bg-slate-50 h-44 rounded-xl
                  w-30 lg:w-60 p-6 m-3 ml-12 dark:bg-black"
@@ -324,9 +326,10 @@ const Dashboard =  () => {
                     <h1 className="font-bold" style={{fontSize:"4vh",color:currentColor}}>duration :</h1>
                     <h1 className="" style={{fontSize:"5vh",marginLeft:"1vh",color:currentColor}}>30:00</h1>
                     </div>
-                    <div className="h-20 pt-5">
-                    <button className="w-full h-10 rounded-xl" style={{backgroundColor:currentColor}}>Start</button>
-                    </div>
+                    <motion.div className="h-20 pt-5"  whileTap={{ scale:0.9 }}>
+                    <button className="w-full h-10 rounded-xl" style={{backgroundColor:currentColor}}
+                    onClick={() => setUjian("30:00",'Biology','5')}>Start</button>
+                    </motion.div>
                 </motion.div>
                 
                 </div>
@@ -350,7 +353,8 @@ const Dashboard =  () => {
                 <div style={{paddingLeft:"8vh",paddingRight:"8vh",minHeight:"35vh"}} 
                 className=''>
                     {/* di sini post an */}
-                    <div className="bg-slate-50 rounded-2xl dark:bg-black" style={{minHeight:"40vh",marginTop:"5%",
+                    <div className="bg-slate-50 rounded-2xl dark:bg-black" 
+                    style={{minHeight:"40vh",marginTop:"5%",
                     padding:"3vh"
                 }}>
                         
@@ -511,7 +515,7 @@ const Dashboard =  () => {
         </div>
         
         </div>
-        
+        </div>
         
         
     );
