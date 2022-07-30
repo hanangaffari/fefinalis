@@ -16,7 +16,7 @@ import { eventClick } from '@syncfusion/ej2-react-schedule';
 
 const Soalujian = () => {
   const { ujianSoal,ujianDurasi,ujianNama,currentColor,activeMenu } = useStateContext();
-
+  
 
   //array berisi data pilihan ganda
   var jwb =[];
@@ -35,11 +35,7 @@ function getjwbessay(e,a) {
   essayjwb[e]=a;
   console.log(essayjwb)
 }
-//
-function getpick(a) {
 
- return
-}
 
 
 
@@ -48,8 +44,10 @@ function getpick(a) {
   return (
     <div className='bg-half-transparent 
     w-screen h-screen fixed nav-item top-0 right-0 p-0 md:p-10 '>
-      <div className='w-full h-full dark:text-gray-200  
-      bg-white dark:bg-main-dark-bg  overflow-auto rounded-xl'>
+      <motion.div className='w-full h-full dark:text-gray-200  
+      bg-white dark:bg-main-dark-bg  overflow-auto rounded-xl'
+      animate={{ y:0 }} initial={{y:-700}} exit={{y:-700}}  transition={{duration:0.5}}
+      >
         <div className='p-5 w-full'>
        <p className='font-bold'>Durasi : {ujianDurasi}</p>
       </div>
@@ -256,13 +254,14 @@ function getpick(a) {
       <button 
       onClick={console.log('pilihan ganda :'+jwb+''+'essay :'+essayjwb)}
       className='bg-slate-200 rounded-xl p-4 w-full dark:bg-black'
+      type='submit'
       > 
       submit
       </button>
       </div>
       </form>
         {/* form ulangan */}
-      </div>
+      </motion.div>
   
     </div>
   )

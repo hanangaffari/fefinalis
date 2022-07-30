@@ -4,13 +4,14 @@ import { BrowserRouter,Routes,Route } from 'react-router-dom';
 import {FiSettings} from 'react-icons/fi';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
-import {Navbar,Sidebar,ThemeSettings,Soalujian} from './components';
-import {Calendar,Kanban,ColorPicker,Editor,Dashboard,Matakuliah,Line,Login,Home} from './pages';
+import {Navbar,Sidebar,ThemeSettings,Soalujian,Kelasform,Formform} from './components';
+import {Calendar,Kanban,ColorPicker,Editor,Dashboard,Matakuliah,Line,Login,Home,Kelas} from './pages';
+import { motion ,AnimatePresence} from 'framer-motion';
 
 import { useStateContext } from './contexts/ContextProvider';
 const App = () => {
   const {activeMenu,themeSettings,
-     setThemeSettings,currentColor,currentMode,ujianSoal} = useStateContext();
+     setThemeSettings,currentColor,currentMode,ujianSoal,kelasNama,formNama} = useStateContext();
 
   
   return (
@@ -49,8 +50,20 @@ const App = () => {
         </div>
       
       <div>
+      
+      {themeSettings && <ThemeSettings /> }
+      <AnimatePresence>      
+      {kelasNama && <Kelasform/>}
+      </AnimatePresence>
+
+      <AnimatePresence>
       {ujianSoal && <Soalujian />}
-         {themeSettings && <ThemeSettings />}
+      </AnimatePresence>
+
+      <AnimatePresence>
+      
+      {formNama && <Formform />}
+      </AnimatePresence>
         <Routes>
           {/* dahboard */}
           
@@ -58,6 +71,7 @@ const App = () => {
          
           {/* pages */}
           <Route path='/history' element={<Matakuliah />}/>
+          <Route path='/kelas' element={<Kelas />}/>
           
           <Route path='/order' element="eorder"/>
           {/* Apps */}

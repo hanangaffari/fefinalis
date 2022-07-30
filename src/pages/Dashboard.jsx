@@ -17,19 +17,7 @@ const Dashboard =  () => {
     const [klikp, setklikp] = useState(0)
     const{currentColor ,setujianSoal,setUjian} = useStateContext();
     return (
-        <div>
-            {/* <motion.div className='
-            w-screen fixed nav-item top-5 right-0'
-            style={{height:"95vh",paddingLeft:"5vh",
-            paddingRight:"5vh",zIndex:"1000"}}
-            >
-                <motion.div  className="bg-black rounded-xl absolute"/>
-                <motion.div className="w-full h-full bg-black rounded-xl"
-                
-                >
-
-                </motion.div>
-            </motion.div> */}
+        
         <div className="mt-10" >
 
             
@@ -515,7 +503,7 @@ const Dashboard =  () => {
         </div>
         
         </div>
-        </div>
+      
         
         
     );

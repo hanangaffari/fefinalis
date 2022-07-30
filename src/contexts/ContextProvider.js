@@ -15,9 +15,17 @@ export const ContextProvider = ({children}) => {
     const [currentMode, setcurrentMode] = useState('Light');
     const [themeSettings, setThemeSettings] = useState(false);
 
+    //ujian
     const [ujianDurasi, setujianDurasi] = useState();
     const [ujianNama, setujianNama] = useState();
     const [ujianSoal, setujianSoal] = useState();
+    //ujian end
+    //edit kelas
+    const [kelasNama, setkelasNama] = useState();
+    //edit kelas end
+     //edit Form
+     const [formNama, setformNama] = useState();
+     //edit Form end
 
     
     
@@ -44,6 +52,16 @@ export const ContextProvider = ({children}) => {
   
     }
 
+    const setKelas= (a) => {
+        setkelasNama(a);
+        
+    }
+
+    const setForm= (a) => {
+        setformNama(a);
+  
+    }
+
     const handleClick =(clicked) => {
         setIsClicked({...initialState,[clicked]:true});
     }
@@ -62,7 +80,9 @@ export const ContextProvider = ({children}) => {
         setColor,setMode,
         ujianSoal,setujianSoal,setUjian,
         ujianDurasi,setujianDurasi,
-        ujianNama,setujianNama
+        ujianNama,setujianNama,
+        kelasNama,setkelasNama,setKelas,
+        formNama,setformNama,setForm
         }}>
         {children}
     </StateContext.Provider>
