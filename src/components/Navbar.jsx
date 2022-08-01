@@ -27,7 +27,7 @@ const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
 
 const Navbar = () => {
   const {activeMenu,setActiveMenu,isClicked,setIsClicked,handleClick,
-  screenSize,setscreenSize,currentColor
+  screenSize,setscreenSize,currentColor,akunNama
   } = useStateContext();
 
   useEffect(() => {
@@ -70,7 +70,7 @@ const Navbar = () => {
 
       <NavButton title='Notifications' 
       dotColor={currentColor}
-      customFunc={() => handleClick('notification')}
+      //customFunc={() => handleClick('notification')}
       color={currentColor}
       icon={<RiNotification3Line/>}
       />
@@ -81,12 +81,12 @@ const Navbar = () => {
       >
         <div className='flex item-center gap-2 
         cursor-pointer p-1 hover:bg-light-gray rounded-lg'
-        onClick={() => { handleClick('userProfile')}}
+        //onClick={() => { handleClick('userProfile')}}
         >
           <img src={Avatar} className='rounded-full w-8 h-8'/>
           <p>
             <span className='text-14' style={{color:currentColor}}>hi,</span>{''}
-            <span className='font-bold ml-1 text-14' style={{color:currentColor}}>Michael</span>
+            <span className='font-bold ml-1 text-14' style={{color:currentColor}}>{akunNama}</span>
             </p>
             <MdKeyboardArrowDown className='text-gray-400 text-14'/>
         </div>

@@ -9,7 +9,7 @@ const initialState = {
 }
 
 export const ContextProvider = ({children}) => {
-    const [activeMenu, setActiveMenu] = useState(true);
+    const [activeMenu, setActiveMenu] = useState(false);
     const [isClicked, setIsClicked] = useState(initialState);
     const [currentColor, setcurrentColor] = useState('#03c9d7');
     const [currentMode, setcurrentMode] = useState('Light');
@@ -26,6 +26,10 @@ export const ContextProvider = ({children}) => {
      //edit Form
      const [formNama, setformNama] = useState();
      //edit Form end
+     //Login
+     const [akunNama, setakunNama] = useState()
+     const [akunRole, setakunRole] = useState()
+     const [akunClass, setakunClass] = useState()
 
     
     
@@ -47,6 +51,16 @@ export const ContextProvider = ({children}) => {
         setujianDurasi(a);
         setujianNama(b);
         setujianSoal(c);
+
+        //localStorage.setItem('ColorMode',e)
+  
+    }
+
+    const setLogin= (a,b,c) => {
+       setakunNama(a);
+       setakunRole(b);
+       setakunClass(c);
+
 
         //localStorage.setItem('ColorMode',e)
   
@@ -82,7 +96,10 @@ export const ContextProvider = ({children}) => {
         ujianDurasi,setujianDurasi,
         ujianNama,setujianNama,
         kelasNama,setkelasNama,setKelas,
-        formNama,setformNama,setForm
+        formNama,setformNama,setForm,
+        akunNama,setakunNama,
+        akunClass,setakunClass,
+        akunRole,setakunNama,setLogin
         }}>
         {children}
     </StateContext.Provider>

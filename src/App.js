@@ -5,13 +5,13 @@ import {FiSettings} from 'react-icons/fi';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
 import {Navbar,Sidebar,ThemeSettings,Soalujian,Kelasform,Formform} from './components';
-import {Calendar,Kanban,ColorPicker,Editor,Dashboard,Matakuliah,Line,Login,Home,Kelas} from './pages';
+import {Calendar,Kanban,ColorPicker,Editor,Dashboard,Matakuliah,Line,Login,Home,Kelas,Register,Registersis} from './pages';
 import { motion ,AnimatePresence} from 'framer-motion';
 
 import { useStateContext } from './contexts/ContextProvider';
 const App = () => {
   const {activeMenu,themeSettings,
-     setThemeSettings,currentColor,currentMode,ujianSoal,kelasNama,formNama} = useStateContext();
+     setThemeSettings,currentColor,currentMode,ujianSoal,kelasNama,formNama,akunNama,akunRole} = useStateContext();
 
   
   return (
@@ -33,10 +33,14 @@ const App = () => {
         </div>
         {activeMenu ? (
       <div className='w-72 fixed sidebar dark:bg-secondary-dark-bg bg-white'>
+        <AnimatePresence>
         <Sidebar />
+        </AnimatePresence>
       </div>  
       ): (<div className='w-0 dark:bg-secondary-dark-bg'>
+        <>
       <Sidebar />
+      </>
       </div>
       )}
       <div className={
@@ -64,16 +68,22 @@ const App = () => {
       
       {formNama && <Formform />}
       </AnimatePresence>
+      <AnimatePresence>
         <Routes>
           {/* dahboard */}
+          <Route path='/registerdosen' element={<Register />}/>
+          <Route path='/registersiswa' element={<Registersis />}/>
           
-          <Route path='/home' element={<Dashboard />}/>                    
+
+
+          <Route path='/home' element={<Dashboard />}/>
          
           {/* pages */}
           <Route path='/history' element={<Matakuliah />}/>
+          
           <Route path='/kelas' element={<Kelas />}/>
           
-          <Route path='/order' element="eorder"/>
+          
           {/* Apps */}
           <Route path='/kanban' element={<Kanban />}/>
           <Route path='/editor' element={<Editor />}/>
@@ -85,17 +95,16 @@ const App = () => {
           
           
         </Routes>
+        </AnimatePresence>
       </div>
       
       </div>
       
       </div>
-      <Routes>
+   <Routes>
       <Route path='/login' element={<Login />}/>
-      <Route path='/' element={<Home />}/>
-      </Routes>
-      
-      
+          <Route path='/' element={<Home />}/>
+          </Routes>
     </div>
     </BrowserRouter>
   )

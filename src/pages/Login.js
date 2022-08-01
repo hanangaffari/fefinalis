@@ -72,7 +72,10 @@ import pencilJ from './../assets/mahasiswa/pencil.svg';
 import rhandJ from './../assets/mahasiswa/rhand.svg';
 import rhandinJ from './../assets/mahasiswa/rhandin.svg';
 
+import axios from '../auth/UserActions'
 import { Navigate, useNavigate } from 'react-router-dom';
+import { useStateContext } from '../contexts/ContextProvider.js';
+
 
 //  import React from 'react';
 //import Buatakunz from './../assets/buatakunz.svg';
@@ -81,6 +84,39 @@ import { Navigate, useNavigate } from 'react-router-dom';
 const Login = () => {
     const navigate = useNavigate();
     const [isVisible,setIsVisible] = useState(false);
+    const { setLogin } = useStateContext();
+
+
+    const handleSubmit = async (e) => {
+
+        console.log(e)        
+        try {
+            const response = await axios.post('/auth/sign-in',
+            e,
+        {
+    headers: {
+        "Content-Type" : "application/json"
+
+            }
+        });
+        console.log(response.status);
+        console.log(response)
+                if(response.statusText === "OK"){
+                    const {name,role,id_class} = response.data.user;
+                     console.log("succes");
+                     console.log(e);
+                     console.log(name,role,id_class);
+                                
+                     setLogin(name,role,id_class);
+                     navigate('/home');
+                }else{
+                    console.log("failed");
+                }
+            
+        } catch (error) {
+            console.log(error.response.data)
+        }
+    }
     
 
     
@@ -178,25 +214,25 @@ const Login = () => {
             <StyledTitle size={60} style={{fontWeight:"bold",color:"red"}}>Login</StyledTitle>
             <Formik
             initialValues={{
-                username:"",
+                email:"",
                 password:"",
             }}
             validationSchema={
                 Yup.object({
-                    username: Yup.string().required("tidak bisa kosong"),
+                    email: Yup.string().required("tidak bisa kosong"),
                     password: Yup.string().required("tidak bisa kosong")
                 })
             }
-            onSubmit={() => {
+            onSubmit={(values) => {
                 
-                navigate('/home');
+                handleSubmit(values)
             }}
             >
                 {({isSubmitting}) => (
                     <Form>
                         <TextInput
-                        name="username"
-                        type="text"
+                        name="email"
+                        type="email"
                         label="Username"
                         placeholder="masukan nama"
                         icon={<BsPersonSquare/>}
@@ -287,6 +323,7 @@ const Login = () => {
                         <StyledTitle style={{color:colors.dark2,fontWeight:"bolder"}}>
                             dosen</StyledTitle>
                     </motion.div>
+
                     <motion.div 
                     style={{backgroundColor:colors.dark1,
                     width:"100%",height:"100%",borderRadius:"5%"}} 
@@ -294,9 +331,9 @@ const Login = () => {
                         backgroundColor:colors.dark2,
                         marginTop:"10%"
                     }}
+
                     onClick={() => {
-                        
-                       
+                        navigate('/registersiswa')                       
                     }}
                     >
                         

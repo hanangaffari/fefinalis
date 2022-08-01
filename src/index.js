@@ -4,7 +4,6 @@ import ReactDOM from "react-dom";
 import './index.css';
 
 import App from './App';
-import Appril from './Appril';
 
 import {ContextProvider} from './contexts/ContextProvider';
 ReactDOM.render(

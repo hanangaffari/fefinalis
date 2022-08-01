@@ -25,13 +25,13 @@ import Logo from './../assets/favicon.png';
 
 
 export const TextInput = ({onChange, icon, ...props}) => {
+
     const [field, meta] = useField(props);
     const {value, ...rest} = field;
     const [show, setShow] = useState(false);
     
-    
-
     return(
+
         <div style={{position : "relative"}}>
             <StyledLabel htmlFor={props.name}>{props.label}
             </StyledLabel>
@@ -71,13 +71,14 @@ export const TextInput = ({onChange, icon, ...props}) => {
                 <ErrorMsg style={{ visibility: "hidden" }}>.</ErrorMsg>
             )}
         </div>
-
         
     );
 
     
     
 };
+
+
 
 
 

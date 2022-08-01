@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import Pro from './../data/avatar.jpg'
 import Pro2 from './../data/avatar2.jpg'
 import Pro3 from './../data/avatar3.png'
@@ -11,11 +11,89 @@ import {FaArrowRight,FaArrowLeft} from 'react-icons/fa'
 import { motion } from "framer-motion";
 import { Postname } from "../components/Styles";
 import { useStateContext } from "../contexts/ContextProvider";
+import axios from '../auth/UserActions'
+import { setTime } from "@syncfusion/ej2-react-schedule";
+
+
+
 
 const Dashboard =  () => {
-    const [posisi, setposisi] = useState(0)
-    const [klikp, setklikp] = useState(0)
-    const{currentColor ,setujianSoal,setUjian} = useStateContext();
+    
+
+    const [posisi, setposisi] = useState(0);
+    const [klikp, setklikp] = useState(0);
+    const [postemail,setpostemail] = useState([]);
+    const [posttext,setposttext] = useState([]);
+   
+
+    const [data, setData] = useState([])
+    useEffect(() => {
+        getData();
+    }, []);
+
+    const getData = async() => {
+        const response = await axios.get('/post/class/'+akunClass);
+
+        
+
+        setData(response.data);
+        console.log(response.data)
+    }
+
+    const [ulangan, setUlangan] = useState([])
+    useEffect(() => {
+        getUlangan();
+    }, []);
+
+    const getUlangan = async() => {
+        const response = await axios.get('/forms/'+akunClass);
+
+        
+
+        setUlangan(response.data);
+        console.log(ulangan)
+    }
+    
+    
+
+    const{currentColor ,setujianSoal,setUjian,akunNama,akunRole,akunClass} = useStateContext();
+
+    var kelaspost = [];
+    var kela = ['najib@gmail.com','akuma@gmail.com'];
+
+    
+    
+    const read = async () => {
+        try {
+            axios.get('/post').then(response => {
+
+                
+                for (let index = 0; index < response.data.length; ++index) { 
+                
+                    
+                    
+                    if(response.data[index].id_class === akunClass){
+
+                        postemail[index] = response.data[index].email;
+                        posttext[index] = response.data[index].message;
+                    }
+                    
+                
+   
+                }                
+                
+                
+            });
+
+        } catch (error) {
+            console.log(error.response)
+        }
+    }
+
+    console.log(kelaspost);
+    console.log(postemail);
+    console.log(kela);
+    
     return (
         
         <div className="mt-10" >
@@ -72,8 +150,53 @@ const Dashboard =  () => {
                      onClick={() => setUjian("10:00",'Matematika','15')}>Start</button>
                     </motion.div>
                     
-                </motion.div>   
-                <motion.div  
+                </motion.div> 
+                {
+                    ulangan.map((item,index) => (
+                        <motion.div  
+                whileHover={{y:-6}}
+                whileInView={{y:0,opacity:1}}
+                animate={{x:posisi,opacity:0}}
+                
+                
+                className="bg-slate-50 h-44 rounded-xl
+                 w-30 lg:w-60 p-6 m-3 ml-12 dark:bg-black"
+                 style={{width:"50vh",height:"30vh"}}
+                 >
+                    <div className="flex">
+                    <img src={Pro} alt='' className='rounded-full w-20 h-20 '/>                                        
+                    <div className="w-13 h-14 inline-block pl-2">
+                    <div>
+                    <h1 className="text-black-450 text-40 font-extrabold float-left" style={{
+                        fontSize:"4vh",color:currentColor
+                    }}>agus antaro</h1>                                        
+                    </div>
+                    <h1 className="text-black-450 text-40 font-extrabold float-left"
+                    style={{color:currentColor}}
+                    >Matematika</h1>                    
+                    </div>
+                    </div>
+                    <div className="w-full flex">                    
+                    <h1 className="font-bold" style={{fontSize:"4vh",color:currentColor}}>start time :</h1>
+                    <h1 className="" style={{fontSize:"5vh",marginLeft:"1vh",color:currentColor}}>09.30</h1>
+                    </div>
+                    <div className="w-full flex">                    
+                    <h1 className="font-bold" style={{fontSize:"4vh",color:currentColor}}>duration :</h1>
+                    <h1 className="" style={{fontSize:"5vh",marginLeft:"1vh",color:currentColor}}>10:00</h1>
+                    </div>
+                    <motion.div className="h-20 pt-5" whileTap={{scale:0.9}}>                    
+                    <button className="w-full h-10 rounded-xl" 
+                    style={{backgroundColor:currentColor}}
+                     onClick={() => setUjian("10:00",'Matematika','15')}>Start</button>
+                    </motion.div>
+                    
+                </motion.div>
+                    ))        
+                }
+
+
+                {
+                /* <motion.div  
                 whileHover={{y:-6}}
                 whileInView={{y:0,opacity:1}}
                 animate={{x:posisi,opacity:0}}
@@ -318,7 +441,8 @@ const Dashboard =  () => {
                     <button className="w-full h-10 rounded-xl" style={{backgroundColor:currentColor}}
                     onClick={() => setUjian("30:00",'Biology','5')}>Start</button>
                     </motion.div>
-                </motion.div>
+                </motion.div> */
+                }
                 
                 </div>
         
@@ -338,142 +462,10 @@ const Dashboard =  () => {
          rounded-xl w-full lg:w-90  p-9 pt-0 m-3 bg-no-repeat bg-cover bg-center "        
         >
 
-                <div style={{paddingLeft:"8vh",paddingRight:"8vh",minHeight:"35vh"}} 
-                className=''>
-                    {/* di sini post an */}
-                    <div className="bg-slate-50 rounded-2xl dark:bg-black" 
-                    style={{minHeight:"40vh",marginTop:"5%",
-                    padding:"3vh"
-                }}>
-                        
-                        <div className="flex ">
-                    {/* disini foto profile */}    
-                    <img src={Pro} alt='' className='w-10 h-10 rounded-full'/>
-                    {/* disini title */}
-                    <Postname size={25} style={{fontWeight:"bolder"}} className='dark:text-white'>agus antaro</Postname>
-                    </div>
-                    {/* disini text dari guru */}                
-                    <p className="font-semibold dark:text-white" style={{marginTop:"2vh"}}>
-                    Secara etimologis, pendidikan kewarganegaraan berasal dari
-                     kata “pendidikan” dan kata “kewarganegaraan”. Pendidikan 
-                     berarti usaha sadar dan terencana untuk mewujudkan suasana 
-                     belajar dan proses pembelajaran agar peserta didik secara aktif 
-                     mengembangkan potensi dirinya, sedangkan kewarganegaraan adalah 
-                     segala hal ihwal yang berhubungan dengan warga negara. 
-                      Secara yuridis, pendidikan kewarganegaraan dimaksudkan 
-                      untuk membentuk peserta didik menjadi manusia yang memiliki 
-                      rasa kebangsaan dan cinta tanah air. Secara terminologis, pendidikan 
-                      kewarganegaraan adalah program pendidikan yang berintikan demokrasi politik,
-                       diperluas dengan sumber-sumber pengetahuan lainnya: pengaruh-pengaruh positif 
-                       dari pendidikan sekolah, masyarakat, dan orang tua. Kesemuanya itu diproses guna 
-                       melatih para siswa untuk berpikir kritis, analitis, bersikap dan bertindak demokratis 
-                       dalam mempersiapkan hidup demokratis berdasarkan Pancasila dan UUD 1945. 
-                                           
-                    </p>
-                    </div>
-                    {/* di sini akhir post an */}
-              
-                </div>    
 
-                <div style={{paddingLeft:"8vh",paddingRight:"8vh",minHeight:"35vh"}} 
-                className=''>
-                    {/* di sini post an */}
-                    <div className="bg-slate-50 rounded-2xl dark:bg-black" 
-                    style={{minHeight:"40vh",marginTop:"5%",
-                    padding:"3vh"
-                }}>
-                        
-                        <div className="flex ">
-                    {/* disini foto profile */}    
-                    <img src={Pro3} alt='' className='w-10 h-10 rounded-full'/>
-                    {/* disini title */}
-                    <Postname size={25} style={{fontWeight:"bolder"}} 
-                    className='dark:text-white'>john cok</Postname>
-                    </div>
-                    {/* disini text dari guru */}                
-                    <p className="font-semibold dark:text-white" style={{marginTop:"2vh"}}>
-                    untuk minggu depan materinya javascript dan next.js,dan jng lupa sama tugas bapak                     
-                    </p>
-                    </div>
-                    {/* di sini akhir post an */}
-                   
-                </div>
-
-                <div style={{paddingLeft:"8vh",paddingRight:"8vh",minHeight:"35vh"}} 
-                className=''>
-                    {/* di sini post an */}
-                    <div className="bg-slate-50 rounded-2xl dark:bg-black" 
-                    style={{minHeight:"40vh",marginTop:"5%",
-                    padding:"3vh"
-                }}>
-                        
-                        <div className="flex ">
-                    {/* disini foto profile */}    
-                    <img src={Pro2} alt='' className='w-10 h-10 rounded-full'/>
-                    {/* disini title */}
-                    <Postname size={25} style={{fontWeight:"bolder"}} 
-                    className='dark:text-white'>hunnigan</Postname>
-                    </div>
-                    {/* disini text dari guru */}                
-                    <p className="font-semibold dark:text-white" style={{marginTop:"2vh"}}>
-                    kisi kisi dah ibu kasih ya,jangan lupa belajar biar nilainya bagus ,
-                    dan ujiannya juga jangan nyontek ya 
-                    </p>
-                    </div>
-                    {/* di sini akhir post an */}
-                   
-                </div>
-
-                <div style={{paddingLeft:"8vh",paddingRight:"8vh",minHeight:"35vh"}} 
-                className=''>
-                    {/* di sini post an */}
-                    <div className="bg-slate-50 rounded-2xl dark:bg-black" 
-                    style={{minHeight:"40vh",marginTop:"5%",
-                    padding:"3vh"
-                }}>
-                        
-                        <div className="flex ">
-                    {/* disini foto profile */}    
-                    <img src={Pro6} alt='' className='w-10 h-10 rounded-full'/>
-                    {/* disini title */}
-                    <Postname size={25} style={{fontWeight:"bolder"}} 
-                    className='dark:text-white'>mang oleng</Postname>
-                    </div>
-                    {/* disini text dari guru */}                
-                    <p className="font-semibold dark:text-white" style={{marginTop:"2vh"}}>
-                    goblok
-                    </p>
-                    </div>
-                    {/* di sini akhir post an */}
-                   
-                </div> 
-
-                <div style={{paddingLeft:"8vh",paddingRight:"8vh",minHeight:"35vh"}} 
-                className=''>
-                    {/* di sini post an */}
-                    <div className="bg-slate-50 rounded-2xl dark:bg-black" 
-                    style={{minHeight:"40vh",marginTop:"5%",
-                    padding:"3vh"
-                }}>
-                        
-                        <div className="flex ">
-                    {/* disini foto profile */}    
-                    <img src={Pro4} alt='' className='w-10 h-10 rounded-full'/>
-                    {/* disini title */}
-                    <Postname size={25} style={{fontWeight:"bolder"}} 
-                    className='dark:text-white'>sebastian</Postname>
-                    </div>
-                    {/* disini text dari guru */}                
-                    <p className="font-semibold dark:text-white" style={{marginTop:"2vh"}}>
-                    okay next time ,kita bakal belajar adjective.
-                    bukunya di buka ya,jangan maen game terus
-                    </p>
-                    </div>
-                    {/* di sini akhir post an */}
-                   
-                </div> 
-
-                <div style={{paddingLeft:"8vh",paddingRight:"8vh",minHeight:"35vh"}} 
+                {
+                    data.map((item,index) => (
+                        <div style={{paddingLeft:"8vh",paddingRight:"8vh",minHeight:"35vh"}} 
                 className=''>
                     {/* di sini post an */}
                     <div className="bg-slate-50 rounded-2xl dark:bg-black" 
@@ -486,17 +478,29 @@ const Dashboard =  () => {
                     <img src={Pro5} alt='' className='w-10 h-10 rounded-full'/>
                     {/* disini title */}
                     <Postname size={25} style={{fontWeight:"bolder"}} 
-                    className='dark:text-white'>mia khalifah</Postname>
+                    className='dark:text-white ml-1'>{item.email}</Postname>
                     </div>
                     {/* disini text dari guru */}                
                     <p className="font-semibold dark:text-white" style={{marginTop:"2vh"}}>
-                    nak nanti malem jangan lupa sama ujiannya ya,ntar juga saya kasih link zoom biar bisa 
-                    saya jelaskan dengan enak,dan jangan lupa bawa alat alat ya nak😘
+                    {item.message}
                     </p>
                     </div>
                     {/* di sini akhir post an */}
                    
-                </div> 
+                </div>
+                    ))        
+                }
+
+
+                    {/* 
+                {
+                    data.map((item,index) => (
+                       <tr key={item.uid}>
+                        <td>{item.email}</td>
+                       </tr> 
+                    ))        
+                } */}
+
 
                 </div>
                 

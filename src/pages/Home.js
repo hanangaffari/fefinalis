@@ -3,11 +3,15 @@ import { StyledTitle,StyledTitle2,Avatar,StyledButton, ButtonGroup, colors, Styl
 import Logo from './../assets/favicon.png';
 
 import background1 from './../assets/background1.svg'
-
+import { useStateContext } from '../contexts/ContextProvider';
 const Home =  () => {
+    const {setActiveMenu} = useStateContext();
+    {setActiveMenu(false)}
+
     return (
+
         <StyledContainer style={{width:"100%",height:"100%",
-        position:"fixed",top:"0%",zIndex:"1001"}}
+        position:"absolute",top:"0%",zIndex:"1001"}}
         >
             <div style={{                
                 top:0,

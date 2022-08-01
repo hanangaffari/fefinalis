@@ -131,6 +131,8 @@ flex-direction: row;
 margin-top: 20px;
 `;
 
+
+
 export const StyledInput = styled.input `
     width: 100%;
     padding:5% ;
@@ -175,6 +177,16 @@ export const StyledLabel = styled.p`
     text-align: left;
     font-size: 23px;
     font-weight: bold;
+`;
+
+export const StyledFormreg = styled.div`
+background-color: ${props => props.bg || colors.dark1};        
+padding: 6% 4%;
+
+
+transition: ease-in-out 0.3s;
+
+
 `;
 
 export const StyledForm = styled.div`
@@ -299,6 +311,20 @@ export const StyledFormBtn = styled.button `
         cursor: pointer;       
         border: 2px solid ${colors.white}; 
 }`;
+
+export const StyledFormBtnreg = styled.button `    
+    width: 20%;
+    padding: 0.5% 0% 0.5% 0%;
+    background-color: transparent;
+    font-size: 180%;
+    text-allign:center;
+    border: 2px solid ${colors.red};
+    border-radius: 30px;
+    color: ${colors.red};
+    transition: ease-in-out 0.3s;
+
+
+`;
 
 export const StyledregFormBtn = styled.button `    
     width: 50%;

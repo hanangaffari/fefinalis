@@ -3,6 +3,9 @@ import { MdOutlineCancel } from 'react-icons/md';
 import { BsCheck } from 'react-icons/bs';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
+import {motion}from 'framer-motion'
+
+
 import { themeColors } from '../data/dummy';
 import { useStateContext } from '../contexts/ContextProvider';
 
@@ -16,14 +19,17 @@ const ThemeSettings = () => {
       bg-white dark:bg-black w-400'>
         <div className='flex justify-between items-center p-4 ml-4'>
           <p className='font-semibold text-xl'>settings</p>
-          <button type='button' onClick={() => {
+          <motion.button type='button' onClick={() => {
             setThemeSettings(false)
+          }}
+          whileHover={{
+            scale:1.1
           }}
           style={{color: 'rgb()153,171,180',borderRadius:"50%"}}
           className='text-2xl p-3 hover:drop-shadow-xl '
           >
             <MdOutlineCancel />
-          </button>
+          </motion.button>
           
         </div>
         <div className='flex-col border-t-1 border-color p-4 ml-4'>
@@ -62,7 +68,10 @@ const ThemeSettings = () => {
               <TooltipComponent key={index} content={item.name} position='TopCenter'>
                 <div 
                 className='relative mt-2 cursor-pointer flex gap-5 items-center'>
-                  <button
+                  <motion.button
+                  whileHover={{
+                    scale:1.1
+                  }}
                   type='button'
                   className="h-10 w-10 rounded-full cursor-pointer"
                   style={{ backgroundColor: item.color}}
@@ -70,7 +79,7 @@ const ThemeSettings = () => {
                   >
                     <BsCheck className={`ml-2 text-2xl
                      text-white ${item.color=== currentColor ?'block' : 'hidden'  }`}/>
-                  </button>
+                  </motion.button>
                 </div>
               </TooltipComponent>
             ))}

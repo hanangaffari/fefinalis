@@ -11,6 +11,8 @@ import { useStateContext } from '../contexts/ContextProvider';
 
 import Logo from './../assets/favicon.png';
 
+import { motion } from 'framer-motion';
+
 const Sidebar = () => {
 
   const {activeMenu,setActiveMenu,screenSize,currentColor} = useStateContext();
@@ -23,8 +25,10 @@ const Sidebar = () => {
     }
   }
   return (
-    <div className='ml-3 h-screen md:overflow-hidden overflow-auto 
-    md:hover:overflow-auto pb-10'>
+    <motion.div className='ml-3 h-screen md:overflow-hidden overflow-auto 
+    md:hover:overflow-hidden pb-10 '
+    animate={{ y:0 }} initial={{y:-200}} exit={{y:-200}}      
+    >
       {activeMenu && (<>
       <div className='flex justify-between items-center'>
         <Link to='/home' onClick={handleCloseSideBar} 
@@ -34,21 +38,34 @@ const Sidebar = () => {
           <span className='pt-2'>Telkom-U</span>
         </Link>
         <TooltipComponent content='Menu' position='BottomCenter'>
-          <button type='button' onClick={() => 
+          <motion.button type='button' onClick={() => 
            setActiveMenu((prevActiveMenu) => !prevActiveMenu)}
           className='text-xl rounded-full p-3 dark:text-white  mt-4 block'
+          whileHover={{
+            scale:1.1
+          }}
           >
             <MdOutlineCancel />
-          </button>
+          </motion.button>
         </TooltipComponent>
       </div>
-      <div className='mt-10 '>
+
+      <motion.div className='mt-10 ' 
+      
+      >
           {links.map((item) => (
-            <div >              
+            <motion.div 
+            
+            >              
               <p className='text-gray-400 m3 mt-4 uppercase'>
               {item.title}
               </p>
               {item.links.map((link) => (
+                <motion.div
+                whileHover={{
+                  scale:1.1
+                }}
+                >
                 <NavLink to={`/${link.name}`}
                 key={link.name}
                 onClick={handleCloseSideBar}
@@ -65,12 +82,15 @@ const Sidebar = () => {
                     {link.name}
                   </span>
                 </NavLink>
+                </motion.div>
+
               ))}
-            </div>
+            </motion.div>
           ))}
-      </div>
+      </motion.div>
+
       </>)}
-      </div>
+      </motion.div>
   )
 }
 
