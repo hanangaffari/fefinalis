@@ -52,6 +52,8 @@ import { useStateContext } from '../contexts/ContextProvider.js';
 const Register = () => {
    const { setLogin } = useStateContext();
     const navigate = useNavigate();
+    const { cookies,setActiveMenu } = useStateContext();
+
 
     var a=false;
 
@@ -69,33 +71,43 @@ const Register = () => {
     }
 }
     
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e,setFieldError,setSubmitting) => {
 
         console.log(e)
-        try {
-            const response = await axios.post('/auth/sign-up',
+       
+          await axios.post('/auth/sign-up',
             e,
         {
     headers: {
         "Content-Type" : "application/json"
 
             }
-        });
+        }).then((response) => {
         console.log(response.status);
         console.log(response)
                 if(response.statusText === "Created"){
+                    
 
                     console.log("succes");
-                    console.log(e);                
-                    setLogin(e.name,e.role);
+                    console.log(e); 
+                    console.log(e.role);                
+                    console.log(e.name);                
+                    cookies.set('class','', { path: '/' });
+                     cookies.set('role',e.role, { path: '/' });
+                     cookies.set('name',e.name, { path: '/' });
                     navigate('/home');
+                    setActiveMenu((prevActiveMenu) =>!prevActiveMenu )
                 }else{
                     console.log("failed");
                 }
-            
-        } catch (error) {
-            console.log(error.response.data)
-        }
+            }).catch(
+                (err) => {
+                if(err.response.data.message === 'Email already exist'){
+              
+                setFieldError('email','email telah di pakai')                
+                setSubmitting(false);
+                }})
+        
     }
 
     return( 
@@ -247,24 +259,7 @@ const Register = () => {
                         .required("tidak bisa kosong"),                       
                         confirm_password: Yup.string().required("tidak bisa kosong"),                        
                          
-                        /*
-                        NamaMahasiswa: Yup.string()
-                        .required("tidak bisa kosong").max(30,'maksimal 30 huruf').matches(/^(?=.*[a-z])/, 'Harus mengandung setidaknya satu karakter huruf kecil')
-                        .matches(/^(?=.*[A-Z])/, 'Harus mengandung setidaknya satu karakter huruf Besar'),
-                        Username: Yup.string()
-                        .required("tidak bisa kosong").matches(/^[a-z\s]+$/, "Hanya huruf kecil yang diperbolehkan untuk kolom ini"),
-                        password : Yup.string().min(8, "kata sandi terlalu pendek")
-                        .required("tidak bisa kosong")
-                        .matches(/^(?=.*[a-z])/, 'Harus mengandung setidaknya satu karakter huruf kecil')
-                        .matches(/^(?=.*[A-Z])/, 'Harus mengandung setidaknya satu karakter huruf Besar')
-                        .matches(/^(?=.*[0-9])/, 'Harus mengandung setidaknya satu nomor')
-                        .matches(/^(?=.*[!@#\$%\^&\_=()*])/, 'Harus mengandung setidaknya satu karakter khusus'),
-                        NIM: Yup.string().required("tidak bisa kosong").max(10,'maksimal 10 angka'),
-                        confirm_password: Yup.string().required("tidak bisa kosong").
-                        oneOf([Yup.ref("password")],"password tidak sama"),
-                        FotoMahasiswa: Yup.mixed().required("tidak bisa kosong"),
-                        Foto64 : Yup.string(),  
-                        */                     
+                        
                     })
                 }
 
@@ -274,8 +269,7 @@ const Register = () => {
                 
                 onSubmit={(values,{setSubmitting,setFieldError}) => {
                     values.role='admin';
-                    console.log(values)
-                    handleSubmit(values)
+                    handleSubmit(values,setFieldError,setSubmitting)
                 }}
                 >
                     {({isSubmitting}) => (

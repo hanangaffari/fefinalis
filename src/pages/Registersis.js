@@ -42,10 +42,11 @@ import head from '../assets/sisreg/1/head.svg';
 
 
 //2
-import body2 from '../assets/gurureg/2/body.svg';
-import coffee from '../assets/gurureg/2/coffee.svg';
-import hand2 from '../assets/gurureg/2/hand.svg';
-import head2 from '../assets/gurureg/2/head.svg';
+import body2 from '../assets/sisreg/2/body.svg';
+import paper from '../assets/sisreg/2/paper.svg';
+import hand2 from '../assets/sisreg/2/hand.svg';
+import head2 from '../assets/sisreg/2/head.svg';
+import penutup from '../assets/sisreg/2/penutup.svg';
 
 //reg
 
@@ -55,6 +56,7 @@ import { useStateContext } from '../contexts/ContextProvider.js';
 const Registersis = () => {
    const { setLogin } = useStateContext();
     const navigate = useNavigate();
+    const { cookies,setActiveMenu } = useStateContext();
 
     var a=false;
 
@@ -72,34 +74,55 @@ const Registersis = () => {
     }
 }
     
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e,setFieldError,setSubmitting) => {
 
         console.log(e)
-        try {
-            const response = await axios.post('/auth/sign-up',
+        
+            await axios.post('/auth/sign-up',
             e,
         {
     headers: {
         "Content-Type" : "application/json"
 
             }
-        });
+        }).then((response) => {
         console.log(response.status);
         console.log(response)
                 if(response.statusText === "Created"){
-
+                    
                     console.log("succes");
                     console.log(e);                
                     console.log(e.id_class);
-                    setLogin(e.name,e.role,e.id_class);
+                    cookies.set('class',e.id_class, { path: '/' });
+                     cookies.set('role',e.role, { path: '/' });
+                     cookies.set('name',e.name, { path: '/' });
                     navigate('/home');
+                    setActiveMenu((prevActiveMenu) =>!prevActiveMenu )
+                    console.log('succes')
+                    console.log(response);
                 }else{
                     console.log("failed");
                 }
+                setSubmitting(false);
+            }).catch(
+                (err) => {console.log(err)
+                if(err.response.data.message === 'Email already exist'){
+              
+                setFieldError('email','email telah di pakai')                
+                setSubmitting(false);
+                }else if(err.response.data.message === 'Internal server error'){
+              
+                    setFieldError('id_class','kelas tidak ada,atau terjadi error pada server')                
+                    setSubmitting(false);
+                    }
+                    else if(err.response.data.message === 'Class not found'){
+              
+                        setFieldError('id_class','kelas tidak ada')                
+                        setSubmitting(false);
+                        }
             
-        } catch (error) {
-            console.log(error.response.data)
-        }
+            })
+       
     }
 
     return( 
@@ -111,7 +134,7 @@ const Registersis = () => {
         >
 
             {/* animasi 1 */}
-            <div style={{left:"5vh",position:"absolute",zIndex:'-1',top:"-30vh",opacity: b? 0:1}}>
+            <div style={{left:"-7vh",position:"absolute",zIndex:'-1',top:"-30vh",opacity: b? 0:1}}>
             <motion.img 
                     style={{backgroundColor:null
                     ,width:"90vh",pointerEvents:"none"}}
@@ -122,7 +145,7 @@ const Registersis = () => {
 
 
 
-            <motion.div style={{left:"27vh",position:"absolute",zIndex:'-1',top:"-25vh",
+            <motion.div style={{left:"16vh",position:"absolute",zIndex:'-1',top:"-25vh",
             opacity: b? 0:1,pointerEvents:"none",zIndex:"2",
                         }}
                         animate={{ rotate:[-52,-48,-52]}} 
@@ -140,10 +163,10 @@ const Registersis = () => {
                     />
             </motion.div>
 
-            <motion.div style={{left:"17vh",position:"absolute",zIndex:'-1',top:"-11vh",
+            <motion.div style={{left:"7vh",position:"absolute",zIndex:'-1',top:"-11vh",
             opacity: b? 0:1,pointerEvents:"none",zIndex:"2",
                         }}
-                        animate={{ rotate:[-72,-78,-72]}} 
+                        animate={{ rotate:[-72,-68,-72]}} 
                         transition={{
                             yoyo:Infinity,
                             duration:10
@@ -159,7 +182,7 @@ const Registersis = () => {
             </motion.div>
 
             
-            <motion.div style={{left:"8vh",position:"absolute",zIndex:'-1',top:"-17vh",
+            <motion.div style={{left:"-4vh",position:"absolute",zIndex:'-1',top:"-17vh",
             opacity: b? 0:1,pointerEvents:"none",zIndex:"2",
                         }}
                         animate={{ rotate:[-52,-48,-52]}} 
@@ -177,7 +200,7 @@ const Registersis = () => {
                     />
             </motion.div>
 
-            <motion.div style={{left:"10vh",position:"absolute",zIndex:'-1',top:"0vh",
+            <motion.div style={{left:"-1vh",position:"absolute",zIndex:'-1',top:"0vh",
             opacity: b? 0:1,pointerEvents:"none",zIndex:"2",
                         }}
                         animate={{ rotate:[-52,-48,-52,-53,-47,-43,-47,-45,-50]}} 
@@ -200,38 +223,53 @@ const Registersis = () => {
            
 
              {/* animasi 2 */}
-             <div style={{right:"30vh",position:"absolute",zIndex:'-1',bottom:"-15vh",opacity: b? 0:1,pointerEvents:"none"}}>
+
+                    <div style={{right:"22vh",position:"absolute",zIndex:'-1',bottom:"-13vh",opacity: b? 0:1,pointerEvents:"none"}}>
+                    <motion.img 
+                            style={{backgroundColor:null
+                            ,width:"40vh",pointerEvents:"none"}}
+                            animate={{ rotate:[52,52,52]}} 
+                            src={body2}
+                            />
+                    </div>  
+
+                    <div style={{right:"28vh",position:"absolute",zIndex:'2',bottom:"-20vh",opacity: b? 0:1,pointerEvents:"none"}}>
             <motion.img 
                     style={{backgroundColor:null
-                    ,width:"40vh",pointerEvents:"none"}}
-                    animate={{ rotate:[52,52,52]}} 
-                    src={body2}
-                    />
-                    </div>
-
-                    <div style={{right:"12vh",position:"absolute",zIndex:'1',bottom:"13vh",opacity: b? 0:1,pointerEvents:"none"}}>
-                    <motion.img 
-                    style={{backgroundColor:null
                     ,width:"30vh",pointerEvents:"none"}}
-                    animate={{ rotate:[38,50,42,46,42,40,46,49,48,52]}} 
-                    transition={{
-                        yoyo:Infinity,
-                        duration:25
-                    }}
-                    src={coffee}
+                    animate={{ rotate:[52,52,52]}} 
+                    src={penutup}
                     />
                     </div>
 
-                    <div style={{right:"9vh",position:"absolute",zIndex:'-1',bottom:"21vh",opacity: b? 0:1,pointerEvents:"none"}}>
+                    <div style={{right:"-20vh",position:"absolute",zIndex:'1',bottom:"16vh",opacity: b? 0:1,pointerEvents:"none"}}>
+                            <motion.img 
+                            style={{backgroundColor:null
+                            ,width:"80vh",pointerEvents:"none"}}
+                            animate={{ rotate:[38,50,42,46,42,40,46,49,48,52]}} 
+                            transition={{
+                                yoyo:Infinity,
+                                duration:25
+                            }}
+                            src={paper}
+                            />
+                    </div>
+
+                    <div style={{right:"-10vh",position:"absolute",zIndex:'3',bottom:"19vh",opacity: b? 0:1,pointerEvents:"none"}}>
                     <motion.img 
                     style={{backgroundColor:null
                     ,width:"60vh",pointerEvents:"none"}}
-                    animate={{ rotate:[49,49,49]}} 
+                    animate={{ rotate:[49,49,46,49,48,52,50,42,46,42]}} 
+                    transition={{
+                        yoyo:Infinity,
+                        duration:17
+                    }}
                     src={hand2}
                     />
                     </div>
 
-                    <div style={{right:"11vh",position:"absolute",zIndex:'-1',bottom:"38vh",opacity: b? 0:1,pointerEvents:"none"}}>
+                    <div style={{right:"0vh",position:"absolute",zIndex:'-1',bottom:"28vh",
+                    opacity: b? 0:1,pointerEvents:"none"}}>
                     <motion.img 
                     style={{backgroundColor:null
                     ,width:"20vh",pointerEvents:"none"}}
@@ -254,9 +292,7 @@ const Registersis = () => {
                 >
                     daftar</StyledTitle>
     
-                <Formik 
-                enableReinitialize
-                
+                <Formik                 
                 initialValues={{
                     role:"student",
                     id_class:"",
@@ -273,11 +309,16 @@ const Registersis = () => {
                         id_class: Yup.string().required("tidak bisa kosong"),
                         email: Yup.string().required("tidak bisa kosong"), 
                         name: Yup.string()
-                        .required("tidak bisa kosong"),                        
-                        password : Yup.string().min(8, "kata sandi terlalu pendek")
-                        .required("tidak bisa kosong"),                       
-                        confirm_password: Yup.string().required("tidak bisa kosong"),                        
-                         
+                        .required("tidak bisa kosong").max(30,'maksimal 30 huruf').matches(/^(?=.*[a-z])/, 'Harus mengandung setidaknya satu karakter huruf kecil')
+                        .matches(/^(?=.*[A-Z])/, 'Harus mengandung setidaknya satu karakter huruf Besar'),
+                        password :  Yup.string().min(8, "kata sandi terlalu pendek")
+                        .required("tidak bisa kosong")
+                        .matches(/^(?=.*[a-z])/, 'Harus mengandung setidaknya satu karakter huruf kecil')
+                        .matches(/^(?=.*[A-Z])/, 'Harus mengandung setidaknya satu karakter huruf Besar')
+                        .matches(/^(?=.*[0-9])/, 'Harus mengandung setidaknya satu nomor')
+                        .matches(/^(?=.*[!@#\$%\^&\_=()*])/, 'Harus mengandung setidaknya satu karakter khusus'),                     
+                        confirm_password: Yup.string().required("tidak bisa kosong").
+                        oneOf([Yup.ref("password")],"password tidak sama"),
                         /*
                         NamaMahasiswa: Yup.string()
                         .required("tidak bisa kosong").max(30,'maksimal 30 huruf').matches(/^(?=.*[a-z])/, 'Harus mengandung setidaknya satu karakter huruf kecil')
@@ -304,28 +345,17 @@ const Registersis = () => {
 
                 
                 onSubmit={(values,{setSubmitting,setFieldError}) => {
-                    values.role='Dosen';
-                    console.log(values)
-                    handleSubmit(values)
+                    values.role='student';
+                    handleSubmit(values,setFieldError,setSubmitting)
                 }}
                 >
                     {({isSubmitting}) => (
                         <Form   onChange={() => {
-                                console.log(width);
                                     
                                      }
                         
                        }    >
                         
-                           <ErrorMsg id='bigimg' style={{position:"absolute",marginTop:"27%",marginLeft:"15%",zIndex:"1",
-                                visibility:"hidden",fontSize:"80%"
-                            }}>
-                               image too big</ErrorMsg>
-                           <ErrorMsg id='unsupimg' style={{position:"absolute",marginTop:"27%",
-                           marginLeft:"15%",zIndex:"1",
-                                visibility:"hidden",fontSize:"80%"
-                            }}>
-                               unsuported image type</ErrorMsg>
 
                            <TextInput 
                            name="name" 
@@ -368,12 +398,13 @@ const Registersis = () => {
                            />                            
 
                            <ButtonGroup>
-                               {!isSubmitting &&<StyledFormBtn                              
+                               {!isSubmitting && (<StyledFormBtn                              
                                  type='submit'
                                  className='w-full sm:bg-red-400'
                                  >
                                <p style={{fontSize:"80%"}}>   Daftar</p>
-                               </StyledFormBtn> } 
+                               </StyledFormBtn> 
+                               )} 
                                
                                                         
                 {isSubmitting && (

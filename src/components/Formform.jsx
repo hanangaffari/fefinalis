@@ -1,4 +1,4 @@
-import React from 'react'
+import {React,useState} from 'react'
 import { useStateContext } from '../contexts/ContextProvider';
 import cancel from '../assets/cancel.svg'
 import { motion ,AnimatePresence} from 'framer-motion';
@@ -6,7 +6,15 @@ import { motion ,AnimatePresence} from 'framer-motion';
 
 
 const Formform = () => {
-    const {currentColor,setForm,formNama} = useStateContext();
+    const {currentColor,setForm,formNama,formId} = useStateContext();
+    console.log(formId)
+
+    const [form_name, setnama] = useState()
+    const [description, setdesk] = useState()
+    const [start_time, setstart] = useState()
+    const [duration, setduration] = useState()
+    const [questions, setquestion] = useState()
+
 
   return (
     <motion.div     
@@ -32,22 +40,27 @@ const Formform = () => {
         <div className='flex'>
           <div className='md:flex' style={{height:"3.5vh",width:"75%"}}>
           <h1 className='mr-3'>nama form :</h1>          
-          <input type='text' placeholder={formNama} className='rounded-xl pl-2'/>
+          <input type='text' placeholder={formNama} className='rounded-xl pl-2'
+          onInput={event=>setnama(event.target.value)}
+          />
           </div>
-          <div className='text-center md:flex'>
-          <h1>id class :</h1><h1>22002</h1>
+          <div className='text-center '>
+          <h1>id class :</h1><h1>{formId}</h1>
           </div>
           </div>
           {/* deskripsi jadwal*/}
 
           <div className='mt-3'>
           <h1 className='mr-3 font-extrabold '>Deskripsi :</h1> 
-          <textarea placeholder='masukan deskripsi' className='w-full rounded-xl p-2' style={{height:"10vh"}}>
+          <textarea placeholder='masukan deskripsi' className='w-full rounded-xl p-2' style={{height:"10vh"}}
+          onInput={event=>setdesk(event.target.value)}
+          >
           </textarea>  
           <label>jadwal :</label> 
           <input 
           className='w-full rounded-xl p-2'
           type='datetime-local'
+          onInput={event=>setstart(event.target.value)}
           />
             </div>
             
@@ -59,7 +72,9 @@ const Formform = () => {
           <input 
           name='durasi'
           type='radio'
-          value='5'          
+          value='5'  
+          onChange={event => setduration(event.target.value)}      
+        
           />
           <label className='ml-2'>5 menit</label>    
           </div>
@@ -68,7 +83,8 @@ const Formform = () => {
           <input 
           name='durasi'
           type='radio'
-          value='10'          
+          value='10'    
+          onChange={event => setduration(event.target.value)}      
           />
           <label className='ml-2'>10 menit</label>    
           </div>
@@ -77,7 +93,9 @@ const Formform = () => {
           <input 
           name='durasi'
           type='radio'
-          value='15'          
+          value='15'   
+          onChange={event => setduration(event.target.value)}      
+       
           />
           <label className='ml-2'>15 menit</label>    
           </div>
@@ -86,7 +104,9 @@ const Formform = () => {
           <input 
           name='durasi'
           type='radio'
-          value='20'          
+          value='20'   
+          onChange={event => setduration(event.target.value)}      
+       
           />
           <label className='ml-2'>20 menit</label>    
           </div>
@@ -95,7 +115,9 @@ const Formform = () => {
           <input 
           name='durasi'
           type='radio'
-          value='25'          
+          value='25'     
+          onChange={event => setduration(event.target.value)}      
+     
           />
           <label className='ml-2'>25 menit</label>    
           </div>
@@ -104,7 +126,9 @@ const Formform = () => {
           <input 
           name='durasi'
           type='radio'
-          value='30'          
+          value='30'    
+          onChange={event => setduration(event.target.value)}      
+      
           />
           <label className='ml-2'>30 menit</label>    
           </div>
@@ -113,7 +137,9 @@ const Formform = () => {
           <input 
           name='durasi'
           type='radio'
-          value='35'          
+          value='35'    
+          onChange={event => setduration(event.target.value)}      
+      
           />
           <label className='ml-2'>35 menit</label>    
           </div>
@@ -122,7 +148,9 @@ const Formform = () => {
           <input 
           name='durasi'
           type='radio'
-          value='40'          
+          value='40'     
+          onChange={event => setduration(event.target.value)}      
+     
           />
           <label className='ml-2'>40 menit</label>    
           </div>
@@ -131,7 +159,9 @@ const Formform = () => {
           <input 
           name='durasi'
           type='radio'
-          value='45'          
+          value='45'   
+          onChange={event => setduration(event.target.value)}      
+       
           />
           <label className='ml-2'>45 menit</label>    
           </div>
@@ -140,7 +170,9 @@ const Formform = () => {
           <input 
           name='durasi'
           type='radio'
-          value='50'          
+          value='50'    
+          onChange={event => setduration(event.target.value)}      
+      
           />
           <label className='ml-2'>50 menit</label>    
           </div>
@@ -149,7 +181,9 @@ const Formform = () => {
           <input 
           name='durasi'
           type='radio'
-          value='55'          
+          value='55'        
+          onChange={event => setduration(event.target.value)}      
+  
           />
           <label className='ml-2'>55 menit</label>    
           </div>
@@ -158,7 +192,9 @@ const Formform = () => {
           <input 
           name='durasi'
           type='radio'
-          value='60'          
+          value='60'   
+          onChange={event => setduration(event.target.value)}      
+       
           />
           <label className='ml-2'>60 menit</label>    
           </div>
@@ -186,7 +222,9 @@ const Formform = () => {
             {/* validasi soal */}
             <div className='mt-2'>
             <label className='w-full'>validasi soal</label>            
-                <textarea className='w-full rounded-xl h-20 p-2'></textarea>            
+                <textarea className='w-full rounded-xl h-20 p-2'
+                onInput={event=>setquestion(event.target.value)}
+                ></textarea>            
             </div>
             {/* pembuatan soal */}
            </div>           

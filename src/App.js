@@ -1,17 +1,23 @@
-import React from 'react';
+import {React,useEffect,useState} from 'react';
 import './App.css';
 import { BrowserRouter,Routes,Route } from 'react-router-dom';
 import {FiSettings} from 'react-icons/fi';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
-import {Navbar,Sidebar,ThemeSettings,Soalujian,Kelasform,Formform} from './components';
+import {Navbar,Sidebar,ThemeSettings,Soalujian,Kelasform,Formform, Addkelas,Addform,Logout} from './components';
 import {Calendar,Kanban,ColorPicker,Editor,Dashboard,Matakuliah,Line,Login,Home,Kelas,Register,Registersis} from './pages';
 import { motion ,AnimatePresence} from 'framer-motion';
 
 import { useStateContext } from './contexts/ContextProvider';
 const App = () => {
   const {activeMenu,themeSettings,
-     setThemeSettings,currentColor,currentMode,ujianSoal,kelasNama,formNama,akunNama,akunRole} = useStateContext();
+     setThemeSettings,currentColor,currentMode,ujianSoal,
+     kelasNama,formNama,akunNama,akunRole,kelasAdd,addformid,loggg,setActiveMenu} = useStateContext();
+
+     
+    console.log(activeMenu)
+     
+
 
   
   return (
@@ -54,6 +60,8 @@ const App = () => {
         </div>
       
       <div>
+
+      {kelasAdd ?  <Addkelas /> : ''}
       
       {themeSettings && <ThemeSettings /> }
       <AnimatePresence>      
@@ -62,6 +70,14 @@ const App = () => {
 
       <AnimatePresence>
       {ujianSoal && <Soalujian />}
+      </AnimatePresence>
+
+      <AnimatePresence>
+      {addformid && <Addform />}
+      </AnimatePresence>
+
+      <AnimatePresence>
+      {loggg && <Logout />}
       </AnimatePresence>
 
       <AnimatePresence>
@@ -76,12 +92,15 @@ const App = () => {
           
 
 
-          <Route path='/home' element={<Dashboard />}/>
-         
+          {
+            
+        <Route path='/home' element={akunRole === 'admin' ? <Kelas/> : <Dashboard/>}/>  
+   
+          }
+
+
           {/* pages */}
-          <Route path='/history' element={<Matakuliah />}/>
-          
-          <Route path='/kelas' element={<Kelas />}/>
+          <Route path='/history' element={<Matakuliah />}/>                    
           
           
           {/* Apps */}

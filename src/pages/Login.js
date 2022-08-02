@@ -75,6 +75,7 @@ import rhandinJ from './../assets/mahasiswa/rhandin.svg';
 import axios from '../auth/UserActions'
 import { Navigate, useNavigate } from 'react-router-dom';
 import { useStateContext } from '../contexts/ContextProvider.js';
+import Cookies from 'universal-cookie';
 
 
 //  import React from 'react';
@@ -82,89 +83,129 @@ import { useStateContext } from '../contexts/ContextProvider.js';
 
 
 const Login = () => {
+    
     const navigate = useNavigate();
     const [isVisible,setIsVisible] = useState(false);
-    const { setLogin } = useStateContext();
+    const { cookies,setActiveMenu } = useStateContext();
+
+    var a=false;
 
 
-    const handleSubmit = async (e) => {
+    let width = window.innerWidth;
+
+    {
+        if(width > 966){
+        a=true;
+    }
+}
+    
+    
+
+
+
+    const handleSubmit = async (e,setFieldError,setSubmitting) => {
 
         console.log(e)        
-        try {
-            const response = await axios.post('/auth/sign-in',
+       
+            await axios.post('/auth/sign-in',
             e,
         {
     headers: {
-        "Content-Type" : "application/json"
+        "Content-Type" : "application/json",
 
             }
-        });
+        }).then((response) => {
         console.log(response.status);
         console.log(response)
+
+                     console.log(response);
+                     console.log(response.data);
+;
+
                 if(response.statusText === "OK"){
-                    const {name,role,id_class} = response.data.user;
-                     console.log("succes");
-                     console.log(e);
-                     console.log(name,role,id_class);
-                                
-                     setLogin(name,role,id_class);
+                    const {name,role,id_class,uid} = response.data.user;                     
+                     console.log(name,role,id_class,uid);
+                                                     
+                     cookies.set('token',response.data.access_token, { path: '/' });
+                     cookies.set('tokenref',response.data.refresh_token, { path: '/' });
+                     cookies.set('uid',uid, { path: '/' });
+                     cookies.set('class',id_class, { path: '/' });
+                     cookies.set('role',role, { path: '/' });
+                     cookies.set('name',name, { path: '/' });
+                     
                      navigate('/home');
-                }else{
+                     setActiveMenu((prevActiveMenu) =>!prevActiveMenu )
+                     
+                }
+                else{
                     console.log("failed");
                 }
-            
-        } catch (error) {
-            console.log(error.response.data)
-        }
+            setSubmitting(false);
+            }).catch(
+                (err) => {
+                    if(err.response.data.message === 'email and password is not found'){
+                setFieldError('email','akun tidak di temukan')
+                setFieldError('password','akun tidak di temukan')
+                setSubmitting(false);
+                }})
+
     }
+
     
 
     
     return( 
+        <div className='bg-half-transparent 
+        w-screen h-screen fixed nav-item top-0 right-0 p-0'>
         <StyledContainer 
-        style={{width:"100%",height:"100%",position:"absolute",top:"0%",zIndex:"1001"}}
+        style={{width:"100%",height:"100%",position:"absolute",top:"0%",zIndex:"1001",backgroundColor:colors.red}}
         
         >
         
         <motion.div animate={{ y:30 }} initial={{y:-100}} 
         style={{width:"100%",display:"flex",justifyContent:"center",position:"fixed",
-        top:"5%"}}>
+        top: a ? '5%' : "-1%",height:a ? '':'100%'}}>
+            { a && 
             <div style={{width:"30%",height:"650px",maxHeight:"100%"}}>
             <Styledreg style={{width:"30%",height:"650px",maxHeight:"100%",position:"fixed"}}>
             <StyledTitle style={{position:"absolute",color:colors.white,left:"19.3%"
                     ,top:"12%"}}>Belum punya akun ?</StyledTitle>
                     <ExtraText style={{position:"absolute",color:colors.white,left:"20.3%"
                     ,top:"14%"}}>arahin cursor kamu ke sini</ExtraText>
+                    
          <div style={{width:"100%",overflow:"hidden"}}>
+            {/*  */}
+            
              <div style={{position:"absolute",left:"14%",top:"20%"}}>
          <motion.img 
          animate={{ rotate: 360 }}
          transition={{ loop: Infinity,
          ease: "linear",
          duration: 10,}} src={circle}
-         style={{width:"75%"}}/>
+         style={{width:"70vh"}}/>
          </div>
-         <div style={{position:"absolute",top:"33%",width:"100%",backgroundColor:null}}>
+         <div style={{position:"absolute",top:"33%",width:"100%"}}>
          <motion.img 
           src={person}
-         style={{width:"80%",top:"24%",marginLeft:"16%"}}/>  
+         style={{width:"43vh",top:"24vh",marginLeft:"8vh"}}/>  
          </div>
          <div style={{position:"absolute",left:"0%",top:"0%",overflow:"hidden",width:"100%"}}>
-         <motion.img src={folder1z} style={{width:"60%",marginTop:"38%",marginLeft:"7%"}}
+         <motion.img src={folder1z} style={{width:"32vh",marginTop:"20vh",marginLeft:"3.5vh"}}
          animate={{y:[-400,10,10,0] ,x:[70,70,70,-400]}}
          transition={{loop:Infinity,duration:3}}
          />     
          </div>
-         <div style={{position:"absolute",left:"57%",top:"39%",width:"34%"}}>
+         <div style={{position:"absolute",left:"30vh",top:"32vh",width:"34vh"}}>
          <motion.img animate={{ rotate:[19,19,19,0]}} 
          transition={{yoyo:Infinity,duration:1.5}} src={personhand} style={{backgroundColor:null}}
          />    
          </div>
-         <div style={{position:"absolute",left:"0%",top:"26%",width:"100%",backgroundColor:null}}>
+         <div style={{position:"absolute",left:"0%",top:"22vh",width:"100%",backgroundColor:null}}>
         <motion.img 
          src={grass}
         style={{width:"100%"}}/>  
         </div>
+        {/*  */}
          </div>                                                  
                                        
      </Styledreg>
@@ -180,12 +221,12 @@ const Login = () => {
          transition={{ loop: Infinity,
          ease: "linear",
          duration: 10,}} src={circleI}
-         style={{width:"75%"}}/>
+         style={{width:"70vh"}}/>
          </div>
          <div style={{position:"absolute",top:"33%",width:"100%",}}>
          <motion.img 
           src={person}
-         style={{width:"80%",top:"24%",marginLeft:"16%"}}/>  
+         style={{width:"43vh",top:"24vh",marginLeft:"8vh"}}/>  
          </div>
          <div style={{position:"absolute",left:"0%",top:"0%",overflow:"hidden",width:"100%"}}>
          <motion.img src={folder1zI} style={{width:"60%",marginTop:"38%",marginLeft:"7%"}}
@@ -193,12 +234,12 @@ const Login = () => {
          transition={{loop:Infinity,duration:3}}
          />     
          </div>
-         <div style={{position:"absolute",left:"57%",top:"39%",width:"34%"}}>
+         <div style={{position:"absolute",left:"30vh",top:"32vh",width:"34vh"}}>
          <motion.img animate={{ rotate:[19,19,19,0]}} 
          transition={{yoyo:Infinity,duration:1.5}} src={personhandI} style={{backgroundColor:null}}
          />    
          </div>
-         <div style={{position:"absolute",left:"0%",top:"26%",width:"100%",backgroundColor:null}}>
+         <div style={{position:"absolute",left:"0%",top:"22vh",width:"100%",backgroundColor:null}}>
         <motion.img 
          src={grassI}
         style={{width:"100%"}}/>  
@@ -208,7 +249,11 @@ const Login = () => {
      </Styledreg2>
    
             </div>
-        <StyledForm style={{width:"40%",height:"650px",maxHeight:"100%"}}>
+            }
+        <StyledForm style={{width:a ? '40%' : '',height: a? "650px": "100%",maxHeight:"100%",backgroundColor : a ? '' : colors.white}}
+                        className='w-full'
+
+        >
             
             <Avatar image={Logo}></Avatar>
             <StyledTitle size={60} style={{fontWeight:"bold",color:"red"}}>Login</StyledTitle>
@@ -223,9 +268,9 @@ const Login = () => {
                     password: Yup.string().required("tidak bisa kosong")
                 })
             }
-            onSubmit={(values) => {
+            onSubmit={(values,{setSubmitting,setFieldError}) => {
                 
-                handleSubmit(values)
+                handleSubmit(values,setFieldError,setSubmitting)
             }}
             >
                 {({isSubmitting}) => (
@@ -233,8 +278,8 @@ const Login = () => {
                         <TextInput
                         name="email"
                         type="email"
-                        label="Username"
-                        placeholder="masukan nama"
+                        label="Email"
+                        placeholder="masukan email"
                         icon={<BsPersonSquare/>}
                         
                         />
@@ -245,22 +290,28 @@ const Login = () => {
                         placeholder="masukan password"
                         icon={<HiLockClosed/>}
                         />
+
+
                         <ButtonGroup >
                             {!isSubmitting && (
                             <StyledFormBtn type='submit' style={{position:"absolute"}}>
                                 Login
                             </StyledFormBtn>
-                            )}
 
+                            
+                            )}
+                           
+                       
                     
                                 <StyledFormBtn2 type='button' 
-                                style={{position:"absolute",left:"20%",zIndex:"10"                      
+                                style={{position:"absolute",left:"20%",zIndex:"10",opacity: a? 1:0                   
                                 
                             }} onClick={() => {
                                     setIsVisible(v => !v);
                                 }}>
                                     daftar
                                 </StyledFormBtn2>
+                                
                             
 
                             {isSubmitting && (
@@ -269,10 +320,18 @@ const Login = () => {
                                 />
                             )}                   
                         </ButtonGroup>
+                        <div className='flex text-center m-auto' style={{opacity: a? 0:1}}>
+                    <ExtraText style={{bottom:"5vh",position:"absolute"}}>daftar sebagai <TextLink to='/registerdosen'>dosen </TextLink> </ExtraText>
+                    <ExtraText style={{bottom:"9vh",position:"absolute"}}>daftar sebagai <TextLink to='/registersiswa'>mahasiswa </TextLink> </ExtraText>
+                    </div>
+                        
                     </Form>     
                 )}
-            </Formik>         
+            </Formik>
+            
+         
         </StyledForm>
+        
             
                  
         <AnimatePresence>
@@ -333,7 +392,7 @@ const Login = () => {
                     }}
 
                     onClick={() => {
-                        navigate('/registersiswa')                       
+                        navigate('/registerdosen')                       
                     }}
                     >
                         
@@ -404,10 +463,12 @@ const Login = () => {
                     }}
                     whileHover={{                        
                         backgroundColor:colors.dark2,                        
-                        marginTop:"10%"
-                        
-                        
-                    }}>
+                        marginTop:"10%"                                                
+                    }}
+                    onClick={() => {
+                        navigate('/registersiswa')                       
+                    }}
+                    >
                     
                     <motion.img 
                     style={{backgroundColor:null,
@@ -484,6 +545,7 @@ const Login = () => {
         </motion.div>    
        
         </StyledContainer>
+        </div>
           
     )
 }

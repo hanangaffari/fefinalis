@@ -1,4 +1,4 @@
-import React from 'react';
+import {React,useState,useEffect} from 'react';
 
 import { useStateContext } from '../contexts/ContextProvider';
 import { motion } from "framer-motion";
@@ -6,8 +6,38 @@ import { motion } from "framer-motion";
 import cancel from '../assets/cancel.svg'
 import cancel2 from '../assets/cancel2.svg'
 
+import axios from '../auth/UserActions'
+import Addform from './addform';
+
+
 const Kelasform = () => {
-  const {currentColor,setKelas,setForm,kelasNama} = useStateContext();
+  const {currentColor,setKelas,setForm,kelasNama,kelasDesk,kelasId,addForm,tokenref,addformid} = useStateContext();
+
+  
+  const [formu, setformu] = useState([]);
+
+
+
+  useEffect(() => {
+    getForm();
+}, []);
+
+const getForm = async() => {
+  const response = await axios.get('/forms/'+kelasId,
+  {headers:{
+      Authorization: `Bearer ${tokenref}`
+  }
+});
+
+  
+
+  setformu(response.data);
+  console.log(response.data)
+  console.log(formu)
+}
+
+{addformid && getForm()}
+
   
 
   return (
@@ -34,13 +64,13 @@ const Kelasform = () => {
           <h1 className='mr-3'>nama kelas :</h1>          
           <input type='text' placeholder={kelasNama} className='rounded-xl pl-2 dark:bg-secondary-dark-bg'/>
           </div>
-          <div className='text-center md:flex'>
-          <h1>invite link :</h1><h1>22002</h1>
+          <div className='text-center '>
+          <h1>invite link :</h1><h1>{kelasId}</h1>
           </div>
           </div>
           <div className='mt-3'>
           <h1 className='mr-3 font-extrabold '>Deskripsi :</h1> 
-          <textarea placeholder='masukan deskripsi' className='w-full rounded-xl p-2 dark:bg-secondary-dark-bg' style={{height:"10vh"}}>
+          <textarea placeholder={kelasDesk} className='w-full rounded-xl p-2 dark:bg-secondary-dark-bg' style={{height:"10vh"}}>
           </textarea>         
           </div>
            </div>           
@@ -62,47 +92,35 @@ const Kelasform = () => {
         <p className='font-extrabold ml-5'>Form yang telah di upload :</p>
       <div className='bg-slate-200 h-56 md:h-72  pl-2 pr-2 pt-1 rounded-xl overflow-auto dark:bg-secondary-dark-bg'>
         {/* daftar form */}
-      <div className="flex bg-slate-50 rounded-2xl dark:bg-black w-full mb-1" 
-                    style={{height:"10vh",
-                    padding:"3vh"
-                }}>
 
-                <p className='dark:text-white font-extrabold' style={{width:"80%"}}>Tugas 1</p>
-                
-                <button className='dark:text-white 
-                 pb-5 p-1 rounded-xl w-20 font-extrabold' style={{backgroundColor: currentColor}}
-                 onClick={() => {setForm('Tugas 1')}}
-                >edit</button>
-                 <button className='dark:text-white 
-                bg-red-600 pb-5 p-1 rounded-xl w-20 ml-2 font-extrabold'
-                
-                >delete</button>
-                
-        </div>
 
-        <div className="flex bg-slate-50 rounded-2xl dark:bg-black w-full mb-1 " 
-                    style={{height:"10vh",
-                    padding:"3vh"
-                }}>
+        {
+                      formu.map((item,index) => (
+                        <div className="flex bg-slate-50 rounded-2xl dark:bg-black w-full mb-1 " 
+                              style={{height:"10vh",
+                              padding:"3vh"
+                                }}>
 
-                <p className='dark:text-white font-extrabold' style={{width:"80%"}}>Tugas 2</p>
-                
-                <button className='dark:text-white 
-                 pb-5 p-1 rounded-xl w-20 font-extrabold' style={{backgroundColor: currentColor}}
-                 onClick={() => {setForm('Tugas 2')}}
-                >edit</button>
-                 <button className='dark:text-white 
-                bg-red-600 pb-5 p-1 rounded-xl w-20 ml-2 font-extrabold'
-                
-                >delete</button>
-                
-        </div>
+                                <p className='dark:text-white font-extrabold' style={{width:"80%"}}>{item.name}</p>
+                                
+                                <button className='dark:text-white 
+                                pb-5 p-1 rounded-xl w-20 font-extrabold' style={{backgroundColor: currentColor}}
+                                onClick={() => {setForm(item.name,item.id_class,item.description)}}
+                                >edit</button>
+                                <button className='dark:text-white 
+                                bg-red-600 pb-5 p-1 rounded-xl w-20 ml-2 font-extrabold'
+                                
+                                >delete</button>
+                                
+                        </div>
+                      ))      
+                }
 
 
         {/* daftar form */}
       </div>
       <button 
-      
+      onClick={() => {addForm(kelasId)}}
       className='bg-slate-200 rounded-xl p-2 w-52 dark:bg-black mt-3 font-extrabold'
       > 
       add form 

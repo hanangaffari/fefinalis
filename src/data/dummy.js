@@ -456,11 +456,7 @@ export const links = [
       {
         name: 'history',
         icon: <AiOutlineShoppingCart />,
-      },
-      {
-        name: 'kelas',
-        icon: <AiOutlineShoppingCart />,
-      },
+      },   
       
     ],
   },

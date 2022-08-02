@@ -13,23 +13,38 @@ import { Postname } from "../components/Styles";
 import { useStateContext } from "../contexts/ContextProvider";
 import axios from '../auth/UserActions'
 import { setTime } from "@syncfusion/ej2-react-schedule";
+import Cookies from 'universal-cookie';
 
 
 
 
 const Dashboard =  () => {
-    
+    const { setpengguna,cookies} = useStateContext();
+    const{currentColor ,setujianSoal,setUjian,akunNama,akunRole,akunClass} = useStateContext();
+    console.log(akunClass)
+
 
     const [posisi, setposisi] = useState(0);
     const [klikp, setklikp] = useState(0);
     const [postemail,setpostemail] = useState([]);
     const [posttext,setposttext] = useState([]);
+    const token = cookies.get('token');
+    const uid = cookies.get('uid');
+   
+    const [ulangan, setUlangan] = useState([]);
+    const [data, setData] = useState([]);
+    const [user, setUser] = useState([]);
+
    
 
-    const [data, setData] = useState([])
+    
     useEffect(() => {
         getData();
+        getUlangan();
+        getUser();
+        
     }, []);
+
 
     const getData = async() => {
         const response = await axios.get('/post/class/'+akunClass);
@@ -40,26 +55,38 @@ const Dashboard =  () => {
         console.log(response.data)
     }
 
-    const [ulangan, setUlangan] = useState([])
-    useEffect(() => {
-        getUlangan();
-    }, []);
-
     const getUlangan = async() => {
-        const response = await axios.get('/forms/'+akunClass);
+        const response = await axios.get('/forms/'+akunClass,
+        {headers:{
+            Authorization: `Bearer ${token}`
+        }
+    });
 
         
 
         setUlangan(response.data);
         console.log(ulangan)
     }
+
+    const getUser = async() => {
+        const response = await axios.get('/users/'+uid,
+        {headers:{
+            Authorization: `Bearer ${token}`
+        }
+    });
+
+        
+
+        setUser(response.data);
+        setpengguna(response.data[0].name);
+        console.log(response.data);
+        
+       
+    }
+
     
     
 
-    const{currentColor ,setujianSoal,setUjian,akunNama,akunRole,akunClass} = useStateContext();
-
-    var kelaspost = [];
-    var kela = ['najib@gmail.com','akuma@gmail.com'];
 
     
     
@@ -90,9 +117,14 @@ const Dashboard =  () => {
         }
     }
 
-    console.log(kelaspost);
+    console.log(user)
+    console.log(token);
+    console.log(data);
     console.log(postemail);
-    console.log(kela);
+    console.log(ulangan);
+    console.log(ulangan.length);
+    
+    //console.log()
     
     return (
         
@@ -101,8 +133,10 @@ const Dashboard =  () => {
             
       <div className="flex lg:flex-nowrap justify-center p-5 w-full">
         <button onClick={() => {
+            if(klikp < ulangan.length - 1){
             setposisi(posisi - 455);
             setklikp(klikp + 1);
+        }
         }}
         
         ><FaArrowLeft className="dark:text-white"/></button>
@@ -113,44 +147,7 @@ const Dashboard =  () => {
         
         style={{width:"120vh",maxWidth:"120vh",height:"50vh"}}>
                 <div style={{paddingLeft:"1vh"}} className='flex'>
-                <motion.div  
-                whileHover={{y:-6}}
-                whileInView={{y:0,opacity:1}}
-                animate={{x:posisi,opacity:0}}
-                
-                
-                className="bg-slate-50 h-44 rounded-xl
-                 w-30 lg:w-60 p-6 m-3 ml-12 dark:bg-black"
-                 style={{width:"50vh",height:"30vh"}}
-                 >
-                    <div className="flex">
-                    <img src={Pro} alt='' className='rounded-full w-20 h-20 '/>                                        
-                    <div className="w-13 h-14 inline-block pl-2">
-                    <div>
-                    <h1 className="text-black-450 text-40 font-extrabold float-left" style={{
-                        fontSize:"4vh",color:currentColor
-                    }}>agus antaro</h1>                                        
-                    </div>
-                    <h1 className="text-black-450 text-40 font-extrabold float-left"
-                    style={{color:currentColor}}
-                    >Matematika</h1>                    
-                    </div>
-                    </div>
-                    <div className="w-full flex">                    
-                    <h1 className="font-bold" style={{fontSize:"4vh",color:currentColor}}>start time :</h1>
-                    <h1 className="" style={{fontSize:"5vh",marginLeft:"1vh",color:currentColor}}>09.30</h1>
-                    </div>
-                    <div className="w-full flex">                    
-                    <h1 className="font-bold" style={{fontSize:"4vh",color:currentColor}}>duration :</h1>
-                    <h1 className="" style={{fontSize:"5vh",marginLeft:"1vh",color:currentColor}}>10:00</h1>
-                    </div>
-                    <motion.div className="h-20 pt-5" whileTap={{scale:0.9}}>                    
-                    <button className="w-full h-10 rounded-xl" 
-                    style={{backgroundColor:currentColor}}
-                     onClick={() => setUjian("10:00",'Matematika','15')}>Start</button>
-                    </motion.div>
-                    
-                </motion.div> 
+               
                 {
                     ulangan.map((item,index) => (
                         <motion.div  
@@ -161,7 +158,7 @@ const Dashboard =  () => {
                 
                 className="bg-slate-50 h-44 rounded-xl
                  w-30 lg:w-60 p-6 m-3 ml-12 dark:bg-black"
-                 style={{width:"50vh",height:"30vh"}}
+                 style={{width:"50vh",minHeight:"30vh"}}
                  >
                     <div className="flex">
                     <img src={Pro} alt='' className='rounded-full w-20 h-20 '/>                                        
@@ -169,20 +166,20 @@ const Dashboard =  () => {
                     <div>
                     <h1 className="text-black-450 text-40 font-extrabold float-left" style={{
                         fontSize:"4vh",color:currentColor
-                    }}>agus antaro</h1>                                        
+                    }}>{item.name}</h1>                                        
                     </div>
                     <h1 className="text-black-450 text-40 font-extrabold float-left"
                     style={{color:currentColor}}
-                    >Matematika</h1>                    
+                    >{item.id_class}</h1>                    
                     </div>
                     </div>
                     <div className="w-full flex">                    
                     <h1 className="font-bold" style={{fontSize:"4vh",color:currentColor}}>start time :</h1>
-                    <h1 className="" style={{fontSize:"5vh",marginLeft:"1vh",color:currentColor}}>09.30</h1>
+                    <h1 className="" style={{fontSize:"5vh",marginLeft:"1vh",color:currentColor}}>{item.start_time}</h1>
                     </div>
                     <div className="w-full flex">                    
                     <h1 className="font-bold" style={{fontSize:"4vh",color:currentColor}}>duration :</h1>
-                    <h1 className="" style={{fontSize:"5vh",marginLeft:"1vh",color:currentColor}}>10:00</h1>
+                    <h1 className="" style={{fontSize:"5vh",marginLeft:"1vh",color:currentColor}}>{item.duration}</h1>
                     </div>
                     <motion.div className="h-20 pt-5" whileTap={{scale:0.9}}>                    
                     <button className="w-full h-10 rounded-xl" 
@@ -193,256 +190,7 @@ const Dashboard =  () => {
                 </motion.div>
                     ))        
                 }
-
-
-                {
-                /* <motion.div  
-                whileHover={{y:-6}}
-                whileInView={{y:0,opacity:1}}
-                animate={{x:posisi,opacity:0}}
-               
                 
-                className="bg-slate-50 h-44 rounded-xl
-                 w-30 lg:w-60 p-6 m-3 ml-12 dark:bg-black"
-                 style={{width:"50vh",height:"30vh"}}
-                 >
-                    <div className="flex">
-                    <img src={Pro2} alt='' className='rounded-full w-20 h-20 '/>                                        
-                    <div className="w-13 h-14 inline-block pl-2">
-                    <div>
-                    <h1 className="text-black-450 text-40 font-extrabold float-left" style={{
-                        fontSize:"4vh",color:currentColor
-                    }}>hunnigan</h1>                                        
-                    </div>
-                    <h1 className="text-black-450 text-40 font-extrabold float-left"
-                    style={{color:currentColor}}
-                    >Sejarah</h1>                    
-                    </div>
-                    </div>
-                    <div className="w-full flex">                    
-                    <h1 className="font-bold" style={{fontSize:"4vh",color:currentColor}}>start time :</h1>
-                    <h1 className="" style={{fontSize:"5vh",marginLeft:"1vh",color:currentColor}}>14.00</h1>
-                    </div>
-                    <div className="w-full flex">                    
-                    <h1 className="font-bold" style={{fontSize:"4vh",color:currentColor}}>duration :</h1>
-                    <h1 className="" style={{fontSize:"5vh",marginLeft:"1vh",color:currentColor}}>5:00</h1>
-                    </div>
-                    <motion.div className="h-20 pt-5"  whileTap={{ scale:0.9 }}>
-                    <button className="w-full h-10 rounded-xl" style={{backgroundColor:currentColor}}
-                    onClick={() => setUjian("5:00",'Sejarah','10')}>Start</button>
-                    </motion.div>
-                </motion.div>
-                <motion.div  
-                whileHover={{y:-6}}
-                whileInView={{y:0,opacity:1}}
-                animate={{x:posisi,opacity:0}}
-                
-                className="bg-slate-50 h-44 rounded-xl
-                 w-30 lg:w-60 p-6 m-3 ml-12 dark:bg-black"
-                 style={{width:"50vh",height:"30vh"}}
-                 >
-                    <div className="flex">
-                    <img src={Pro6} alt='' className='rounded-full w-20 h-20 '/>                                        
-                    <div className="w-13 h-14 inline-block pl-2">
-                    <div>
-                    <h1 className="text-black-450 text-40 font-extrabold float-left" style={{
-                        fontSize:"4vh",color:currentColor
-                    }}>mang oleng</h1>                                        
-                    </div>
-                    <h1 className="text-black-450 text-40 font-extrabold float-left"
-                    style={{color:currentColor}}
-                    >Cooking</h1>                    
-                    </div>
-                    </div>
-                    <div className="w-full flex">                    
-                    <h1 className="font-bold" style={{fontSize:"4vh",color:currentColor}}>start time :</h1>
-                    <h1 className="" style={{fontSize:"5vh",marginLeft:"1vh",color:currentColor}}>16.00</h1>
-                    </div>
-                    <div className="w-full flex">                    
-                    <h1 className="font-bold" style={{fontSize:"4vh",color:currentColor}}>duration :</h1>
-                    <h1 className="" style={{fontSize:"5vh",marginLeft:"1vh",color:currentColor}}>15:00</h1>
-                    </div>
-                    <motion.div className="h-20 pt-5"  whileTap={{ scale:0.9 }}>
-                    <button className="w-full h-10 rounded-xl" style={{backgroundColor:currentColor}}
-                    onClick={() => setUjian("15:00",'Cooking','8')}>Start</button>
-                    </motion.div>
-                </motion.div>
-                <motion.div  
-                whileHover={{y:-6}}
-                whileInView={{y:0,opacity:1}}
-                animate={{x:posisi,opacity:0}}
-                
-                className="bg-slate-50 h-44 rounded-xl
-                 w-30 lg:w-60 p-6 m-3 ml-12 dark:bg-black"
-                 style={{width:"50vh",height:"30vh"}}
-                 >
-                    <div className="flex">
-                    <img src={Pro4} alt='' className='rounded-full w-20 h-20 '/>                                        
-                    <div className="w-13 h-14 inline-block pl-2">
-                    <div>
-                    <h1 className="text-black-450 text-40 font-extrabold float-left" style={{
-                        fontSize:"4vh",color:currentColor
-                    }}>sebastian</h1>                                        
-                    </div>
-                    <h1 className="text-black-450 text-40 font-extrabold float-left"
-                    style={{color:currentColor}}
-                    >English</h1>                    
-                    </div>
-                    </div>
-                    <div className="w-full flex">                    
-                    <h1 className="font-bold" style={{fontSize:"4vh",color:currentColor}}>start time :</h1>
-                    <h1 className="" style={{fontSize:"5vh",marginLeft:"1vh",color:currentColor}}>19.00</h1>
-                    </div>
-                    <div className="w-full flex">                    
-                    <h1 className="font-bold" style={{fontSize:"4vh",color:currentColor}}>duration :</h1>
-                    <h1 className="" style={{fontSize:"5vh",marginLeft:"1vh",color:currentColor}}>10:00</h1>
-                    </div>
-                    <motion.div className="h-20 pt-5"  whileTap={{ scale:0.9 }}>
-                    <button className="w-full h-10 rounded-xl" style={{backgroundColor:currentColor}}
-                    onClick={() => setUjian("10:00",'English','4')}>Start</button>
-                    </motion.div>
-                </motion.div>
-                <motion.div  
-                whileHover={{y:-6}}
-                whileInView={{y:0,opacity:1}}
-                animate={{x:posisi,opacity:0}}
-                
-                className="bg-slate-50 h-44 rounded-xl
-                 w-30 lg:w-60 p-6 m-3 ml-12 dark:bg-black"
-                 style={{width:"50vh",height:"30vh"}}
-                 >
-                    <div className="flex">
-                    <img src={Pro7} alt='' className='rounded-full w-20 h-20 '/>                                        
-                    <div className="w-13 h-14 inline-block pl-2">
-                    <div>
-                    <h1 className="text-black-450 text-40 font-extrabold float-left" style={{
-                        fontSize:"4vh",color:currentColor
-                    }}>deddy corbuzer</h1>                                        
-                    </div>
-                    <h1 className="text-black-450 text-40 font-extrabold float-left"
-                    style={{color:currentColor}}
-                    >Gym</h1>                    
-                    </div>
-                    </div>
-                    <div className="w-full flex">                    
-                    <h1 className="font-bold" style={{fontSize:"4vh",color:currentColor}}>start time :</h1>
-                    <h1 className="" style={{fontSize:"5vh",marginLeft:"1vh",color:currentColor}}>20.30</h1>
-                    </div>
-                    <div className="w-full flex">                    
-                    <h1 className="font-bold" style={{fontSize:"4vh",color:currentColor}}>duration :</h1>
-                    <h1 className="" style={{fontSize:"5vh",marginLeft:"1vh",color:currentColor}}>15:00</h1>
-                    </div>
-                    <motion.div className="h-20 pt-5"  whileTap={{ scale:0.9 }}>
-                    <button className="w-full h-10 rounded-xl" style={{backgroundColor:currentColor}}
-                    onClick={() => setUjian("15:00",'Gym','2')}>Start</button>
-                    </motion.div>
-                </motion.div>
-                <motion.div  
-                whileHover={{y:-6}}
-                whileInView={{y:0,opacity:1}}
-                animate={{x:posisi,opacity:0}}
-                
-                className="bg-slate-50 h-44 rounded-xl
-                 w-30 lg:w-60 p-6 m-3 ml-12 dark:bg-black"
-                 style={{width:"50vh",height:"30vh"}}
-                 >
-                    <div className="flex">
-                    <img src={Pro8} alt='' className='rounded-full w-20 h-20 '/>                                        
-                    <div className="w-13 h-14 inline-block pl-2">
-                    <div>
-                    <h1 className="text-black-450 text-40 font-extrabold float-left" style={{
-                        fontSize:"4vh",color:currentColor
-                    }}>The Rock</h1>                                        
-                    </div>
-                    <h1 className="text-black-450 text-40 font-extrabold float-left"
-                    style={{color:currentColor}}
-                    >Gym</h1>                    
-                    </div>
-                    </div>
-                    <div className="w-full flex">                    
-                    <h1 className="font-bold" style={{fontSize:"4vh",color:currentColor}}>start time :</h1>
-                    <h1 className="" style={{fontSize:"5vh",marginLeft:"1vh",color:currentColor}}>21.00</h1>
-                    </div>
-                    <div className="w-full flex">                    
-                    <h1 className="font-bold" style={{fontSize:"4vh",color:currentColor}}>duration :</h1>
-                    <h1 className="" style={{fontSize:"5vh",marginLeft:"1vh",color:currentColor}}>15:00</h1>
-                    </div>
-                    <motion.div className="h-20 pt-5"  whileTap={{ scale:0.9 }}>
-                    <button className="w-full h-10 rounded-xl" style={{backgroundColor:currentColor}}
-                    onClick={() => setUjian("15:00",'Gym','2')}>Start</button>
-                    </motion.div>
-                </motion.div>
-                <motion.div  
-                whileHover={{y:-6}}
-                whileInView={{y:0,opacity:1}}
-                animate={{x:posisi,opacity:0}}
-                
-                className="bg-slate-50 h-44 rounded-xl
-                 w-30 lg:w-60 p-6 m-3 ml-12 dark:bg-black"
-                 style={{width:"50vh",height:"30vh"}}
-                 >
-                    <div className="flex">
-                    <img src={Pro3} alt='' className='rounded-full w-20 h-20 '/>                                        
-                    <div className="w-13 h-14 inline-block pl-2">
-                    <div>
-                    <h1 className="text-black-450 text-40 font-extrabold float-left" style={{
-                        fontSize:"4vh",color:currentColor
-                    }}>john cok</h1>                                        
-                    </div>
-                    <h1 className="text-black-450 text-40 font-extrabold float-left"
-                    style={{color:currentColor}}
-                    >coding</h1>                    
-                    </div>
-                    </div>
-                    <div className="w-full flex">                    
-                    <h1 className="font-bold" style={{fontSize:"4vh",color:currentColor}}>start time :</h1>
-                    <h1 className="" style={{fontSize:"5vh",marginLeft:"1vh",color:currentColor}}>22.00</h1>
-                    </div>
-                    <div className="w-full flex">                    
-                    <h1 className="font-bold" style={{fontSize:"4vh",color:currentColor}}>duration :</h1>
-                    <h1 className="" style={{fontSize:"5vh",marginLeft:"1vh",color:currentColor}}>10:00</h1>
-                    </div>
-                    <motion.div className="h-20 pt-5"  whileTap={{ scale:0.9 }}>
-                    <button className="w-full h-10 rounded-xl" style={{backgroundColor:currentColor}}
-                    onClick={() => setUjian("10:00",'Coding','5')}>Start</button>
-                    </motion.div>
-                </motion.div>
-                <motion.div  
-                whileHover={{y:-6}}
-                whileInView={{y:0,opacity:1}}
-                animate={{x:posisi,opacity:0}}
-                
-                className="bg-slate-50 h-44 rounded-xl
-                 w-30 lg:w-60 p-6 m-3 ml-12 dark:bg-black"
-                 style={{width:"50vh",height:"30vh"}}
-                 >
-                    <div className="flex">
-                    <img src={Pro5} alt='' className='rounded-full w-20 h-20 '/>                                        
-                    <div className="w-13 h-14 inline-block pl-2">
-                    <div>
-                    <h1 className="text-black-450 text-40 font-extrabold float-left" style={{
-                        fontSize:"4vh",color:currentColor
-                    }}>mia khalifa</h1>                                        
-                    </div>
-                    <h1 className="text-black-450 text-40 font-extrabold float-left"
-                    style={{color:currentColor}}
-                    >Biology</h1>                    
-                    </div>
-                    </div>
-                    <div className="w-full flex">                    
-                    <h1 className="font-bold" style={{fontSize:"4vh",color:currentColor}}>start time :</h1>
-                    <h1 className="" style={{fontSize:"5vh",marginLeft:"1vh",color:currentColor}}>23.30</h1>
-                    </div>
-                    <div className="w-full flex">                    
-                    <h1 className="font-bold" style={{fontSize:"4vh",color:currentColor}}>duration :</h1>
-                    <h1 className="" style={{fontSize:"5vh",marginLeft:"1vh",color:currentColor}}>30:00</h1>
-                    </div>
-                    <motion.div className="h-20 pt-5"  whileTap={{ scale:0.9 }}>
-                    <button className="w-full h-10 rounded-xl" style={{backgroundColor:currentColor}}
-                    onClick={() => setUjian("30:00",'Biology','5')}>Start</button>
-                    </motion.div>
-                </motion.div> */
-                }
                 
                 </div>
         
@@ -492,14 +240,6 @@ const Dashboard =  () => {
                 }
 
 
-                    {/* 
-                {
-                    data.map((item,index) => (
-                       <tr key={item.uid}>
-                        <td>{item.email}</td>
-                       </tr> 
-                    ))        
-                } */}
 
 
                 </div>
