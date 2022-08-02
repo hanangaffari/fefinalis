@@ -76,9 +76,9 @@ const Addform = () => {
           onInput={event=>setinput(event.target.value)}
           className='rounded-xl pl-2'/>
 
-          <input type='file' placeholder=''
-          //onInput={event=>setinput(event.target.value)}
-          className='rounded-xl pl-2'/>
+          {/* <input type='file' placeholder=''
+          onInput={event=>setinput(event.target.value)}
+          className='rounded-xl pl-2'/> */}
           </div>
           <div className='text-center '>
           <h1>invite link :</h1><h1>{addformid}</h1>

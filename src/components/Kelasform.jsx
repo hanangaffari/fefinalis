@@ -153,6 +153,9 @@ const updateKelas = async() => {
                               
                                 }}
                                 animate={{ x:[-1700,0] }} initial={{x: -1700}} exit={{x:-1700}}  
+                                whileHover={{
+                                  scale:1.05
+                                }}
                                 >
 
                                 <p className='dark:text-white font-extrabold' style={{width:"80%"}}>{item.name}</p>
