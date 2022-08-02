@@ -10,6 +10,7 @@ export { default as Formform } from './Formform';
 export { default as Addkelas } from './addkelas';
 export { default as Addform } from './addform';
 export { default as Logout } from './Logout';
+export { default as EditForm } from './EditForm';
 
 export { default as Chat } from './Chat';
 export { default as Notification } from './Notification';

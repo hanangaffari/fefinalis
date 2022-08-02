@@ -322,10 +322,13 @@ const Login = () => {
                                 />
                             )}                   
                         </ButtonGroup>
+                        {a?'':
                         <div className='flex text-center m-auto' style={{opacity: a? 0:1}}>
                     <ExtraText style={{bottom:"5vh",position:"absolute"}}>daftar sebagai <TextLink to='/registerdosen'>dosen </TextLink> </ExtraText>
                     <ExtraText style={{bottom:"9vh",position:"absolute"}}>daftar sebagai <TextLink to='/registersiswa'>mahasiswa </TextLink> </ExtraText>
                     </div>
+
+                        }
                         
                     </Form>     
                 )}

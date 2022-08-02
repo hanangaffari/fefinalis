@@ -5,6 +5,7 @@ import { AnimatePresence,motion } from "framer-motion";
 
 import cancel from '../assets/cancel.svg'
 import cancel2 from '../assets/cancel2.svg'
+import {MdOutlineCancel} from 'react-icons/md';
 
 import axios from '../auth/UserActions'
 import Addform from './addform';
@@ -93,13 +94,20 @@ const updateKelas = async() => {
       <motion.div className='w-full h-full dark:text-gray-200  
       bg-white dark:bg-main-dark-bg rounded-xl'
       animate={{ y:0 }} initial={{y:-700}} exit={{y:-700}}  transition={{duration:0.5}}
+      
       >
         
-        <div onClick={() => setKelas(null)}>
-        <img src={cancel2} className='w-5 h-5 absolute md:top-8 md:left-8 rounded-xl' 
+        <motion.button onClick={() => setKelas(null)}
+        className='text-xl rounded-full dark:text-white  mt-4 block'
+        whileHover={{
+          scale:1.1
+        }}
+        >
+        {/* <img src={cancel2} className='w-5 h-5 absolute md:top-8 md:left-8 rounded-xl' 
         style={{backgroundColor:currentColor}}
-        />
-        </div>
+        /> */}
+        <MdOutlineCancel/>
+        </motion.button>
        <form> 
       {/* awal edit kelas*/}
       <div className='p-3' style={{width:"100%",minHeight:"25vh"}}>
@@ -140,7 +148,9 @@ const updateKelas = async() => {
       {/*awal form*/}
       <div className='p-2'>
         <p className='font-extrabold ml-5'>Form yang telah di upload :</p>
-      <div className='bg-slate-200 h-56 md:h-72  pl-2 pr-2 pt-1 rounded-xl overflow-auto dark:bg-secondary-dark-bg'>
+      <div className='bg-slate-200 h-56 md:h-72  pl-2 pr-2 pt-1 rounded-xl overflow-auto dark:bg-secondary-dark-bg
+      overflow-x-hidden
+      '>
         {/* daftar form */}
 
 
@@ -162,7 +172,7 @@ const updateKelas = async() => {
                                 
                                 <button className='dark:text-white 
                                 pb-5 p-1 rounded-xl w-20 font-extrabold' style={{backgroundColor: currentColor}}
-                                onClick={() => {setForm(item.name,item.id_class,item.description)}}
+                                onClick={() => {setForm(item.name,item.id,item.description)}}
                                 >edit</button>
                                 <button className='dark:text-white 
                                 bg-red-600 pb-5 p-1 rounded-xl w-20 ml-2 font-extrabold'

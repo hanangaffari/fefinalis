@@ -4,14 +4,14 @@ import { BrowserRouter,Routes,Route } from 'react-router-dom';
 import {FiSettings} from 'react-icons/fi';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
-import {Navbar,Sidebar,ThemeSettings,Soalujian,Kelasform,Formform, Addkelas,Addform,Logout} from './components';
+import {Navbar,Sidebar,ThemeSettings,Soalujian,Kelasform,Formform, Addkelas,Addform,Logout,EditForm} from './components';
 import {Calendar,Kanban,ColorPicker,Editor,Dashboard,Matakuliah,Line,Login,Home,Kelas,Register,Registersis} from './pages';
 import { motion ,AnimatePresence} from 'framer-motion';
 
 import { useStateContext } from './contexts/ContextProvider';
 const App = () => {
   const {activeMenu,themeSettings,
-     setThemeSettings,currentColor,currentMode,ujianSoal,
+     setThemeSettings,currentColor,currentMode,ujianSoal,ujianNama,
      kelasNama,formNama,akunNama,akunRole,kelasAdd,addformid,loggg,setActiveMenu} = useStateContext();
 
      
@@ -69,7 +69,7 @@ const App = () => {
       </AnimatePresence>
 
       <AnimatePresence>
-      {ujianSoal && <Soalujian />}
+      {ujianNama && <Soalujian />}
       </AnimatePresence>
 
       <AnimatePresence>
@@ -82,7 +82,7 @@ const App = () => {
 
       <AnimatePresence>
       
-      {formNama && <Formform />}
+      {formNama && <EditForm />}
       </AnimatePresence>
       <AnimatePresence>
         <Routes>

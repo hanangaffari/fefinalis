@@ -4,6 +4,7 @@ import cancel from '../assets/cancel.svg'
 import { motion ,AnimatePresence} from 'framer-motion';
 import axios from '../auth/UserActions'
 
+import {MdOutlineCancel} from 'react-icons/md';
 
 
 
@@ -60,9 +61,14 @@ const Addform = () => {
       bg-white dark:bg-main-dark-bg rounded-xl overflow-auto'
       animate={{ x:0 }} initial={{x:1700}} exit={{x:1700}}  transition={{duration:1.0}}
       >
-        <div  onClick={() => {addForm('')}}>
-        <img src={cancel}  className='w-5 h-5 absolute md:top-8 md:left-8' />
-        </div>
+        <motion.button  onClick={() => {addForm('')}} className='text-xl rounded-full dark:text-white  mt-4 block' 
+        whileHover={{
+          scale:1.1
+        }}
+        
+        >
+       <MdOutlineCancel/>
+        </motion.button>
        <form> 
       {/* awal edit form*/}
       <div className='m-10'>

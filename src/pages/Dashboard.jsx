@@ -19,8 +19,8 @@ import Cookies from 'universal-cookie';
 
 
 const Dashboard =  () => {
-    const { setpengguna,cookies} = useStateContext();
-    const{currentColor ,setujianSoal,setUjian,akunNama,akunRole,akunClass} = useStateContext();
+   
+    const{currentColor ,setujianSoal,setUjian,akunNama,akunRole,akunClass,tokenref,uid,setpengguna} = useStateContext();
     console.log(akunClass)
 
 
@@ -28,13 +28,13 @@ const Dashboard =  () => {
     const [klikp, setklikp] = useState(0);
     const [postemail,setpostemail] = useState([]);
     const [posttext,setposttext] = useState([]);
-    const token = cookies.get('token');
-    const uid = cookies.get('uid');
    
     const [ulangan, setUlangan] = useState([]);
     const [data, setData] = useState([]);
     const [user, setUser] = useState([]);
+    const [soal, setsoal] = useState([])
 
+    
    
 
     
@@ -58,20 +58,21 @@ const Dashboard =  () => {
     const getUlangan = async() => {
         const response = await axios.get('/forms/'+akunClass,
         {headers:{
-            Authorization: `Bearer ${token}`
+            Authorization: `Bearer ${tokenref}`
         }
     });
 
         
 
         setUlangan(response.data);
+        console.log(response.data[2].questions)
         console.log(ulangan)
     }
 
     const getUser = async() => {
         const response = await axios.get('/users/'+uid,
         {headers:{
-            Authorization: `Bearer ${token}`
+            Authorization: `Bearer ${tokenref}`
         }
     });
 
@@ -85,8 +86,6 @@ const Dashboard =  () => {
     }
 
     
-    
-
 
     
     
@@ -118,11 +117,10 @@ const Dashboard =  () => {
     }
 
     console.log(user)
-    console.log(token);
+    console.log(soal)
     console.log(data);
     console.log(postemail);
     console.log(ulangan);
-    console.log(ulangan.length);
     
     //console.log()
     
@@ -156,10 +154,12 @@ const Dashboard =  () => {
                 animate={{x:posisi,opacity:0}}
                 
                 
+                
                 className="bg-slate-50 h-44 rounded-xl
                  w-30 lg:w-60 p-6 m-3 ml-12 dark:bg-black"
                  style={{width:"50vh",minHeight:"30vh"}}
                  >
+                    
                     <div className="flex">
                     <img src={Pro} alt='' className='rounded-full w-20 h-20 '/>                                        
                     <div className="w-13 h-14 inline-block pl-2">
@@ -184,7 +184,8 @@ const Dashboard =  () => {
                     <motion.div className="h-20 pt-5" whileTap={{scale:0.9}}>                    
                     <button className="w-full h-10 rounded-xl" 
                     style={{backgroundColor:currentColor}}
-                     onClick={() => setUjian("10:00",'Matematika','15')}>Start</button>
+                     onClick={() =>  {setUjian(item.duration,item.name,ulangan[index].questions);
+                     console.log(ulangan[index].questions)}}>Start</button>
                     </motion.div>
                     
                 </motion.div>
@@ -209,7 +210,11 @@ const Dashboard =  () => {
         <div className="bg-white dark:text-black dark:bg-secondary-dark-bg 
          rounded-xl w-full lg:w-90  p-9 pt-0 m-3 bg-no-repeat bg-cover bg-center "        
         >
-
+                {/* {
+                    ulangan[2].questions.map((item,index) => (
+                            <p>{item.index}</p>
+                    ))
+                } */}
 
                 {
                     data.map((item,index) => (

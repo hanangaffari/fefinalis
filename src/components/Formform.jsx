@@ -6,7 +6,7 @@ import { motion ,AnimatePresence} from 'framer-motion';
 
 
 const Formform = () => {
-    const {currentColor,setForm,formNama,formId} = useStateContext();
+    const {currentColor,setForm,formNama,formId,formDesc} = useStateContext();
     console.log(formId)
 
     const [form_name, setnama] = useState()
@@ -45,7 +45,7 @@ const Formform = () => {
           />
           </div>
           <div className='text-center '>
-          <h1>id class :</h1><h1>{formId}</h1>
+          <h1>id form :</h1><h1>{formId}</h1>
           </div>
           </div>
           {/* deskripsi jadwal*/}

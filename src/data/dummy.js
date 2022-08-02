@@ -5,7 +5,12 @@ import { BsKanban, BsBoxSeam, BsCurrencyDollar, BsShield, BsChatLeft } from 'rea
 import { BiColorFill } from 'react-icons/bi';
 import { IoMdContacts } from 'react-icons/io';
 import { RiContactsLine} from 'react-icons/ri';
+import { RiFolderHistoryLine} from 'react-icons/ri';
+
 import { MdOutlineSupervisorAccount } from 'react-icons/md';
+import { GoMortarBoard } from 'react-icons/go';
+
+
 import { HiOutlineRefresh } from 'react-icons/hi';
 import { TiTick } from 'react-icons/ti';
 //import { GiLouvrePyramid } from 'react-icons/gi';
@@ -445,7 +450,7 @@ export const links = [
     links: [
       {
         name: 'home',
-        icon: <FiShoppingBag />,
+        icon: <GoMortarBoard />,
       },
     ],
   },
@@ -455,7 +460,7 @@ export const links = [
     links: [
       {
         name: 'history',
-        icon: <AiOutlineShoppingCart />,
+        icon: <RiFolderHistoryLine />,
       },   
       
     ],

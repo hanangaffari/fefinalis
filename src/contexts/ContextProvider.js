@@ -65,9 +65,11 @@ export const ContextProvider = ({children}) => {
      akunClass = cookies.get('class');
      akunRole = cookies.get('role');
      akunNama = cookies.get('name');
+    
 
-     
-     console.log(akunRole)
+     var co = [];
+     console.log(ujianSoal)
+     console.log(co)
 
     
     
@@ -88,7 +90,8 @@ export const ContextProvider = ({children}) => {
     const setUjian= (a,b,c) => {
         setujianDurasi(a);
         setujianNama(b);
-        setujianSoal(c);
+        co=c;
+        
 
         //localStorage.setItem('ColorMode',e)
   
@@ -138,7 +141,7 @@ export const ContextProvider = ({children}) => {
     
     return (
     <StateContext.Provider value={{
-        loggg,setloggg,
+        loggg,setloggg,co,
 
         kelasu,setkelasu,
 
@@ -167,7 +170,7 @@ export const ContextProvider = ({children}) => {
         //form edit
         setaddformid,formId,formDesc,setformDesc,
 
-        getKelas
+        getKelas,cookies
         }}>
         {children}
     </StateContext.Provider>

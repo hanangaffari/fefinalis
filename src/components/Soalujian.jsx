@@ -15,8 +15,8 @@ import { actionEvents } from '@syncfusion/ej2/spreadsheet';
 import { eventClick } from '@syncfusion/ej2-react-schedule';
 
 const Soalujian = () => {
-  const { ujianSoal,ujianDurasi,ujianNama,currentColor,activeMenu } = useStateContext();
-  
+  const { ujianSoal,ujianDurasi,ujianNama,currentColor,activeMenu,setujianSoal,co } = useStateContext();
+ 
 
   //array berisi data pilihan ganda
   var jwb =[];
@@ -38,8 +38,8 @@ function getjwbessay(e,a) {
 
 
 
-
-
+console.log(ujianSoal)
+console.log(co)
 
   return (
     <div className='bg-half-transparent 
@@ -63,11 +63,110 @@ function getjwbessay(e,a) {
      
       {/* soal pilgan*/}
       {/* soal 1 */}
+
+      {
+                    // ujianSoal.map((item,index) => (
+                    //   <div className='p-3' style={{width:"100%",minHeight:"20vh"}}>
+                    //   <div className=' bg-slate-200 w-full h-full rounded-xl font-bold p-5 dark:bg-secondary-dark-bg'>            
+                    //     <div className='p-5  pl-0'>
+                    //     <h1>{item.questions}</h1>                      
+                    //     </div>
+              
+                     
+                    //     <motion.div className='flex bg-white justify-start p-1 rounded-xl m-1 dark:bg-black '
+                    //     whileHover={
+                    //       {scale:1.01}            
+                    //     }
+                    //     >
+                          
+                    //     <input className="w-9 h-9 rounded-xl bg-white opacity-1" 
+                    //      name='pilgan1' 
+                    //     type='radio'
+                    //     value='a'
+                    //     onChange={event => getjwb(1,event.target.value)}
+                    //       />
+                    //       <label className='p-1.5'>23</label>
+                    //     </motion.div>
+              
+                    //     <motion.div className='flex bg-white justify-start p-1 rounded-xl m-1 dark:bg-black'
+                    //     whileHover={
+                    //       {scale:1.01}            
+                    //     }
+                    //     >
+                          
+                        
+                        
+                    //     <input className="w-9 h-9 rounded-xl bg-white opacity-1" 
+                    //      name='pilgan1' 
+                    //     type='radio'
+                    //     value='b'
+                    //     onChange={event => getjwb(1,event.target.value)}
+                    //       />
+                    //       <label className='p-1.5 '>25</label>
+                    //     </motion.div>
+              
+                    //     <motion.div className='flex bg-white justify-start p-1 rounded-xl m-1 dark:bg-black'
+                    //     whileHover={
+                    //       {scale:1.01}            
+                    //     }
+                    //     >         
+                    //     <input className="w-9 h-9 rounded-xl bg-white opacity-1" 
+                    //      name='pilgan1' 
+                    //     type='radio'
+                    //     value='c'
+                    //     onChange={event => getjwb(1,event.target.value)}
+                    //       />
+                          
+                    //       <label className='p-1.5'>26</label>
+              
+                    //     </motion.div>
+              
+                    //     <motion.div className='flex bg-white justify-start p-1 rounded-xl m-1 dark:bg-black'
+                    //     whileHover={
+                    //       {scale:1.01}            
+                    //     }
+                    //     >
+                    //     <input className="w-9 h-9 rounded-xl bg-white opacity-1" 
+                    //      name='pilgan1' 
+                    //     type='radio'
+                    //     value='d'
+                    //     onChange={event => getjwb(1,event.target.value)}
+                    //       />
+              
+                    //       <label className='p-1.5'>27</label>
+              
+                    //     </motion.div>
+              
+                    //     <motion.div className='flex bg-white justify-start p-1 rounded-xl m-1 dark:bg-black'
+                    //     whileHover={
+                    //       {scale:1.01}            
+                    //     }
+                    //     >
+                    //     <input className="w-9 h-9 rounded-xl bg-white opacity-1" 
+                    //      name='pilgan1' 
+                    //     type='radio'
+                    //     value='e'
+                    //     onChange={event => getjwb(1,event.target.value)}
+                    //       />
+              
+                    //       <label className='p-1.5'>27</label>
+              
+                    //     </motion.div>
+                        
+                    //      </div>           
+                    // </div>
+                   
+              
+                    // ))        
+                }
+
       <div className='p-3' style={{width:"100%",minHeight:"20vh"}}>
         <div className=' bg-slate-200 w-full h-full rounded-xl font-bold p-5 dark:bg-secondary-dark-bg'>            
           <div className='p-5  pl-0'>
           <h1>1.apa yang lebih lucu dari 24</h1>                      
           </div>
+
+       
           <motion.div className='flex bg-white justify-start p-1 rounded-xl m-1 dark:bg-black '
           whileHover={
             {scale:1.01}            
@@ -125,6 +224,22 @@ function getjwbessay(e,a) {
            name='pilgan1' 
           type='radio'
           value='d'
+          onChange={event => getjwb(1,event.target.value)}
+            />
+
+            <label className='p-1.5'>27</label>
+
+          </motion.div>
+
+          <motion.div className='flex bg-white justify-start p-1 rounded-xl m-1 dark:bg-black'
+          whileHover={
+            {scale:1.01}            
+          }
+          >
+          <input className="w-9 h-9 rounded-xl bg-white opacity-1" 
+           name='pilgan1' 
+          type='radio'
+          value='e'
           onChange={event => getjwb(1,event.target.value)}
             />
 
@@ -255,6 +370,7 @@ function getjwbessay(e,a) {
       onClick={console.log('pilihan ganda :'+jwb+''+'essay :'+essayjwb)}
       className='bg-slate-200 rounded-xl p-4 w-full dark:bg-black'
       type='submit'
+
       > 
       submit
       </button>
