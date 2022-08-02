@@ -8,11 +8,12 @@ import axios from '../auth/UserActions'
 
 
 const Addkelas = () => {
-    const {currentColor,setkelasAdd,formNama,tokenref,token} = useStateContext();
+    const {currentColor,setkelasAdd,formNama,tokenref,token,setkelasu,getKelas} = useStateContext();
     const [class_name, setinput] = useState()
     const [description, setdesk] = useState()
 
     var x = {class_name,description};
+
     
 
   console.log(class_name)
@@ -34,11 +35,12 @@ const Addkelas = () => {
       }
       );
       if(response.statusText === 'Created'){
+        setkelasAdd(false)
         console.log('success')
       }else{
-        console.log('success')
+        console.log('failed')
       }
-      
+      getKelas();
 
     
   }

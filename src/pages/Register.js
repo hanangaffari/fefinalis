@@ -26,6 +26,10 @@ import { TextInput } from '../components/FormLib.js';
 import * as Yup from 'yup';
 import {Bars} from 'react-loader-spinner';
 
+//
+import {BsLadder, BsPersonSquare} from 'react-icons/bs';
+import {MdAlternateEmail} from 'react-icons/md';
+import {BsFileEarmarkLock,BsFileEarmarkLock2Fill} from 'react-icons/bs';
 
 import { Navigate, useNavigate } from 'react-router-dom';
 
@@ -295,7 +299,7 @@ const Register = () => {
                            type="text" 
                            label="name"
                            placeholder="name"
-                           
+                           icon={<BsPersonSquare/>}
                            />
 
                             <TextInput 
@@ -303,6 +307,7 @@ const Register = () => {
                            type="text" 
                            label="email"
                            placeholder="email"
+                           icon={<MdAlternateEmail/>}
                            />
                            
                             
@@ -311,6 +316,7 @@ const Register = () => {
                            type="password" 
                            label="password"
                            placeholder="password"
+                           icon={<BsFileEarmarkLock/>}
                            />
 
                            <TextInput
@@ -318,6 +324,7 @@ const Register = () => {
                            type="password" 
                            label="repeat password"
                            placeholder="repeat password"
+                           icon={<BsFileEarmarkLock2Fill/>}
                            />                            
 
                            <ButtonGroup>

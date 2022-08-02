@@ -26,6 +26,11 @@ import { TextInput } from '../components/FormLib.js';
 import * as Yup from 'yup';
 import {Bars} from 'react-loader-spinner';
 
+import {BsLadder, BsPersonSquare} from 'react-icons/bs';
+import {MdAlternateEmail} from 'react-icons/md';
+import {BsFileEarmarkLock,BsFileEarmarkLock2Fill} from 'react-icons/bs';
+import {SiGoogleclassroom} from 'react-icons/si';
+
 
 import { Navigate, useNavigate } from 'react-router-dom';
 
@@ -319,24 +324,7 @@ const Registersis = () => {
                         .matches(/^(?=.*[!@#\$%\^&\_=()*])/, 'Harus mengandung setidaknya satu karakter khusus'),                     
                         confirm_password: Yup.string().required("tidak bisa kosong").
                         oneOf([Yup.ref("password")],"password tidak sama"),
-                        /*
-                        NamaMahasiswa: Yup.string()
-                        .required("tidak bisa kosong").max(30,'maksimal 30 huruf').matches(/^(?=.*[a-z])/, 'Harus mengandung setidaknya satu karakter huruf kecil')
-                        .matches(/^(?=.*[A-Z])/, 'Harus mengandung setidaknya satu karakter huruf Besar'),
-                        Username: Yup.string()
-                        .required("tidak bisa kosong").matches(/^[a-z\s]+$/, "Hanya huruf kecil yang diperbolehkan untuk kolom ini"),
-                        password : Yup.string().min(8, "kata sandi terlalu pendek")
-                        .required("tidak bisa kosong")
-                        .matches(/^(?=.*[a-z])/, 'Harus mengandung setidaknya satu karakter huruf kecil')
-                        .matches(/^(?=.*[A-Z])/, 'Harus mengandung setidaknya satu karakter huruf Besar')
-                        .matches(/^(?=.*[0-9])/, 'Harus mengandung setidaknya satu nomor')
-                        .matches(/^(?=.*[!@#\$%\^&\_=()*])/, 'Harus mengandung setidaknya satu karakter khusus'),
-                        NIM: Yup.string().required("tidak bisa kosong").max(10,'maksimal 10 angka'),
-                        confirm_password: Yup.string().required("tidak bisa kosong").
-                        oneOf([Yup.ref("password")],"password tidak sama"),
-                        FotoMahasiswa: Yup.mixed().required("tidak bisa kosong"),
-                        Foto64 : Yup.string(),  
-                        */                     
+                                    
                     })
                 }
 
@@ -362,7 +350,7 @@ const Registersis = () => {
                            type="text" 
                            label="name"
                            placeholder="name"
-                           
+                           icon={<BsPersonSquare/>}
                            />
 
                             <TextInput 
@@ -370,6 +358,8 @@ const Registersis = () => {
                            type="text" 
                            label="email"
                            placeholder="email"
+                           icon={<MdAlternateEmail/>}
+
                            />
 
                            <TextInput 
@@ -377,6 +367,8 @@ const Registersis = () => {
                            type="text" 
                            label="id class"
                            placeholder="id class"
+                           icon={<SiGoogleclassroom/>}
+
                            onKeyDown={ 
                             (evt) => evt.key === 'e' && evt.preventDefault()
                            ||evt.key === '.' && evt.preventDefault() || evt.key === ',' && evt.preventDefault() }
@@ -388,6 +380,8 @@ const Registersis = () => {
                            type="password" 
                            label="password"
                            placeholder="password"
+                           icon={<BsFileEarmarkLock/>}
+
                            />
 
                            <TextInput
@@ -395,6 +389,8 @@ const Registersis = () => {
                            type="password" 
                            label="repeat password"
                            placeholder="repeat password"
+                           icon={<BsFileEarmarkLock2Fill/>}
+
                            />                            
 
                            <ButtonGroup>

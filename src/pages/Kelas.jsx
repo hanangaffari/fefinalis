@@ -1,12 +1,12 @@
 import{ React,useState,useEffect} from 'react'
 import { useStateContext } from "../contexts/ContextProvider";
-import {motion}from 'framer-motion'
+import {AnimatePresence, motion}from 'framer-motion'
 import axios from '../auth/UserActions'
 
 const Kelas = () => {
-    const {currentColor,setKelas,formNama,setkelasAdd,tokenref, addchange,setchange,} = useStateContext();
+    const {currentColor,setKelas,formNama,setkelasAdd,tokenref, addchange,setchange,setkelasu,kelasu} = useStateContext();
 
-    const [kelasu, setKelasu] = useState([]);
+    
 
 
     useEffect(() => {
@@ -22,7 +22,7 @@ const Kelas = () => {
 
     
 
-    setKelasu(response.data);
+    setkelasu(response.data);
     console.log(kelasu)
 }
 
@@ -57,18 +57,18 @@ const deleteKelas = async(a) => {
          <motion.div className="bg-white dark:text-black dark:bg-secondary-dark-bg 
          rounded-xl w-full lg:w-90  md:p-9 p-1 pt-0 m-3 bg-no-repeat bg-cover bg-center overflow-x-hidden"
          style={{minHeight:"50vh"}}  
-         animate={{ y:0 }} initial={{y:-700}} exit={{y:-700}}      
+         animate={{ y:0 }} initial={{y:-1700}} exit={{y:-1700}}      
          
           >            
        
-
-              {/* Kelas tiga */}            
-              
+              <AnimatePresence>
               {
                       kelasu.map((item,index) => (
                         <motion.div className="flex bg-slate-50 rounded-2xl dark:bg-black w-full mt-1" 
                           style={{height:"10vh",
                           padding:"3vh"}}
+
+                          animate={{ x:[1700,0] }} initial={{x: 1700}} exit={{x:1700}}  
 
                           whileHover={{
                             scale:1.05
@@ -90,6 +90,7 @@ const deleteKelas = async(a) => {
               </motion.div>
                       ))      
                 }
+                </AnimatePresence>
 
 
               

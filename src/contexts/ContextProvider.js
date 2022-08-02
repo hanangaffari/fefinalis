@@ -40,6 +40,8 @@ export const ContextProvider = ({children}) => {
     const [kelasDesk, setkelasDesk] = useState();
     const [kelasId, setkelasId] = useState();
     const [kelasForms, setkelasForms] = useState();
+    //add kelas
+    const[kelasu, setkelasu] = useState([])
     //edit kelas end
      //edit Form
      const [formNama, setformNama] = useState();
@@ -101,6 +103,18 @@ export const ContextProvider = ({children}) => {
         setkelasForms(d)
     }
 
+    const getKelas = async() => {
+        const response = await axios.get('/classes',
+        {headers:{
+            Authorization: `Bearer ${tokenref}`
+        }
+    });
+    
+        
+    
+        setkelasu(response.data);
+        console.log(kelasu)
+    }
     
 
     const setForm= (a,b,c) => {
@@ -126,6 +140,8 @@ export const ContextProvider = ({children}) => {
     <StateContext.Provider value={{
         loggg,setloggg,
 
+        kelasu,setkelasu,
+
         activeMenu,setActiveMenu,
         isClicked,setIsClicked,
         handleClick,
@@ -149,7 +165,9 @@ export const ContextProvider = ({children}) => {
         addformnama,addformid,
         setformNama,setaddformid,addForm,
         //form edit
-        setaddformid,formId,formDesc,setformDesc
+        setaddformid,formId,formDesc,setformDesc,
+
+        getKelas
         }}>
         {children}
     </StateContext.Provider>

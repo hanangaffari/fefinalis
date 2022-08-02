@@ -27,6 +27,7 @@ import { Formik, Form} from 'formik';
 import { TextInput } from '../components/FormLib.js';
 import {BsLadder, BsPersonSquare} from 'react-icons/bs';
 import {HiLockClosed} from 'react-icons/hi';
+import {MdAlternateEmail} from 'react-icons/md';
 import * as Yup from 'yup';
 import {InfinitySpin} from 'react-loader-spinner';
 
@@ -281,7 +282,7 @@ const Login = () => {
                         type="email"
                         label="Email"
                         placeholder="masukan email"
-                        icon={<BsPersonSquare/>}
+                        icon={<MdAlternateEmail/>}
                         
                         />
                         <TextInput

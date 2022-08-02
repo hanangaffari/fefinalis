@@ -1,7 +1,7 @@
 import {React,useState,useEffect} from 'react';
 
 import { useStateContext } from '../contexts/ContextProvider';
-import { motion } from "framer-motion";
+import { AnimatePresence,motion } from "framer-motion";
 
 import cancel from '../assets/cancel.svg'
 import cancel2 from '../assets/cancel2.svg'
@@ -11,10 +11,15 @@ import Addform from './addform';
 
 
 const Kelasform = () => {
-  const {currentColor,setKelas,setForm,kelasNama,kelasDesk,kelasId,addForm,tokenref,addformid} = useStateContext();
+  const {currentColor,setKelas,setForm,kelasNama,kelasDesk,kelasId,addForm,tokenref,addformid,getKelas} = useStateContext();
+
+  const [class_name, setclass_name] = useState()
+  const [description, setdescription] = useState()
+  const [formu, setformu] = useState([]);
 
   
-  const [formu, setformu] = useState([]);
+
+  var x = {class_name,description};
 
 
 
@@ -34,6 +39,46 @@ const getForm = async() => {
   setformu(response.data);
   console.log(response.data)
   console.log(formu)
+}
+
+const updateKelas = async() => {
+
+  if(class_name===''){
+    class_name=kelasNama
+   }
+   if(description===''){
+    description = kelasDesk
+   }
+   
+        await axios.put('/classes/'+kelasId,
+        x,
+    {
+      headers:{
+        Authorization: `Bearer ${tokenref}`
+    }
+    }).then((response) => {
+    console.log(response.status);
+    console.log(response)
+
+                 console.log(response);
+                 console.log(response.data);
+;
+
+            if(response.statusText === "OK"){                                         
+                 console.log('success');
+                 getKelas();
+                 setKelas(null)
+            }
+            else{
+                console.log("failed");
+            }
+        }).catch(
+            (err) => {
+                console.log(err)
+               
+            })
+
+
 }
 
 {addformid && getForm()}
@@ -62,7 +107,9 @@ const getForm = async() => {
         <div className='flex'>
           <div className='md:flex' style={{height:"3.5vh",width:"70%"}}>
           <h1 className='mr-3'>nama kelas :</h1>          
-          <input type='text' placeholder={kelasNama} className='rounded-xl pl-2 dark:bg-secondary-dark-bg'/>
+          <input type='text' placeholder={kelasNama} className='rounded-xl pl-2 dark:bg-secondary-dark-bg'
+           onInput={event=>setclass_name(event.target.value)}
+          />
           </div>
           <div className='text-center '>
           <h1>invite link :</h1><h1>{kelasId}</h1>
@@ -70,14 +117,17 @@ const getForm = async() => {
           </div>
           <div className='mt-3'>
           <h1 className='mr-3 font-extrabold '>Deskripsi :</h1> 
-          <textarea placeholder={kelasDesk} className='w-full rounded-xl p-2 dark:bg-secondary-dark-bg' style={{height:"10vh"}}>
+          <textarea placeholder={kelasDesk} className='w-full rounded-xl p-2 dark:bg-secondary-dark-bg' style={{height:"10vh"}}
+          onInput={event=>setdescription(event.target.value)}
+          >
           </textarea>         
           </div>
            </div>           
       </div>
       <div className='w-full flex justify-center pl-3 pr-3' >
       <button 
-      
+      type='button'
+      onClick={updateKelas}
       className='bg-slate-200 rounded-xl p-4 w-full dark:bg-black font-extrabold'
       > 
       submit
@@ -96,10 +146,14 @@ const getForm = async() => {
 
         {
                       formu.map((item,index) => (
-                        <div className="flex bg-slate-50 rounded-2xl dark:bg-black w-full mb-1 " 
+
+                        <motion.div className="flex bg-slate-50 rounded-2xl dark:bg-black w-full mb-1 " 
                               style={{height:"10vh",
                               padding:"3vh"
-                                }}>
+                              
+                                }}
+                                animate={{ x:[-1700,0] }} initial={{x: -1700}} exit={{x:-1700}}  
+                                >
 
                                 <p className='dark:text-white font-extrabold' style={{width:"80%"}}>{item.name}</p>
                                 
@@ -112,7 +166,8 @@ const getForm = async() => {
                                 
                                 >delete</button>
                                 
-                        </div>
+                        </motion.div>
+
                       ))      
                 }
 

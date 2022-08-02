@@ -38,6 +38,7 @@ const Addform = () => {
       }else{
         console.log('error')
       }
+      
       }
       
 
@@ -70,9 +71,13 @@ const Addform = () => {
             {/* nama form id class*/}
         <div className='flex'>
           <div className='md:flex' style={{height:"3.5vh",width:"75%"}}>
-          <h1 className='mr-3'>nama kelas :</h1>          
+          <h1 className='mr-3'>nama form :</h1>          
           <input type='text' placeholder=''
           onInput={event=>setinput(event.target.value)}
+          className='rounded-xl pl-2'/>
+
+          <input type='file' placeholder=''
+          //onInput={event=>setinput(event.target.value)}
           className='rounded-xl pl-2'/>
           </div>
           <div className='text-center '>
