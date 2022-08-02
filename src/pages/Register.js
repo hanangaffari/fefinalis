@@ -255,13 +255,19 @@ const Register = () => {
                 }}
                 validationSchema={
                     Yup.object({
-                        role : Yup.string(),
+                        role : Yup.string(),                    
                         email: Yup.string().required("tidak bisa kosong"), 
                         name: Yup.string()
-                        .required("tidak bisa kosong"),                        
-                        password : Yup.string().min(8, "kata sandi terlalu pendek")
-                        .required("tidak bisa kosong"),                       
-                        confirm_password: Yup.string().required("tidak bisa kosong"),                        
+                        .required("tidak bisa kosong").max(30,'maksimal 30 huruf').matches(/^(?=.*[a-z])/, 'Harus mengandung setidaknya satu karakter huruf kecil')
+                        .matches(/^(?=.*[A-Z])/, 'Harus mengandung setidaknya satu karakter huruf Besar'),
+                        password :  Yup.string().min(8, "kata sandi terlalu pendek")
+                        .required("tidak bisa kosong")
+                        .matches(/^(?=.*[a-z])/, 'Harus mengandung setidaknya satu karakter huruf kecil')
+                        .matches(/^(?=.*[A-Z])/, 'Harus mengandung setidaknya satu karakter huruf Besar')
+                        .matches(/^(?=.*[0-9])/, 'Harus mengandung setidaknya satu nomor')
+                        .matches(/^(?=.*[!@#\$%\^&\_=()*])/, 'Harus mengandung setidaknya satu karakter khusus'),                     
+                        confirm_password: Yup.string().required("tidak bisa kosong").
+                        oneOf([Yup.ref("password")],"password tidak sama"),                      
                          
                         
                     })
