@@ -2,6 +2,8 @@ import axios from 'axios'
 import React from 'react'
 import { useEffect ,useState} from 'react'
 import { useStateContext } from '../contexts/ContextProvider';
+import { motion ,AnimatePresence} from 'framer-motion';
+import {MdOutlineCancel} from 'react-icons/md';
 
 // import WordExtractor from 'word-extractor'
 
@@ -118,12 +120,22 @@ const EditForm = () => {
   return (
     <>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.rtl.min.css" integrity="sha384-dc2NSrAXbAkjrdm9IYrX10fQq9SDG6Vjz7nQVKdKcJl3pC+k37e7qJR5MVSCS+wR" crossOrigin="true"></link>
-    <div className='bg-half-transparent 
-    w-screen h-screen fixed nav-item top-0 right-0 p-0 md:p-10 '>
+    <motion.div className='bg-half-transparent 
+    w-screen h-screen fixed nav-item top-0 right-0 p-0 md:p-10 '
+    
+    >
     <div className='ml-3 h-screen md:overflow-hidden overflow-auto 
     md:hover:overflow-hidden pb-10 '>
+  
     <div className="container">
+      
       <div className="card">
+      <motion.button  onClick={() => {setForm('')}} className='text-xl rounded-full dark:text-white ml-1  block ' 
+        whileHover={{
+          scale:1.01
+        }}>
+        <MdOutlineCancel/>
+        </motion.button>
         <div className="card-body">
           <h4>Form : {form ? form["id"] : ""}</h4>
           <input type="text" id="form_name"className='form-control'  placeholder='Form Name' />
@@ -180,7 +192,7 @@ const EditForm = () => {
 
     </div>
     </div>
-    </div>
+    </motion.div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
     </>
   )

@@ -4,6 +4,8 @@ import {FiShoppingCart} from 'react-icons/fi';
 import { BsChatLeft} from 'react-icons/bs';
 import {RiNotification3Line} from 'react-icons/ri'
 import {MdKeyboardArrowDown} from 'react-icons/md';
+import pordos from '../data/avatartdosen.png'
+import porfos from '../data/avatarstudent.jpg'
 
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 import Avatar from './../data/avatar.jpg';
@@ -27,7 +29,7 @@ const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
 
 const Navbar = () => {
   const {activeMenu,setActiveMenu,isClicked,setIsClicked,handleClick,
-  screenSize,setscreenSize,currentColor,akunNama,setloggg
+  screenSize,setscreenSize,currentColor,akunNama,setloggg,akunRole
   } = useStateContext();
 
   useEffect(() => {
@@ -83,7 +85,7 @@ const Navbar = () => {
         cursor-pointer p-1 hover:bg-light-gray rounded-lg'
         onClick={() => {setloggg(true)}}
         >
-          <img src={Avatar} className='rounded-full w-8 h-8'/>
+          <img src={akunRole === 'admin' ?pordos:porfos} className='rounded-full w-8 h-8'/>
           <p>
             <span className='text-14' style={{color:currentColor}}>hi,</span>{''}
             <span className='font-bold ml-1 text-14' style={{color:currentColor}}>{akunNama}</span>

@@ -4,6 +4,7 @@ import cancel from '../assets/cancel.svg'
 import { motion ,AnimatePresence} from 'framer-motion';
 import axios from '../auth/UserActions'
 import { useNavigate } from 'react-router-dom';
+import {MdOutlineCancel} from 'react-icons/md';
 
 import coff from '../assets/logout/1/1.svg'
 import coss from '../assets/logout/3/3.svg'
@@ -84,7 +85,7 @@ const Logout = () => {
       animate={{ opacity:1 }} initial={{opacity:0}} exit={{opacity:0}}  transition={{duration:0.7}}
       >
       <div>
-        <img src={cancel}  className='w-5 h-5 -m-5 -mt-1' 
+            <MdOutlineCancel  className='w-8 h-8 -m-5 -mt-2 dark:text-white' 
         onClick={() => {setloggg(false)}}/>
         </div> 
        <form> 

@@ -15,14 +15,15 @@ const initialState = {
 
 export const ContextProvider = ({children}) => {
 
+    var color = localStorage.getItem('ColorMode');
 
-
+    var mode = localStorage.getItem('ThemeMode');
     const cookies = new Cookies();
 
     const [activeMenu, setActiveMenu] = useState(true);
     const [isClicked, setIsClicked] = useState(initialState);
-    const [currentColor, setcurrentColor] = useState('#03c9d7');
-    const [currentMode, setcurrentMode] = useState('Light');
+    const [currentColor, setcurrentColor] = useState(color === null ? '#03c9d7' : color)
+    const [currentMode, setcurrentMode] = useState(mode === null ? 'Light' : mode);
     const [themeSettings, setThemeSettings] = useState(false);
 
     const token = cookies.get('token');
@@ -42,6 +43,9 @@ export const ContextProvider = ({children}) => {
     const [kelasForms, setkelasForms] = useState();
     //add kelas
     const[kelasu, setkelasu] = useState([])
+    //add post 
+    const[postu, setpostu] = useState([])
+    const[postadd, setpostadd] = useState(false)
     //edit kelas end
      //edit Form
      const [formNama, setformNama] = useState();
@@ -118,6 +122,19 @@ export const ContextProvider = ({children}) => {
         setkelasu(response.data);
         console.log(kelasu)
     }
+
+    const getPost = async() => {
+        const response = await axios.get('/post',
+        {headers:{
+            Authorization: `Bearer ${tokenref}`
+        }
+    });
+    
+        
+    
+        setpostu(response.data);
+        console.log(postu)
+    }
     
 
     const setForm= (a,b,c) => {
@@ -144,6 +161,9 @@ export const ContextProvider = ({children}) => {
         loggg,setloggg,co,
 
         kelasu,setkelasu,
+
+        postu,setpostu,getPost,
+        postadd,setpostadd,
 
         activeMenu,setActiveMenu,
         isClicked,setIsClicked,

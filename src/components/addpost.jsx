@@ -7,40 +7,29 @@ import {MdOutlineCancel} from 'react-icons/md';
 
 
 
-const Addkelas = () => {
-    const {currentColor,setkelasAdd,formNama,tokenref,token,setkelasu,getKelas} = useStateContext();
-    const [class_name, setinput] = useState()
-    const [description, setdesk] = useState()
-
-    var x = {class_name,description};
-
-    
-
-  console.log(class_name)
-  console.log(description)
-  console.log(x)
-
-    const submit = (e) => {
-      e.preventDefault();
-      console.log(e);
-    }
-
+const Addpost = () => {
+    const {currentColor,setpostadd,formNama,tokenref,token,setkelasu,getPost} = useStateContext();
+    const [email, setemail] = useState()
+    const [message, setmessage] = useState()
+    const [class_id, setclass_id] = useState()
    
-  const buatkelas = async() => {
-      const response = await axios.post('/classes',
-      x,
+  const buatpost = async() => {
+      const response = await axios.post('/post',
+      {class_id,email,message},
       {headers:{
         Authorization: `Bearer ${tokenref}`
       }
       }
       );
+
+      console.log(response)
       if(response.statusText === 'Created'){
-        setkelasAdd(false)
+        setpostadd(false)
         console.log('success')
       }else{
         console.log('failed')
       }
-      getKelas();
+      getPost();
 
     
   }
@@ -60,7 +49,7 @@ const Addkelas = () => {
       bg-white dark:bg-main-dark-bg rounded-xl overflow-auto'
       animate={{ x:0 }} initial={{x:1700}} exit={{x:1700}}  transition={{duration:1.0}}
       >
-        <motion.button  onClick={() => {setkelasAdd(false)}} className='text-xl rounded-full dark:text-white  mt-4 block' 
+        <motion.button  onClick={() => {setpostadd(false)}} className='text-xl rounded-full dark:text-white  mt-4 block' 
         whileHover={{
           scale:1.1
         }}>
@@ -73,21 +62,28 @@ const Addkelas = () => {
       <div className='p-3 ' style={{width:"100%",minHeight:"25vh"}}>
         <div className=' bg-slate-200 w-full h-full rounded-xl font-bold p-4 dark:bg-black'>
             {/* nama form id class*/}
-        <div className='flex'>
+        <div className=''>
           <div className='md:flex' style={{height:"3.5vh",width:"75%"}}>
-          <h1 className='mr-3'>nama kelas :</h1>          
-          <input type='text' placeholder={formNama}
-          onInput={event=>setinput(event.target.value)}
+          <h1 className='mr-3'>email :</h1>          
+          <input type='text' 
+          onInput={event=>setemail(event.target.value)}
           className='rounded-xl pl-2 dark:text-black'/>
+          </div>
+          <div className='mt-4' style={{height:"3.5vh"}}>
+          <h1 className='mr-3'>class id :</h1>          
+          <input type='text' 
+          onInput={event=>setclass_id(event.target.value)}
+          placeholder="ke class mana post ini ingin di upload"
+          className='rounded-xl pl-2 w-full dark:text-black'/>
           </div>
         
           </div>
           {/* deskripsi jadwal*/}
 
-          <div className='md:mt-3 mt-8'>
-          <h1 className='mr-3 font-extrabold '>Deskripsi :</h1> 
+          <div className='md:mt-7 mt-8'>
+          <h1 className='mr-3 font-extrabold '>message :</h1> 
           <textarea placeholder='masukan deskripsi' className='w-full rounded-xl p-2 dark:text-black' style={{height:"10vh"}}
-          onInput={event=>setdesk(event.target.value)}
+          onInput={event=>setmessage(event.target.value)}
           >
           </textarea>  
          
@@ -102,7 +98,7 @@ const Addkelas = () => {
       type='button'
       className='bg-slate-200 rounded-xl p-4 w-full font-bold'
       style={{backgroundColor:currentColor}}
-      onClick={buatkelas}
+      onClick={buatpost}
       > 
       submit
       </button>
@@ -118,4 +114,4 @@ const Addkelas = () => {
   )
 }
 
-export default Addkelas
+export default Addpost

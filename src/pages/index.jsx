@@ -7,6 +7,7 @@ export { default as Login } from './Login';
 export { default as Register } from './Register';
 export { default as Registersis } from './Registersis';
 export { default as Kelas } from './Kelas';
+export { default as Post } from './Post';
 
 export { default as Editor } from './Editor';
 

@@ -80,7 +80,7 @@ const Addform = () => {
           <h1 className='mr-3'>nama form :</h1>          
           <input type='text' placeholder=''
           onInput={event=>setinput(event.target.value)}
-          className='rounded-xl pl-2'/>
+          className='rounded-xl pl-2 dark:text-black'/>
 
           {/* <input type='file' placeholder=''
           onInput={event=>setinput(event.target.value)}
