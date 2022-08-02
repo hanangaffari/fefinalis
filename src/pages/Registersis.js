@@ -92,16 +92,11 @@ const Registersis = () => {
             }
         }).then((response) => {
         console.log(response.status);
-        console.log(response)
+        console.log(response.data)
+        console.log(response.data.id_class)
                 if(response.statusText === "Created"){
-                    
-                    console.log("succes");
-                    console.log(e);                
-                    console.log(e.id_class);
-                    cookies.set('class',e.id_class, { path: '/' });
-                     cookies.set('role',e.role, { path: '/' });
-                     cookies.set('name',e.name, { path: '/' });
-                    navigate('/home');
+                  
+                    navigate('/login');
                     setActiveMenu((prevActiveMenu) =>!prevActiveMenu )
                     console.log('succes')
                     console.log(response);

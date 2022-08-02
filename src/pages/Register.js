@@ -92,14 +92,8 @@ const Register = () => {
                 if(response.statusText === "Created"){
                     
 
-                    console.log("succes");
-                    console.log(e); 
-                    console.log(e.role);                
-                    console.log(e.name);                
-                    cookies.set('class','', { path: '/' });
-                     cookies.set('role',e.role, { path: '/' });
-                     cookies.set('name',e.name, { path: '/' });
-                    navigate('/home');
+        
+                    navigate('/login');
                     setActiveMenu((prevActiveMenu) =>!prevActiveMenu )
                 }else{
                     console.log("failed");
