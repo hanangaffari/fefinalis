@@ -143,6 +143,7 @@ const Login = () => {
             setSubmitting(false);
             }).catch(
                 (err) => {
+                    console.log(err)
                     if(err.response.data.message === 'email and password is not found'){
                 setFieldError('email','akun tidak di temukan')
                 setFieldError('password','akun tidak di temukan')
