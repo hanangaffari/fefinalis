@@ -124,9 +124,7 @@ const App = () => {
       </div>
       
       </div>
-   <Routes>
-      
-          </Routes>
+
     </div>
     </BrowserRouter>
   )
