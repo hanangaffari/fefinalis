@@ -42,6 +42,19 @@ const getForm = async() => {
   console.log(formu)
 }
 
+const delForm = async(a) => {
+  console.log(a)
+  const response = await axios.delete('/forms/'+a,
+  {headers:{
+      Authorization: `Bearer ${tokenref}`
+  }
+  
+});
+console.log(response)
+getForm();
+
+}
+
 const updateKelas = async() => {
 
   if(class_name===''){
@@ -81,6 +94,8 @@ const updateKelas = async() => {
 
 
 }
+
+
 
 {addformid && getForm()}
 
@@ -176,7 +191,7 @@ const updateKelas = async() => {
                                 >edit</button>
                                 <button className='dark:text-white 
                                 bg-red-600 pb-5 p-1 rounded-xl w-20 ml-2 font-extrabold'
-                                
+                                onClick={()=> delForm(item.id)}
                                 >delete</button>
                                 
                         </motion.div>
