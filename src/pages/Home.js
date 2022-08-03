@@ -9,7 +9,8 @@ const Home =  () => {
     {setActiveMenu(false)}
 
     return (
-
+        <div className='bg-half-transparent 
+        w-screen h-screen fixed nav-item top-0 right-0 p-0'>
         <StyledContainer style={{width:"100%",height:"100%",
         position:"absolute",top:"0%",zIndex:"1001"}}
         >
@@ -34,6 +35,7 @@ const Home =  () => {
             </ButtonGroup>
             
         </StyledContainer>
+        </div>
     );
 }
 

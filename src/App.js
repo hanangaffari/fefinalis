@@ -91,7 +91,8 @@ const App = () => {
           {/* dahboard */}
           <Route path='/registerdosen' element={<Register />}/>
           <Route path='/registersiswa' element={<Registersis />}/>
-          
+          <Route path='/login' element={<Login />}/>
+          <Route path='/' element={<Home />}/>
 
 
           {
@@ -124,8 +125,7 @@ const App = () => {
       
       </div>
    <Routes>
-      <Route path='/login' element={<Login />}/>
-          <Route path='/' element={<Home />}/>
+      
           </Routes>
     </div>
     </BrowserRouter>
