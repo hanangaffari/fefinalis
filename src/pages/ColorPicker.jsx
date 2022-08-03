@@ -24,7 +24,7 @@ const ColorPicker = () => {
         />
       </div>
       <div>
-        <p className='text-2xl font-semibold mt-2 mb-4'> inline palette</p>
+        <p className='text-2xl font-semibold mt-2 mb-4'> inline picker</p>
         <ColorPickerComponent 
         id='inline-picker'
         mode='Picker'
