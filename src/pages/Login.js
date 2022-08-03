@@ -160,21 +160,24 @@ const Login = () => {
     return( 
         <div className='bg-half-transparent 
         w-screen h-screen fixed nav-item top-0 right-0 p-0'>
+                 <div className='h-screen md:overflow-hidden overflow-auto 
+    md:hover:overflow-hidden  '>
         <StyledContainer 
         style={{width:"100%",height:"100%",position:"absolute",top:"0%",zIndex:"1001",backgroundColor:colors.red}}
         
         >
         
         <motion.div animate={{ y:30 }} initial={{y:-100}} 
-        style={{width:"100%",display:"flex",justifyContent:"center",position:"fixed",
-        top: a ? '5%' : "-1%",height:a ? '':'100%'}}>
+        style={{width:"100%",display:"inline-flex",justifyContent:"center",position:"fixed",
+        height:'650px'}}>
+            <div className='flex' style={{width:"100%",justifyContent:"center",marginTop:"2%"}}>
             { a && 
-            <div style={{width:"30%",height:"650px",maxHeight:"100%"}}>
-            <Styledreg style={{width:"30%",height:"650px",maxHeight:"100%",position:"fixed"}}>
+            <div style={{width:"53vh",height:"650px"}}>
+            <Styledreg style={{width:"53vh",height:"650px",maxHeight:"100%",position:"fixed",overflow:"hidden"}}>
             <StyledTitle style={{position:"absolute",color:colors.white,left:"19.3%"
-                    ,top:"12%"}}>Belum punya akun ?</StyledTitle>
+                    ,top:"12%"}} className='font-extrabold'>Belum punya akun ?</StyledTitle>
                     <ExtraText style={{position:"absolute",color:colors.white,left:"20.3%"
-                    ,top:"14%"}}>arahin cursor kamu ke sini</ExtraText>
+                    ,top:"14%"}} className='font-extrabold'>arahin cursor kamu ke sini</ExtraText>
                     
          <div style={{width:"100%",overflow:"hidden"}}>
             {/*  */}
@@ -187,18 +190,18 @@ const Login = () => {
          duration: 10,}} src={circle}
          style={{width:"70vh",pointerEvents:"none"}}/>
          </div>
-         <div style={{position:"absolute",top:"33%",width:"100%",pointerEvents:"none"}}>
+         <div style={{position:"absolute",height:"100%",width:"100%",pointerEvents:"none"}}>
          <motion.img 
           src={person}
-         style={{width:"43vh",top:"24vh",marginLeft:"8vh",pointerEvents:"none"}}/>  
+         style={{width:"43vh",marginTop:"24vh",marginLeft:"8vh",pointerEvents:"none"}}/>  
          </div>
-         <div style={{position:"absolute",left:"0%",top:"0%",overflow:"hidden",width:"100%",pointerEvents:"none"}}>
-         <motion.img src={folder1z} style={{width:"32vh",marginTop:"20vh",marginLeft:"3.5vh",pointerEvents:"none"}}
+        
+         <motion.img src={folder1z} style={{width:"32vh",top:"18vh",left:"3.5vh",pointerEvents:"none",position:"absolute"}}
          animate={{y:[-400,10,10,0] ,x:[70,70,70,-400]}}
          transition={{loop:Infinity,duration:3}}
          />     
-         </div>
-         <div style={{position:"absolute",left:"30vh",top:"32vh",width:"34vh",pointerEvents:"none"}}>
+        
+         <div style={{position:"absolute",left:"30vh",top:"30vh",width:"34vh",pointerEvents:"none"}}>
          <motion.img animate={{ rotate:[19,19,19,0]}} 
          transition={{yoyo:Infinity,duration:1.5}} src={personhand} style={{backgroundColor:null,pointerEvents:"none"}}
          />    
@@ -212,13 +215,16 @@ const Login = () => {
          </div>                                                  
                                        
      </Styledreg>
-     <Styledreg2 style={{width:"30%",height:"650px",maxHeight:"100%",position:"fixed"}}>
+     <Styledreg2 style={{width:"53vh",height:"650px",maxHeight:"100%",position:"fixed",overflow:"hidden"}}>
             <StyledTitle style={{position:"absolute",color:colors.white,left:"19.3%"
-                    ,top:"12%"}}>Belum punya akun ?</StyledTitle>
+                    ,top:"12%"}} className='font-extrabold'>Belum punya akun ?</StyledTitle>
                     <ExtraText style={{position:"absolute",color:colors.white,left:"20.3%"
-                    ,top:"14%"}}>arahin cursor kamu ke sini</ExtraText>
-         <div style={{width:"100%",overflow:"hidden",pointerEvents:"none"}}>
-             <div style={{position:"absolute",left:"14%",top:"20%",pointerEvents:"none"}}>
+                    ,top:"14%"}} className='font-extrabold'>arahin cursor kamu ke sini</ExtraText>
+                    
+         <div style={{width:"100%",overflow:"hidden"}}>
+            {/*  */}
+            
+             <div style={{position:"absolute",left:"14%",top:"20%"}}>
          <motion.img 
          animate={{ rotate: 360 }}
          transition={{ loop: Infinity,
@@ -226,35 +232,39 @@ const Login = () => {
          duration: 10,}} src={circleI}
          style={{width:"70vh",pointerEvents:"none"}}/>
          </div>
-         <div style={{position:"absolute",top:"33%",width:"100%",pointerEvents:"none"}}>
+         <div style={{position:"absolute",height:"100%",width:"100%",pointerEvents:"none"}}>
          <motion.img 
-          src={person}
-         style={{width:"43vh",top:"24vh",marginLeft:"8vh",pointerEvents:"none"}}/>  
+          src={personI}
+         style={{width:"43vh",marginTop:"24vh",marginLeft:"8vh",pointerEvents:"none"}}/>  
          </div>
-         <div style={{position:"absolute",left:"0%",top:"0%",overflow:"hidden",width:"100%",pointerEvents:"none"}}>
-         <motion.img src={folder1zI} style={{width:"60%",marginTop:"38%",marginLeft:"7%"}}
+        
+         <motion.img src={folder1zI} style={{width:"32vh",top:"18vh",left:"3.5vh",pointerEvents:"none",position:"absolute"}}
          animate={{y:[-400,10,10,0] ,x:[70,70,70,-400]}}
          transition={{loop:Infinity,duration:3}}
          />     
-         </div>
-         <div style={{position:"absolute",left:"30vh",top:"32vh",width:"34vh",pointerEvents:"none"}}>
+        
+         <div style={{position:"absolute",left:"30vh",top:"30vh",width:"34vh",pointerEvents:"none"}}>
          <motion.img animate={{ rotate:[19,19,19,0]}} 
-         transition={{yoyo:Infinity,duration:1.5}} src={personhandI} style={{backgroundColor:null}}
+         transition={{yoyo:Infinity,duration:1.5}} src={personhandI} style={{backgroundColor:null,pointerEvents:"none"}}
          />    
          </div>
          <div style={{position:"absolute",left:"0%",top:"22vh",width:"100%",backgroundColor:null,pointerEvents:"none"}}>
         <motion.img 
          src={grassI}
-        style={{width:"100%"}}/>  
+        style={{width:"100%",pointerEvents:"none"}}/>  
         </div>
+        {/*  */}
          </div>                                                  
                                        
      </Styledreg2>
    
             </div>
             }
-        <StyledForm style={{width:a ? '40%' : '',height: a? "650px": "100%",maxHeight:"100%",backgroundColor : a ? '' : colors.white}}
-                        className='w-full'
+        <StyledForm 
+        style={{width:a ? '70vh' : '',height: a? "650px": "100%",backgroundColor : a ? '' : colors.white,
+            
+        }}
+        className='w-full float-right'
 
         >
             
@@ -337,32 +347,34 @@ const Login = () => {
             
          
         </StyledForm>
-        
+        </div>
             
                  
         <AnimatePresence>
 
         {isVisible ? (            
-            <div style={{position:"absolute",left:"10%",width:"80%",height:"100%"}}>                
+            <div style={{position:"fixed",left:"10%",width:"141vh",height:"650px",zIndex:"22"}}>                
                 <motion.div 
                 style={{
                         position:"absolute",
                         backgroundColor:colors.dark1,
-                        left:"28%",
-                        top:"-7%",
+                        left:"35%",
+                        top:"0%",
                         borderRadius:"30px 30px 0% 0% ",
-                        width:"40%",
+                        width:"40vh",
                         zIndex:"9"
                         }}
                         animate={{ y:0 }} initial={{y:-700}} exit={{y:-700}}  transition={{duration:0.5}}
                         >
-                        <StyledTitle>daftar sebagai :</StyledTitle>
+                        <StyledTitle className='font-extrabold'>daftar sebagai :</StyledTitle>
                     </motion.div>
                 <motion.div 
-                style={{width:"80%",height:"100%",
+                style={{width:"141vh",height:"82vh",
                 position:"fixed",
                 zIndex:"10",backgroundColor:colors.white,
                 borderRadius:"30px",
+                top:"4.5%"
+                ,
                                 
                 }}
                 animate={{ y:0 }} initial={{y:700}} exit={{y:700}}  transition={{duration:0.5}}
@@ -551,6 +563,8 @@ const Login = () => {
         </motion.div>    
        
         </StyledContainer>
+        </div>
+
         </div>
           
     )

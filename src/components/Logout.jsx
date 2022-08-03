@@ -54,7 +54,7 @@ import headppo from '../assets/logout/3/head.svg'
 
 const Logout = () => {
   const navigate = useNavigate();
-  const {currentColor,setloggg,cookies} = useStateContext();
+  const {currentColor,setloggg,cookies,akunNama} = useStateContext();
 
   var a=false;
   var b=false;
@@ -252,7 +252,8 @@ const Logout = () => {
           style={{backgroundColor:currentColor}}
           onClick={() => {
             console.log(cookies);
-            
+
+            akunNama=''
             cookies.remove('token', { path: '/' });
             cookies.remove('tokenref',{ path: '/' });
             cookies.remove('uid', { path: '/' });
