@@ -7,6 +7,9 @@ import Pro5 from './../data/avatar5.jpeg'
 import Pro6 from './../data/avatar6.jfif'
 import Pro7 from './../data/avatar7.jpg'
 import Pro8 from './../data/avatar8.jpg'
+
+import pordos from '../data/avatartdosen.png'
+
 import {FaArrowRight,FaArrowLeft} from 'react-icons/fa'
 import { motion } from "framer-motion";
 import { Postname } from "../components/Styles";
@@ -161,7 +164,7 @@ const Dashboard =  () => {
                  >
                     
                     <div className="flex">
-                    <img src={Pro} alt='' className='rounded-full w-20 h-20 '/>                                        
+                    <img src={pordos} alt='' className='rounded-full w-20 h-20 '/>                                        
                     <div className="w-13 h-14 inline-block pl-2">
                     <div>
                     <h1 className="text-black-450 text-40 font-extrabold float-left" style={{
@@ -228,7 +231,7 @@ const Dashboard =  () => {
                         
                         <div className="flex ">
                     {/* disini foto profile */}    
-                    <img src={Pro5} alt='' className='w-10 h-10 rounded-full'/>
+                    <img src={pordos} alt='' className='w-10 h-10 rounded-full'/>
                     {/* disini title */}
                     <Postname size={25} style={{fontWeight:"bolder"}} 
                     className='dark:text-white ml-1'>{item.email}</Postname>

@@ -135,7 +135,7 @@ const Login = () => {
                      cookies.set('name',name, { path: '/' });
                      
                      navigate('/home');
-                     setActiveMenu((prevActiveMenu) =>!prevActiveMenu )
+                     setActiveMenu(true)
                      
                 }
                 else{

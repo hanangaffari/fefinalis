@@ -503,6 +503,59 @@ export const links = [
   },
 ];
 
+export const linksis = [
+  {
+    title: 'Dashboard',
+    links: [
+      {
+        name: 'home',
+        icon: <GoMortarBoard />,
+      },
+    ],
+  },
+
+  {
+    title: 'Pages',
+    links: [        
+      {
+        name: 'history',
+        icon: <RiFolderHistoryLine />,
+      },        
+      
+    ],
+  },
+  {
+    title: 'Apps',
+    links: [
+      {
+        name: 'calendar',
+        icon: <AiOutlineCalendar />,
+      },
+      {
+        name: 'kanban',
+        icon: <BsKanban />,
+      },
+      {
+        name: 'editor',
+        icon: <FiEdit />,
+      },
+      {
+        name: 'colorpicker',
+        icon: <BiColorFill />,
+      },
+    ],
+  },
+  {
+    title: 'Charts',
+    links: [
+      {
+        name: 'line',
+        icon: <AiOutlineStock />,
+      }      
+    ],
+  },
+];
+
 
 export const chatData = [
   {

@@ -7,6 +7,7 @@ import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 import { Avatar } from './Styles';
 
 import {links} from '../data/dummy';
+import {linksis} from '../data/dummy';
 import { useStateContext } from '../contexts/ContextProvider';
 
 import Logo from './../assets/favicon.png';
@@ -15,7 +16,7 @@ import { motion } from 'framer-motion';
 
 const Sidebar = () => {
 
-  const {activeMenu,setActiveMenu,screenSize,currentColor} = useStateContext();
+  const {activeMenu,setActiveMenu,screenSize,currentColor,akunRole} = useStateContext();
   const activeLink = 'flex items.center gap-5 pl-4 pt-2 pb-2 rounded-lg text-white text-md m-2';
   const normalLink = 'flex items.center gap-5 pl-4 pt-2 pb-2 rounded-lg text-md text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray m-2'
 
@@ -23,7 +24,10 @@ const Sidebar = () => {
     if(activeMenu && screenSize <= 900){
 
     }
+
   }
+  var koko = null; 
+  {akunRole === 'admin' ? koko=links : koko=linksis};
   return (
     <motion.div className='ml-3 h-screen md:overflow-hidden overflow-auto 
     md:hover:overflow-hidden pb-10 '
@@ -53,7 +57,7 @@ const Sidebar = () => {
       <motion.div className='mt-10 ' 
       
       >
-          {links.map((item) => (
+          {koko.map((item) => (
             <motion.div 
             
             >              
