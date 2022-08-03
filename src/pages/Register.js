@@ -92,9 +92,10 @@ const Register = () => {
                 if(response.statusText === "Created"){
                     
 
-        
+                    alert("berhasil membuat akun" );
                     navigate('/login');
                     setActiveMenu((prevActiveMenu) =>!prevActiveMenu )
+                    
                 }else{
                     console.log("failed");
                 }

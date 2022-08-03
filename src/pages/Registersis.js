@@ -95,9 +95,12 @@ const Registersis = () => {
         console.log(response.data)
         console.log(response.data.id_class)
                 if(response.statusText === "Created"){
-                  
+                    
+                    alert("berhasil membuat akun" );
                     navigate('/login');
                     setActiveMenu((prevActiveMenu) =>!prevActiveMenu )
+                   
+
                     console.log('succes')
                     console.log(response);
                 }else{

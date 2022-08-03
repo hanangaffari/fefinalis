@@ -124,8 +124,8 @@ const Login = () => {
 ;
 
                 if(response.statusText === "OK"){
-                    const {name,role,id_class,uid} = response.data.user;                     
-                     console.log(name,role,id_class,uid);
+                    const {name,role,id_class,uid,email} = response.data.user;                     
+                     console.log(name,role,id_class,uid,email);
                                                      
                      cookies.set('token',response.data.access_token, { path: '/' });
                      cookies.set('tokenref',response.data.refresh_token, { path: '/' });
@@ -133,6 +133,7 @@ const Login = () => {
                      cookies.set('class',id_class, { path: '/' });
                      cookies.set('role',role, { path: '/' });
                      cookies.set('name',name, { path: '/' });
+                     cookies.set('email',email, { path: '/' });
                      
                      navigate('/home');
                      setActiveMenu(true)
@@ -184,28 +185,28 @@ const Login = () => {
          transition={{ loop: Infinity,
          ease: "linear",
          duration: 10,}} src={circle}
-         style={{width:"70vh"}}/>
+         style={{width:"70vh",pointerEvents:"none"}}/>
          </div>
-         <div style={{position:"absolute",top:"33%",width:"100%"}}>
+         <div style={{position:"absolute",top:"33%",width:"100%",pointerEvents:"none"}}>
          <motion.img 
           src={person}
-         style={{width:"43vh",top:"24vh",marginLeft:"8vh"}}/>  
+         style={{width:"43vh",top:"24vh",marginLeft:"8vh",pointerEvents:"none"}}/>  
          </div>
-         <div style={{position:"absolute",left:"0%",top:"0%",overflow:"hidden",width:"100%"}}>
-         <motion.img src={folder1z} style={{width:"32vh",marginTop:"20vh",marginLeft:"3.5vh"}}
+         <div style={{position:"absolute",left:"0%",top:"0%",overflow:"hidden",width:"100%",pointerEvents:"none"}}>
+         <motion.img src={folder1z} style={{width:"32vh",marginTop:"20vh",marginLeft:"3.5vh",pointerEvents:"none"}}
          animate={{y:[-400,10,10,0] ,x:[70,70,70,-400]}}
          transition={{loop:Infinity,duration:3}}
          />     
          </div>
-         <div style={{position:"absolute",left:"30vh",top:"32vh",width:"34vh"}}>
+         <div style={{position:"absolute",left:"30vh",top:"32vh",width:"34vh",pointerEvents:"none"}}>
          <motion.img animate={{ rotate:[19,19,19,0]}} 
-         transition={{yoyo:Infinity,duration:1.5}} src={personhand} style={{backgroundColor:null}}
+         transition={{yoyo:Infinity,duration:1.5}} src={personhand} style={{backgroundColor:null,pointerEvents:"none"}}
          />    
          </div>
-         <div style={{position:"absolute",left:"0%",top:"22vh",width:"100%",backgroundColor:null}}>
+         <div style={{position:"absolute",left:"0%",top:"22vh",width:"100%",backgroundColor:null,pointerEvents:"none"}}>
         <motion.img 
          src={grass}
-        style={{width:"100%"}}/>  
+        style={{width:"100%",pointerEvents:"none"}}/>  
         </div>
         {/*  */}
          </div>                                                  
@@ -216,32 +217,32 @@ const Login = () => {
                     ,top:"12%"}}>Belum punya akun ?</StyledTitle>
                     <ExtraText style={{position:"absolute",color:colors.white,left:"20.3%"
                     ,top:"14%"}}>arahin cursor kamu ke sini</ExtraText>
-         <div style={{width:"100%",overflow:"hidden"}}>
-             <div style={{position:"absolute",left:"14%",top:"20%"}}>
+         <div style={{width:"100%",overflow:"hidden",pointerEvents:"none"}}>
+             <div style={{position:"absolute",left:"14%",top:"20%",pointerEvents:"none"}}>
          <motion.img 
          animate={{ rotate: 360 }}
          transition={{ loop: Infinity,
          ease: "linear",
          duration: 10,}} src={circleI}
-         style={{width:"70vh"}}/>
+         style={{width:"70vh",pointerEvents:"none"}}/>
          </div>
-         <div style={{position:"absolute",top:"33%",width:"100%",}}>
+         <div style={{position:"absolute",top:"33%",width:"100%",pointerEvents:"none"}}>
          <motion.img 
           src={person}
-         style={{width:"43vh",top:"24vh",marginLeft:"8vh"}}/>  
+         style={{width:"43vh",top:"24vh",marginLeft:"8vh",pointerEvents:"none"}}/>  
          </div>
-         <div style={{position:"absolute",left:"0%",top:"0%",overflow:"hidden",width:"100%"}}>
+         <div style={{position:"absolute",left:"0%",top:"0%",overflow:"hidden",width:"100%",pointerEvents:"none"}}>
          <motion.img src={folder1zI} style={{width:"60%",marginTop:"38%",marginLeft:"7%"}}
          animate={{y:[-400,10,10,0] ,x:[70,70,70,-400]}}
          transition={{loop:Infinity,duration:3}}
          />     
          </div>
-         <div style={{position:"absolute",left:"30vh",top:"32vh",width:"34vh"}}>
+         <div style={{position:"absolute",left:"30vh",top:"32vh",width:"34vh",pointerEvents:"none"}}>
          <motion.img animate={{ rotate:[19,19,19,0]}} 
          transition={{yoyo:Infinity,duration:1.5}} src={personhandI} style={{backgroundColor:null}}
          />    
          </div>
-         <div style={{position:"absolute",left:"0%",top:"22vh",width:"100%",backgroundColor:null}}>
+         <div style={{position:"absolute",left:"0%",top:"22vh",width:"100%",backgroundColor:null,pointerEvents:"none"}}>
         <motion.img 
          src={grassI}
         style={{width:"100%"}}/>  

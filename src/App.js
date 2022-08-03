@@ -4,18 +4,19 @@ import { BrowserRouter,Routes,Route } from 'react-router-dom';
 import {FiSettings} from 'react-icons/fi';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
-import {Navbar,Sidebar,ThemeSettings,Soalujian,Kelasform,Formform, Addkelas,Addform,Logout,EditForm,Addpost} from './components';
+import {Navbar,Sidebar,ThemeSettings,Soalujian,Kelasform,Formform, Addkelas,Addform,Logout,EditForm,Addpost,Exam} from './components';
 import {Calendar,Kanban,ColorPicker,Editor,Dashboard,Matakuliah,Line,Login,Home,Kelas,Register,Registersis,Post} from './pages';
 import { motion ,AnimatePresence} from 'framer-motion';
 
 import { useStateContext } from './contexts/ContextProvider';
 const App = () => {
   const {activeMenu,themeSettings,
-     setThemeSettings,currentColor,currentMode,ujianSoal,ujianNama,
+     setThemeSettings,currentColor,currentMode,ujianSoal,formid,formId,
      kelasNama,formNama,akunNama,akunRole,kelasAdd,addformid,loggg,setActiveMenu,postadd} = useStateContext();
 
      
     console.log(activeMenu)
+    console.log(formid)
      
 
 
@@ -63,6 +64,7 @@ const App = () => {
 
       
       {postadd ?  <Addpost /> : ''}
+      
       {kelasAdd ?  <Addkelas /> : ''}
       
       {themeSettings && <ThemeSettings /> }
@@ -71,7 +73,7 @@ const App = () => {
       </AnimatePresence>
 
       <AnimatePresence>
-      {ujianNama && <Soalujian />}
+      {formid && <Exam />}
       </AnimatePresence>
 
       <AnimatePresence>
@@ -84,7 +86,8 @@ const App = () => {
 
       <AnimatePresence>
       
-      {formNama && <EditForm />}
+      {formId && <EditForm />}
+      
       </AnimatePresence>
       <AnimatePresence>
         <Routes>

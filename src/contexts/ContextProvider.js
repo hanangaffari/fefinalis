@@ -33,7 +33,9 @@ export const ContextProvider = ({children}) => {
     //ujian
     const [ujianDurasi, setujianDurasi] = useState();
     const [ujianNama, setujianNama] = useState();
-    const [ujianSoal, setujianSoal] = useState();
+    const [ujianSoal, setujianSoal] = useState([]);
+
+    const [formid, setformid] = useState()
     //ujian end
     //edit kelas
     const [kelasAdd, setkelasAdd] = useState();
@@ -62,6 +64,7 @@ export const ContextProvider = ({children}) => {
      var [akunNama, setakunNama] = useState()
      var [akunRole, setakunRole] = useState()
         var [akunClass, setakunClass] = useState()
+        var [akunEmail, setakunEmail] = useState()
 
     //xoooooooooooooooooooooo
     const [loggg, setloggg] = useState()
@@ -69,10 +72,11 @@ export const ContextProvider = ({children}) => {
      akunClass = cookies.get('class');
      akunRole = cookies.get('role');
      akunNama = cookies.get('name');
+     akunEmail = cookies.get('email');
     
 
      var co = [];
-     console.log(ujianSoal)
+     console.log(formid)
      console.log(co)
 
     
@@ -91,10 +95,8 @@ export const ContextProvider = ({children}) => {
          setThemeSettings(false)   
     }
 
-    const setUjian= (a,b,c) => {
-        setujianDurasi(a);
-        setujianNama(b);
-        co=c;
+    const setUjian= (a) => {
+        setformid(a)
         
 
         //localStorage.setItem('ColorMode',e)
@@ -137,10 +139,10 @@ export const ContextProvider = ({children}) => {
     }
     
 
-    const setForm= (a,b,c) => {
-        setformNama(a);
+    const setForm= (b) => {
+      
         setformId(b);
-        setformDesc(c)
+ 
         
     }
 
@@ -159,6 +161,8 @@ export const ContextProvider = ({children}) => {
     return (
     <StateContext.Provider value={{
         loggg,setloggg,co,
+
+        formid,setformid,
 
         kelasu,setkelasu,
 
@@ -181,6 +185,7 @@ export const ContextProvider = ({children}) => {
         akunNama,
         akunClass,
         akunRole,
+        akunEmail,
         uid,cookies,
         kelasAdd,setkelasAdd,kelasDesk,
         tokenref,token,

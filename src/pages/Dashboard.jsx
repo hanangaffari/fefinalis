@@ -176,18 +176,18 @@ const Dashboard =  () => {
                     >{item.id_class}</h1>                    
                     </div>
                     </div>
-                    <div className="w-full flex">                    
-                    <h1 className="font-bold" style={{fontSize:"4vh",color:currentColor}}>start time :</h1>
-                    <h1 className="" style={{fontSize:"5vh",marginLeft:"1vh",color:currentColor}}>{item.start_time}</h1>
+                    <div className="w-full flex mt-8">                    
+                    <h1 className="font-bold" style={{fontSize:"3vh",color:currentColor}}>start time :</h1>
+                    <h1 className="" style={{fontSize:"3vh",marginLeft:"1vh",color:currentColor}}>{item.start_time}</h1>
                     </div>
                     <div className="w-full flex">                    
-                    <h1 className="font-bold" style={{fontSize:"4vh",color:currentColor}}>duration :</h1>
-                    <h1 className="" style={{fontSize:"5vh",marginLeft:"1vh",color:currentColor}}>{item.duration}</h1>
+                    <h1 className="font-bold" style={{fontSize:"3vh",color:currentColor}}>duration :</h1>
+                    <h1 className="" style={{fontSize:"3vh",marginLeft:"1vh",color:currentColor}}>{item.duration}</h1>
                     </div>
                     <motion.div className="h-20 pt-5" whileTap={{scale:0.9}}>                    
                     <button className="w-full h-10 rounded-xl" 
                     style={{backgroundColor:currentColor}}
-                     onClick={() =>  {setUjian(item.duration,item.name,ulangan[index].questions);
+                     onClick={() =>  {setUjian(item.id);
                      console.log(ulangan[index].questions)}}>Start</button>
                     </motion.div>
                     

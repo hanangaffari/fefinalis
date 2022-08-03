@@ -172,7 +172,7 @@ const updateKelas = async() => {
                                 
                                 <button className='dark:text-white 
                                 pb-5 p-1 rounded-xl w-20 font-extrabold' style={{backgroundColor: currentColor}}
-                                onClick={() => {setForm(item.name,item.id,item.description)}}
+                                onClick={() => {setForm(item.id)}}
                                 >edit</button>
                                 <button className='dark:text-white 
                                 bg-red-600 pb-5 p-1 rounded-xl w-20 ml-2 font-extrabold'
