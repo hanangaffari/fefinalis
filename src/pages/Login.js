@@ -260,6 +260,7 @@ const Login = () => {
    
             </div>
             }
+            
         <StyledForm 
         style={{width:a ? '70vh' : '',height: a? "650px": "100%",backgroundColor : a ? '' : colors.white,
             

@@ -98,8 +98,9 @@ const Logout = () => {
          style={{width:"70vh",margin:"auto",height:"70vh"}}
         >
 
-          
-            <img src={coss} style={{width:"80vh",position:"absolute",left:"0vh",top:"0vh",pointerEvents:"none"}}/>
+        <h1 className='font-extrabold' style={{position:"absolute",left:"60vh",top:"16vh",fontSize:"4vh",zIndex:"24"}}>
+          ingin pergi?</h1>
+            <img src={coss} style={{width:"80vh",position:"absolute",right:"70vh",top:"0vh",pointerEvents:"none"}}/>
             
 
 
@@ -243,7 +244,7 @@ const Logout = () => {
           </div>
 
           <img src={conn} style={{width:"40vh",position:"absolute",top:"34vh",right:"50vh",pointerEvents:"none"}}/>
-          <h1 className='mt-14 ml-62 text-4xl'>ingin pergi?</h1>
+          
            </div>           
       </div>
       <div className='w-full p-1' >
