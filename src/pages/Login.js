@@ -366,7 +366,7 @@ const Login = () => {
                         }}
                         animate={{ y:0 }} initial={{y:-700}} exit={{y:-700}}  transition={{duration:0.5}}
                         >
-                        <StyledTitle className='font-extrabold'>daftar sebagai :</StyledTitle>
+                        <StyledTitle className='font-extrabold'>Daftar Sebagai :</StyledTitle>
                     </motion.div>
                 <motion.div 
                 style={{width:"141vh",height:"82vh",
@@ -379,6 +379,7 @@ const Login = () => {
                 }}
                 animate={{ y:0 }} initial={{y:700}} exit={{y:700}}  transition={{duration:0.5}}
                 >
+
                 <motion.div style={{width:"4%",marginTop:"-1%",marginLeft:"-1.5%"}}>
                     <motion.img src={cancel} onClick={() => {
 
@@ -388,6 +389,7 @@ const Login = () => {
                     
                     <div style={{width:"100%",height:"90%",backgroundColor:null,
                     display:"flex",}}>
+                        {/* dosen */}
                         
                     <div style={{width:"43%",height:"100%",margin:"auto"}}
                     
@@ -398,7 +400,7 @@ const Login = () => {
                     zIndex:"-1"
                     }}>
                         <StyledTitle style={{color:colors.dark2,fontWeight:"bolder"}}>
-                            dosen</StyledTitle>
+                            Dosen</StyledTitle>
                     </motion.div>
 
                     <motion.div 
@@ -413,55 +415,86 @@ const Login = () => {
                         navigate('/registerdosen')                       
                     }}
                     >
-                        
-                    <motion.img 
-                    style={{position:"absolute",backgroundColor:null
-                    ,width:"60%",left:"4%",bottom:"24%",pointerEvents:"none"}}
+
+                     <motion.img 
+                    style={{backgroundColor:null,
+                    width:"55%",top:"27%",
+                    right:"42%",position:"absolute",pointerEvents:"none"}}
+
                     animate={{ rotate:[0,0,2,0]}} 
                     transition={{yoyo:Infinity,duration:5}}
+
                     src={rhandinG}
                     />
+
+                   
                     
                     <motion.img 
-                    style={{position:"absolute",left:"13%",top:"44%"}}
+                    style={{backgroundColor:null,
+                    width:"33%",top:"39%",
+                    right:"57%",position:"absolute",pointerEvents:"none"}}
                     src={personG}
                     />
-                    
+
                     <motion.img 
-                    style={{position:"absolute",backgroundColor:null,
-                    width:"40%",left:"23%",bottom:"7%",pointerEvents:"none"}}
+                    style={{backgroundColor:null,
+                    width:"42%",top:"67%",
+                    right:"34%",position:"absolute",pointerEvents:"none"}}
+                        
                     animate={{ rotate:[3,1,2,0]}} 
                     transition={{yoyo:Infinity,duration:5}}
+
                     src={lhandinG}
                     />
+
                     <motion.img 
-                    style={{position:"absolute",width:"22%",top:"10%",left:"30%",pointerEvents:"none"}}
+                    style={{backgroundColor:null,
+                    width:"22%",top:"3%",
+                    right:"50%",position:"absolute",pointerEvents:"none"}}
+
                     animate={{ rotate:[3,1,2,0]}} 
                     transition={{yoyo:Infinity,duration:5}}
+
                     src={lhandG}
                     />
+
                     <motion.img 
-                    style={{position:"absolute",background:null,top:"6.5%",left:"00%",pointerEvents:"none"}}
+                    style={{backgroundColor:null,
+                    width:"60%",bottom:"-7%",
+                    right:"39%",position:"absolute",pointerEvents:"none"}}
                     
+                        
                     src={laptopG}
                     />
 
                     <motion.img 
-                    style={{position:"absolute",background:null,top:"8.5%",left:"0%",pointerEvents:"none"}}
+                    style={{backgroundColor:null,
+                    width:"60%",top:"1%",
+                    right:"39%",position:"absolute",pointerEvents:"none"}}
+
                     animate={{ rotate:[0,0,0,0,0,3,3,0,0,0]}} 
                     transition={{yoyo:Infinity,duration:12}}
+
+                  
                     src={lheadG}
                     />
+                   
                     <motion.img 
-                    style={{position:"absolute",background:null,top:"8.5%",left:"1%",pointerEvents:"none"}}
+                    style={{backgroundColor:null,
+                    width:"50%",bottom:"10%",
+                    right:"43%",position:"absolute",pointerEvents:"none"}}
+
                     animate={{ rotate:[0,0,0,0,0,3,2,0,0,0]}} 
                     transition={{yoyo:Infinity,duration:12}}
+           
                     src={lhairG}
                     />
+                
                     
                 </motion.div>
                 
                 </div>
+                {/* register */}
                 <div style={{width:"43%",height:"100%",margin:"auto"}}>
                     <motion.div style={{height:"8%",
                     position:"absolute",backgroundColor:null,left:"69%",
@@ -469,7 +502,7 @@ const Login = () => {
                     }}>
                         <StyledTitle 
                         style={{color:colors.dark2,fontWeight:"bolder"}}>
-                            mahasiswa
+                            Mahasiswa
                             </StyledTitle>
                     </motion.div>
 
