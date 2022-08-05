@@ -18,7 +18,7 @@ export const ContextProvider = ({children}) => {
     var color = localStorage.getItem('ColorMode');
 
     var mode = localStorage.getItem('ThemeMode');
-    const cookies = new Cookies();
+    var cookies = new Cookies();
 
     const [activeMenu, setActiveMenu] = useState(true);
     const [isClicked, setIsClicked] = useState(initialState);
