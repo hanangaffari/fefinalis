@@ -136,7 +136,10 @@ const Login = () => {
                      cookies.set('email',email, { path: '/' });
                      
                      navigate('/home');
+                     navigate('/history');
+                     navigate('/home');
                      setActiveMenu(true)
+                     
                      
                 }
                 else{

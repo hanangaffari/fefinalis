@@ -54,7 +54,7 @@ import headppo from '../assets/logout/3/head.svg'
 
 const Logout = () => {
   const navigate = useNavigate();
-  const {currentColor,setloggg,cookies} = useStateContext();
+  const {currentColor,setloggg,cookies,setActiveMenu} = useStateContext();
   var {akunNama} = useStateContext();
 
   var a=false;
@@ -264,6 +264,7 @@ const Logout = () => {
             cookies.remove('name', { path: '/' });
 
             navigate('/')
+            
             console.log(cookies);
             setloggg(false)
           }}

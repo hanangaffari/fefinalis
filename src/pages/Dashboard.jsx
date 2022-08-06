@@ -92,32 +92,6 @@ const Dashboard =  () => {
 
     
     
-    const read = async () => {
-        try {
-            axios.get('/post').then(response => {
-
-                
-                for (let index = 0; index < response.data.length; ++index) { 
-                
-                    
-                    
-                    if(response.data[index].id_class === akunClass){
-
-                        postemail[index] = response.data[index].email;
-                        posttext[index] = response.data[index].message;
-                    }
-                    
-                
-   
-                }                
-                
-                
-            });
-
-        } catch (error) {
-            console.log(error.response)
-        }
-    }
 
     console.log(user)
     console.log(soal)
