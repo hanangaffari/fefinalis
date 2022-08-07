@@ -172,7 +172,7 @@ const Login = () => {
         
         <motion.div animate={{ y:30 }} initial={{y:-100}} 
         style={{width:"100%",display:"inline-flex",justifyContent:"center",position:"fixed",
-        height:'650px'}}>
+        height:'100%'}}>
             <div className='flex' style={{width:"100%",justifyContent:"center",marginTop:"2%"}}>
             { a && 
             <div style={{width:"53vh",height:"650px"}}>
