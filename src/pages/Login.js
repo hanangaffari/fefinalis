@@ -335,15 +335,17 @@ const Login = () => {
                                 <InfinitySpin 
                                 color= {colors.red}                                
                                 />
-                            )}                   
-                        </ButtonGroup>
-                        {a?'':
-                        <div className='flex text-center m-auto' style={{opacity: a? 0:1}}>
-                    <ExtraText style={{bottom:"5vh",position:"absolute"}}>daftar sebagai <TextLink to='/registerdosen'>dosen </TextLink> </ExtraText>
-                    <ExtraText style={{bottom:"9vh",position:"absolute"}}>daftar sebagai <TextLink to='/registersiswa'>mahasiswa </TextLink> </ExtraText>
+                            )}      
+
+                            {a?'':
+                        <div className='text-center mt-11'>
+                    <ExtraText >daftar sebagai <TextLink to='/registerdosen'>dosen </TextLink> </ExtraText>
+                    <ExtraText >daftar sebagai <TextLink to='/registersiswa'>mahasiswa </TextLink> </ExtraText>
                     </div>
 
-                        }
+                        }             
+                        </ButtonGroup>
+                        
                         
                     </Form>     
                 )}
