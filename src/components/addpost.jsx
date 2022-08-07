@@ -58,21 +58,24 @@ const Addpost = () => {
         
        <form> 
       {/* awal edit form*/}
-      <div className='m-10'>
+      <div className='md:m-10 m-1 '>
       <div className='p-3 ' style={{width:"100%",minHeight:"25vh"}}>
         <div className=' bg-slate-200 w-full h-full rounded-xl font-bold p-4 dark:bg-black'>
+
             {/* nama form id class*/}
+
         <div className=''>
+
           <div className='md:flex' style={{height:"3.5vh",width:"75%"}}>
           <h1 className='mr-3'>email :</h1>          
           <input type='text' 
-          onInput={event=>setemail(event.target.value)}
+          onInput={event=>  setemail(event.target.value)}
           className='rounded-xl pl-2 dark:text-black'/>
           </div>
-          <div className='mt-4' style={{height:"3.5vh"}}>
-          <h1 className='mr-3'>class id :</h1>          
+          <div className='mt-6' style={{height:"3.5vh"}}>
+          <h1 className='mr-3 '>class id :</h1>          
           <input type='text' 
-          onInput={event=>setclass_id(event.target.value)}
+          onInput={event=>  setclass_id(event.target.value)}
           placeholder="ke class mana post ini ingin di upload"
           className='rounded-xl pl-2 w-full dark:text-black'/>
           </div>

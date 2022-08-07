@@ -67,7 +67,9 @@ const deletePost = async(a) => {
               <AnimatePresence>
               {
                       postu.map((item,index) => (
-                        <motion.div style={{paddingLeft:"8vh",paddingRight:"8vh",minHeight:"35vh"}} 
+                        <motion.div 
+                        style={{minHeight:"35vh"}} 
+                        className='md:pl-8 md:pr-8'
                         animate={{ x:[1700,0] }} initial={{x: 1700}} exit={{x:1700}}  
 
                           whileHover={{
@@ -80,7 +82,7 @@ const deletePost = async(a) => {
                             padding:"3vh"
                         }}>
                                 
-                                <div  className='flex'>
+                                <div  className='md:flex'>
                             {/* disini foto profile */}    
                             <div className="flex w-full">
                             <img src={pordos} alt='' className='w-10 h-10 rounded-full'/>

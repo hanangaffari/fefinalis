@@ -107,7 +107,7 @@ const updateKelas = async() => {
     w-screen h-screen fixed nav-item top-0 right-0 p-0 md:p-10 '>
       
       <motion.div className='w-full h-full dark:text-gray-200  
-      bg-white dark:bg-main-dark-bg rounded-xl'
+      bg-white dark:bg-main-dark-bg rounded-xl overflow-y-auto'
       animate={{ y:0 }} initial={{y:-700}} exit={{y:-700}}  transition={{duration:0.5}}
       
       >

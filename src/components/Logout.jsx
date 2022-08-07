@@ -100,8 +100,7 @@ const Logout = () => {
 
         <h1 className='font-extrabold' style={{position:"absolute",left:"60vh",top:"16vh",fontSize:"4vh",zIndex:"24"}}>
           ingin pergi?</h1>
-            <img src={coss} style={{width:"80vh",position:"absolute",right:"70vh",top:"0vh",pointerEvents:"none"}}/>
-            
+            <img src={coss} style={{width:"80vh",position:"absolute",right:"100vh",top:"0vh",pointerEvents:"none"}}/>
 
 
           <div style={{pointerEvents:"none"}}>
@@ -296,10 +295,10 @@ const Logout = () => {
         >
 
           
-        <img src={coss} style={{width:"80vh",position:"absolute",left:"0vh",top:"0vh",pointerEvents:"none"}}/>
+        <img src={coss} style={{width:"80vh",position:"absolute",right:"10vh",top:"10vh",pointerEvents:"none"}}/>
           
 
-          <h1 style={{marginLeft: b ? "25vh":'40vh'}}>ingin log out ?</h1>
+          <h1 style={{right: b ? "10vh":'40vh',position:"absolute",top:"30vh"}}>ingin log out ?</h1>
 
           <img src={conn} style={{width:"40vh",position:"absolute",top:"34vh",right:"50vh",pointerEvents:"none"}}/>
           

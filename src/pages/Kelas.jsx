@@ -64,8 +64,8 @@ const deleteKelas = async(a) => {
               <AnimatePresence>
               {
                       kelasu.map((item,index) => (
-                        <motion.div className="flex bg-slate-50 rounded-2xl dark:bg-black w-full mt-1" 
-                          style={{height:"10vh",
+                        <motion.div className="md:flex bg-slate-50 rounded-2xl dark:bg-black w-full mt-1" 
+                          style={{minHeight:"10vh",
                           padding:"3vh"}}
 
                           animate={{ x:[1700,0] }} initial={{x: 1700}} exit={{x:1700}}  
@@ -79,11 +79,11 @@ const deleteKelas = async(a) => {
                       <p className='dark:text-white font-extrabold' style={{width:"80%",color:currentColor}}>{item.id}</p>
                       
                       <button className='dark:text-white 
-                      pb-5 p-1 rounded-xl w-20 font-extrabold' style={{backgroundColor: currentColor}}
+                      p-1 rounded-xl w-20 font-extrabold' style={{backgroundColor: currentColor}}
                       onClick={() => {setKelas(item.name,item.description,item.id,item.id_forms)}}
                       >edit</button>
                       <button className='dark:text-white 
-                      bg-red-600 pb-5 p-1 rounded-xl w-20 ml-2 font-extrabold'
+                      bg-red-600 p-1 rounded-xl w-20 ml-2 font-extrabold'
                       onClick={() => {deleteKelas(item.id)}}
                       >delete</button>
                       

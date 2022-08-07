@@ -9,6 +9,7 @@ import {MdOutlineCancel} from 'react-icons/md';
 
 
 const Addform = () => {
+
     const {currentColor,setkelasAdd,tokenref,token,addformid,addForm} = useStateContext();
     const [form_name, setinput] = useState()
     const class_id =addformid;
@@ -75,7 +76,7 @@ const Addform = () => {
       <div className='p-3 ' style={{width:"100%",minHeight:"25vh"}}>
         <div className=' bg-slate-200 w-full h-full rounded-xl font-bold p-4 dark:bg-black'>
             {/* nama form id class*/}
-        <div className='flex'>
+        <div className='md:flex'>
           <div className='md:flex' style={{height:"3.5vh",width:"75%"}}>
           <h1 className='mr-3'>nama form :</h1>          
           <input type='text' placeholder=''
@@ -86,7 +87,7 @@ const Addform = () => {
           onInput={event=>setinput(event.target.value)}
           className='rounded-xl pl-2'/> */}
           </div>
-          <div className='text-center '>
+          <div className='text-center mt-8 md:mt-0'>
           <h1>invite link :</h1><h1>{addformid}</h1>
           </div>
           </div>
